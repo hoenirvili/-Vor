@@ -1,33 +1,58 @@
-.layout
+.box
+    border: 1px red solid
+
+.full-layout
     height: 100%
 
-    &__left
-        background-color: #333
-        display: table
-        table-layout: fixed
-        height: 100%
+.left-column
+    color: white
+    background-color: #333
+    display: table
+    table-layout: fixed
 
-        &__brand
-            display: table-cell
-            vertical-align: middle
+aside
+    display: table-cell
+    vertical-align: middle
 
-            &__title
-                font-size: 1.4rem
-                letter-spacing: 0.07em
-                color: #fff
+aside > h4
+    font-size: 1.4rem
+    font-spacing: 0.07em
 
-            &__logo
-                display: block
-                width: 2rem
-                height: 2rem
-                margin-left: 5em
-                background: url("../images/github-logo-white.svg") no-repeat
-                background-size: 2rem
-                &__texts
-                    font-size: 1rem
+aside ul li
+    float: left
+    margin-right: 8px
 
-            &__logo:hover
-                background-color: url("../images/github-logo-black.svg") no-repeat
+aside ul
+    list-style: none
 
-    &__right
-        height: 100%
+
+    // &__left
+    //     background-color: #333
+    //     display: table
+    //     table-layout: fixed
+    //     height: 100%
+
+    //     &__brand
+    //         display: table-cell
+    //         vertical-align: middle
+
+    //         &__title
+    //             font-size: 1.4rem
+    //             letter-spacing: 0.07em
+    //             color: #fff
+
+    //         &__logo
+    //             display: block
+    //             width: 2rem
+    //             height: 2rem
+    //             margin-left: 5em
+    //             background: url("../images/github-logo-white.svg") no-repeat
+    //             background-size: 2rem
+    //             &__texts
+    //                 font-size: 1rem
+
+    //         &__logo:hover
+    //             background-color: url("../images/github-logo-black.svg") no-repeat
+
+    // &__right
+    //     height: 100%
