@@ -1,0 +1,47 @@
+.row {
+  height: 100%; }
+
+:root {
+  font-size: 16px; }
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif; }
+
+html,
+body {
+  height: 100%; }
+
+img {
+  max-width: 100%; }
+
+.layout {
+  height: 100%; }
+  .layout__left {
+    background-color: #333;
+    display: table;
+    table-layout: fixed;
+    height: 100%; }
+    .layout__left__brand {
+      display: table-cell;
+      vertical-align: middle; }
+      .layout__left__brand__title {
+        font-size: 1.4rem;
+        letter-spacing: 0.07em;
+        color: #fff; }
+      .layout__left__brand__logo {
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        margin-left: 5em;
+        background: url("../images/github-logo-white.svg") no-repeat;
+        background-size: 2rem; }
+        .layout__left__brand__logo__texts {
+          font-size: 1rem; }
+      .layout__left__brand__logo:hover {
+        background-color: url("../images/github-logo-black.svg") no-repeat; }
+  .layout__right {
+    height: 100%; }
+
+/*# sourceMappingURL=app.css.map */

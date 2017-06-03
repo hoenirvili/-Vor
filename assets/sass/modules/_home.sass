@@ -1,0 +1,33 @@
+.layout
+    height: 100%
+
+    &__left
+        background-color: #333
+        display: table
+        table-layout: fixed
+        height: 100%
+
+        &__brand
+            display: table-cell
+            vertical-align: middle
+
+            &__title
+                font-size: 1.4rem
+                letter-spacing: 0.07em
+                color: #fff
+
+            &__logo
+                display: block
+                width: 2rem
+                height: 2rem
+                margin-left: 5em
+                background: url("../images/github-logo-white.svg") no-repeat
+                background-size: 2rem
+                &__texts
+                    font-size: 1rem
+
+            &__logo:hover
+                background-color: url("../images/github-logo-black.svg") no-repeat
+
+    &__right
+        height: 100%
