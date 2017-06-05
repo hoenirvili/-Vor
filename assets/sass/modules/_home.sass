@@ -4,55 +4,94 @@
 .full-layout
     height: 100%
 
+.left-column-layout
+    height: 100%
+
+
+.right-column-layout
+    height: 100%
+
 .left-column
     color: white
     background-color: #333
-    display: table
-    table-layout: fixed
+
+.right-column
+    background-color: #f6f6f6
+
 
 aside
-    display: table-cell
-    vertical-align: middle
+    font-size: 1rem
+    top: 200px
 
-aside > h4
-    font-size: 1.4rem
-    font-spacing: 0.07em
 
-aside ul li
-    float: left
-    margin-right: 8px
+.left-column-title
+    margin-top: 0
+
+
+aside ul li a
+    display: block
+    text-decoration: none
+    color: #fff
+    text-align: center
+
+aside ul li a:hover,
+aside ul li a:active,
+    text-decoration: none
+    color: black
 
 aside ul
-    list-style: none
+    list-style-type: none
+
+aside ul li
+    display: inline-block
+    width: 3rem
+    height: 3rem
+    margin-left: 0.4rem
+
+.github-logo
+    background: url("../images/github-logo-white.svg") no-repeat
+    background-position: center
+    background-size: 2.6rem
+
+.github-logo:hover
+.github-logo:active
+    background: url("../images/github-logo-black.svg") no-repeat
+    background-position: center
+    background-size: 2.6rem
+
+.reddit-logo
+    background: url("../images/reddit-logo-white.svg") no-repeat
+    background-position: center
+    background-size: 2.6rem
+
+.reddit-logo:hover
+.reddit-logo:active
+    background: url("../images/reddit-logo-black.svg") no-repeat
+    background-position: center
+    background-size: 2.6rem
 
 
-    // &__left
-    //     background-color: #333
-    //     display: table
-    //     table-layout: fixed
-    //     height: 100%
 
-    //     &__brand
-    //         display: table-cell
-    //         vertical-align: middle
+@media only screen and(max-width: 992px) and (min-width: 768px)
+    .left-column
+        display: block
+    .left-column-layout
+        height: 35%
+    .right-column
+        height: 65%
 
-    //         &__title
-    //             font-size: 1.4rem
-    //             letter-spacing: 0.07em
-    //             color: #fff
+@media only screen and(max-width: 768px) and (min-width: 500px)
+    .left-column
+        display: block
+    .left-column-layout
+        height: 35%
+    .right-column-layout
+        height: 65%
 
-    //         &__logo
-    //             display: block
-    //             width: 2rem
-    //             height: 2rem
-    //             margin-left: 5em
-    //             background: url("../images/github-logo-white.svg") no-repeat
-    //             background-size: 2rem
-    //             &__texts
-    //                 font-size: 1rem
-
-    //         &__logo:hover
-    //             background-color: url("../images/github-logo-black.svg") no-repeat
-
-    // &__right
-    //     height: 100%
+@media only screen and(max-width: 500px)
+    .left-column
+        display: block
+    .left-column-layout
+        height: 20%
+    .right-column-layout
+        height: 80%
