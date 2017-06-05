@@ -7,91 +7,81 @@
 .left-column-layout
     height: 100%
 
-
 .right-column-layout
     height: 100%
 
 .left-column
+    position: fixed
     color: white
     background-color: #333
+    display: table
 
 .right-column
     background-color: #f6f6f6
 
-
 aside
     font-size: 1rem
-    top: 200px
-
+    display: table-cell
+    vertical-align: middle
 
 .left-column-title
     margin-top: 0
 
-
-aside ul li a
-    display: block
-    text-decoration: none
-    color: #fff
-    text-align: center
-
-aside ul li a:hover,
-aside ul li a:active,
-    text-decoration: none
-    color: black
-
 aside ul
     list-style-type: none
+    margin-top: 0.7rem
+    background-position: center
+    background-size: 1.9rem
 
 aside ul li
     display: inline-block
-    width: 3rem
-    height: 3rem
-    margin-left: 0.4rem
+    width: 2rem
+    height: 2rem
+
+aside ul li:nth-child(2),
+aside ul li:nth-child(3)
+    margin-left: 0.7rem
+
+aside ul li a
+    display: block
+    width: 100%
+    height: 100%
 
 .github-logo
-    background: url("../images/github-logo-white.svg") no-repeat
-    background-position: center
-    background-size: 2.6rem
+    background: url("../images/github-logo-white.svg")
 
-.github-logo:hover
-.github-logo:active
-    background: url("../images/github-logo-black.svg") no-repeat
-    background-position: center
-    background-size: 2.6rem
+.github-logo:hover,
+.github-logo:active,
+.github-logo:focus
+    background: url("../images/github-logo-black.svg")
 
 .reddit-logo
-    background: url("../images/reddit-logo-white.svg") no-repeat
+    background: url("../images/reddit-logo-white.svg")
+
+.reddit-logo:hover,
+.reddit-logo:active,
+.github-logo:focus
+    background: url("../images/reddit-logo-black.svg")
+
+.key-logo
+    background: url("../images/key-logo-white.svg")
+
+.key-logo:hover,
+.key-logo:active,
+.key-logo:focus
+    background: url("../images/key-logo-black.svg")
+
+.mini-logo,
+.mini-logo:hover,
+.mini-logo:active,
+.mini-logo:focus
+    background-size: 1.9rem
     background-position: center
-    background-size: 2.6rem
-
-.reddit-logo:hover
-.reddit-logo:active
-    background: url("../images/reddit-logo-black.svg") no-repeat
-    background-position: center
-    background-size: 2.6rem
+    background-repeat: no-repeat
 
 
+article
+    margin-top: 2rem
 
-@media only screen and(max-width: 992px) and (min-width: 768px)
-    .left-column
-        display: block
-    .left-column-layout
-        height: 35%
-    .right-column
-        height: 65%
-
-@media only screen and(max-width: 768px) and (min-width: 500px)
-    .left-column
-        display: block
-    .left-column-layout
-        height: 35%
-    .right-column-layout
-        height: 65%
-
-@media only screen and(max-width: 500px)
-    .left-column
-        display: block
-    .left-column-layout
-        height: 20%
-    .right-column-layout
-        height: 80%
+article:last-of-type
+    margin-bottom: 7rem
