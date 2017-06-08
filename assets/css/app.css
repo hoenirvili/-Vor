@@ -4,6 +4,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-size: 1rem;
   font-family: "Roboto", sans-serif; }
 
 html, body {
@@ -32,7 +33,6 @@ html, body {
   display: table; }
 
 aside {
-  font-size: 1rem;
   display: table-cell;
   vertical-align: middle; }
 
@@ -99,19 +99,27 @@ article:last-of-type {
 
 article footer {
   display: inline-block;
-  width: 100%; }
+  width: 100%;
+  margin-top: 1.5rem; }
 
 article footer span {
   float: left;
-  margin-top: 0.2rem; }
+  margin-top: 0.1rem; }
 
-article footer span:nth-child(2),
-article footer span:nth-child(3) {
+article footer span:not(:first-child) {
   margin-left: 0.5rem; }
 
-.comment-count {
-  float: right;
-  margin-right: 5rem; }
+article footer a span {
+  margin-top: 0; }
+
+.comments-wrapper {
+  display: block;
+  width: 7em;
+  margin-right: 3rem;
+  float: right; }
+
+.comments-wrapper span {
+  margin-top: 0.1rem; }
 
 .image-header {
   display: block;
@@ -161,6 +169,18 @@ article footer span:nth-child(3) {
     height: 80%; }
 
   aside {
-    top: 25%; } }
+    top: 25%; }
+
+  .comments-wrapper {
+    margin-right: 0; } }
+@media only screen and (max-width: 375px) and (min-width: 319px) {
+  .comments-wrapper {
+    float: none;
+    margin-top: 2rem; } }
+@media only screen and (max-width: 320px) and (min-width: 150px) {
+  .comments-wrapper {
+    margin-right: 0;
+    float: none;
+    margin-top: 2rem; } }
 
 /*# sourceMappingURL=app.css.map */

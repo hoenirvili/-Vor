@@ -21,7 +21,6 @@
     display: table    
 
 aside
-    font-size: 1rem
     display: table-cell
     vertical-align: middle
 
@@ -89,18 +88,27 @@ article:last-of-type
 article footer
     display: inline-block
     width: 100%
+    margin-top: 1.5rem
 
 article footer span
     float: left
-    margin-top: 0.2rem
+    margin-top: 0.1rem
     
-article footer span:nth-child(2),
-article footer span:nth-child(3)
+article footer span:not(:first-child)
     margin-left: 0.5rem
 
-.comment-count
+article footer a span
+    margin-top: 0
+
+.comments-wrapper
+    display: block
+    width: 7em
+    margin-right: 3rem
     float: right
-    margin-right: 5rem
+
+.comments-wrapper span
+    margin-top: 0.1rem
+
 
 .image-header
     display: block
