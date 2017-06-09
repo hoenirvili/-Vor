@@ -98,28 +98,17 @@ article:last-of-type {
   margin-bottom: 7rem; }
 
 article footer {
-  display: inline-block;
-  width: 100%;
+  display: block;
   margin-top: 1.5rem; }
 
 article footer span {
-  float: left;
-  margin-top: 0.1rem; }
+  float: left; }
 
 article footer span:not(:first-child) {
   margin-left: 0.5rem; }
 
 article footer a span {
   margin-top: 0; }
-
-.comments-wrapper {
-  display: block;
-  width: 7em;
-  margin-right: 3rem;
-  float: right; }
-
-.comments-wrapper span {
-  margin-top: 0.1rem; }
 
 .image-header {
   display: block;
@@ -169,18 +158,6 @@ article footer a span {
     height: 80%; }
 
   aside {
-    top: 25%; }
-
-  .comments-wrapper {
-    margin-right: 0; } }
-@media only screen and (max-width: 375px) and (min-width: 319px) {
-  .comments-wrapper {
-    float: none;
-    margin-top: 2rem; } }
-@media only screen and (max-width: 320px) and (min-width: 150px) {
-  .comments-wrapper {
-    margin-right: 0;
-    float: none;
-    margin-top: 2rem; } }
+    top: 25%; } }
 
 /*# sourceMappingURL=app.css.map */
