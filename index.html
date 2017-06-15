@@ -13,7 +13,6 @@
 <body>
     <div class="container-fluid full-layout">
         <div class="row full-layout">
-        <!--left column -->
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 left-column left-column-layout">
                 <aside class="text-center">
                     <h2 class="left-column-title">Hœnir's Blog</h2>
@@ -31,117 +30,10 @@
 
                 </aside>
             </div>
-        <!--/left column -->
-        <!-- right column -->
             <div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-sm-12 col-xs-12 right-column right-column-layout">
                 <div class="container-fluid">
-                    <div class="row">
-                        <article class="col-lg-12 col-md-12 col-sm-12 -col-xs-12">
-                            <div class="article-wrap box">
-                                <a href="#" title="I've wrote some Golang, and it felt great">
-                                    <img width="750" height="410" src="assets/images/header/go.jpg" alt="golang">
-                                </a>
-                                <div class="post-inner-content">
-                                    <header class="entry-page page-header">
-                                        <h1 class="entry-title">
-                                            <a href="#" rel="bookmark">I've wrote some Golang, and it felt great</a>
-                                        </h1>
-                                        <div class="entry-meta">
-                                            <span class="posted-on"><i class="fa fa-calendar"></i> <a href="#" rel="bookmark"><time class="entry-date published" datetime="2017-06-08T08:50:15+00:00">June 8, 2017</time><time class="updated" datetime="2017-06-08T09:01:53+00:00">June 8, 2017</time></a></span>
-                                            <span class="byline"> <i class="fa fa-user"></i> <span class="author vcard"><a class="url fn n" href="#">Hoenir</a></span></span>
-                                            <span class="comments-link"><i class="fa fa-comment-o"></i><a href="#">0 Comments</a></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-<!--
-                            <div class="image-header" style="background: url('assets/images/header/go.jpg') 50% 50% / cover no-repeat; ">
-                            </div>
-                            <div class="page-header">
-                                <h2>I wrote some Golang, and it felt great</h2>
-                                 <div class="pull-left">
-                                    <span class="badge">Posted 2012-08-02 20:47:04</span>
-                                </div>
-                            </div>
-                            <p class="">I've been toying with the thought of learning Go for a while now — my primary stack is Node.js and React and I’ve been on the look out for a more performant, concurrency focussed language for a bit of a change and simply because Node isn’t always the answer. This article is a small documentation of how I ended up trying the language, and why I’m really enjoying it. <a href="#">Read more..</a></p>
-                            <footer>
-                                <div class="pull-left">
-                                    <span class="label label-default">#golang</span>
-                                    <span class="label label-default">#great</span>
-                                    <span class="label label-default">#nodejs</span>
-                                </div>
-                                <section class="pull-left comments-wrapper">
-                                    <a href="#" class="comment-count">Comments <span class="badge">42</span></a>
-                                </section>
-                            </footer> -->
-
-                        <!-- <article class="col-lg-12 col-md-12 col-sm-12 -col-xs-12">
-                            <div class="image-header" style="background: url('assets/images/header/make.jpg') 50% 50% / cover no-repeat; ">
-                            </div>
-                            <div class="page-header">
-                                <h2>Modernizing Make</h2>
-                            </div>
-                            <p class="">Whether you’re actually utilizing Make’s build capabilities, or simply using it to run ad-hoc “tasks”, Make is a ubiquitous tool used across the industry, but can we improve upon it without starting from scratch? <a href="#">Read more..</a></p>
-                            <footer>
-                                <span class="label label-default">#make</span>
-                                <span class="label label-default">#build-system</span>
-                                <span class="label label-default">#terminal</span>
-                                <span class="label label-default">#tasks</span>
-                                <span class="label label-default">#multiple</span>
-                                <span class="label label-default">#processes</span>
-                                <section class="comments-wrapper">
-                                    <a href="#" class="comment-count">Comments <span class="badge">42</span></a>
-                                </section>
-                            </footer>
-                        </article>
-
-                        <article class="col-lg-12 col-md-12 col-sm-12 -col-xs-12">
-                            <div class="image-header" style="background: url('assets/images/header/C-language.jpg') 50% 50% / cover no-repeat; ">
-                            </div>
-                            <div class="page-header">
-                                <h2>The cost of forsaking C</h2>
-                            </div>
-                            <p class="">The C programming language is not trendy. The most recent edition of the canonical C text (the excitingly named The C Programming Language) was published in 1988; C is so unfashionable that the authors have neglected to update it in light of 30 years of progress in software engineering. Everyone “has been meaning to” learn Rust or Go or Clojure over a weekend, not C. There isn’t even a cute C animal in C’s non-logo on a C decal not stuck to your laptop.<a href="">Read more..</a></p>
-                            <footer>
-                                <span class="label label-default">#c</span>
-                                <span class="label label-default">#programming</span>
-                                <span class="label label-default">#clojure</span>
-                                <span class="label label-default">#rust</span>
-                                <span class="label label-default">#go</span>
-                                <section class="comments-wrapper">
-                                    <a href="#" class="comment-count">Comments <span class="badge">42</span></a>
-                                </section>
-                            </footer>
-                        </article>
-
-                        <article class="col-lg-12 col-md-12 col-sm-12 -col-xs-12">
-                            <div class="image-header" style="background: url('assets/images/header/sizeof.jpg') 50% 50% / cover no-repeat; ">
-                            </div>
-                            <div class="page-header">
-                                <h2>Exploring the Ambiguous Nature of the sizeof Operator</h2>
-                            </div>
-                            <p class="">In a past article I wrote about the topic of C declarations and how to apply the precedence rules to interpret them. For example, in a C declaration, brackets have a higher precedence than an asterisk. So the following declaration may be mistakenly interpreted as a pointer to an array <a href="">Read more..</a> </p>
-                            <footer>
-                                <span class="label label-default">#sizeof</span>
-                                <span class="label label-default">#cost</span>
-                                <span class="label label-default">#cprogramming</span>
-                                <span class="label label-default">#preprocessor</span>
-                                <section class="comments-wrapper">
-                                    <a href="#" class="comment-count">Comments <span class="badge">42</span></a>
-                                </section>
-                            </footer>
-                        </article> -->
-                        <!-- <nav aria-label="...">
-                          <ul class="pager">
-                            <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
-                            <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
-                          </ul>
-                        </nav> -->
-                    </div> <!--row -->
                 </div>
             </div>
-        <!--/right column -->
         </div>
     </div>
 </body>
