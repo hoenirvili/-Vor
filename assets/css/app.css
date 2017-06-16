@@ -7,21 +7,31 @@
   font-size: 1rem;
   font-family: "Roboto", sans-serif; }
 
+h1, h2,
+h3, h4,
+h5, h6 {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.1; }
+
 html, body {
   height: 100%; }
 
 a {
   transition: all 0.1s ease 0s;
-  background: 0 0; }
+  background: 0 0;
+  color: #444; }
 
 a:focus,
 a:active,
 a:hover {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #428bca; }
 
 img {
   height: auto;
-  max-width: 100%; }
+  max-width: 100%;
+  vertical-align: middle; }
 
 .box {
   border: 1px red solid; }
@@ -42,7 +52,7 @@ img {
   display: table; }
 
 .right-column {
-  background-color: #f6f6f6;
+  background-color: #f2f2f2;
   display: table; }
 
 aside {
@@ -103,6 +113,36 @@ aside ul li a {
   background-size: 1.9rem;
   background-position: center;
   background-repeat: no-repeat; }
+
+.articles-container {
+  font-size: 1rem;
+  width: 100%;
+  height: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 8rem;
+  padding-right: 8rem; }
+
+article {
+  border: 1px solid #dadada;
+  border-radius: 3px;
+  background: none repeat scroll 0 0 #ffffff;
+  padding: 1.5rem 1.5rem; }
+
+.article-headline {
+  margin-bottom: 2rem; }
+
+.inner-content {
+  padding-top: 0.7rem;
+  padding-left: 0.7rem; }
+
+article footer {
+  display: block;
+  width: 100%;
+  height: 100%; }
+
+article footer button {
+  float: right; }
 
 @media only screen and (max-width: 991px) {
   aside {
