@@ -5,22 +5,40 @@
   margin: 0;
   padding: 0;
   font-size: 1rem;
-  font-family: "Roboto", sans-serif; }
+  font-family: "Open Sans", sans-serif; }
 
 h1, h2,
 h3, h4,
 h5, h6 {
-  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
-  line-height: 1.1; }
+  line-height: 1.1;
+  font-size: 2rem; }
 
 html, body {
   height: 100%; }
 
 a {
-  transition: all 0.1s ease 0s;
   background: 0 0;
-  color: #444; }
+  color: #444;
+  -webkit-transition: 0.5s ease-out;
+  -moz-transition: 0.5s ease-out;
+  -o-transition: 0.5s ease-out;
+  transition: 0.5s ease-out; }
+
+button {
+  -webkit-transition: 0.5s ease-out;
+  -moz-transition: 0.5s ease-out;
+  -o-transition: 0.5s ease-out;
+  transition: 0.5s ease-out; }
+
+a:focus,
+a:hover,
+a:active {
+  color: #428bca; }
+
+p {
+  font-weight: 400;
+  line-height: 1.5; }
 
 a:focus,
 a:active,
@@ -32,6 +50,12 @@ img {
   height: auto;
   max-width: 100%;
   vertical-align: middle; }
+
+button {
+  font-size: 1rem; }
+
+.btn {
+  font-size: 1rem; }
 
 .box {
   border: 1px red solid; }
@@ -152,7 +176,7 @@ article {
 
 .article-metadata {
   width: 100%;
-  padding: 1rem; }
+  padding: 0.8rem; }
 
 .metadata-item:nth-child(2),
 .metadata-item:nth-child(3) {
@@ -181,6 +205,16 @@ article footer button {
 .header-link img:hover {
   opacity: 0.8; }
 
+.hashtags {
+  width: 40%;
+  height: 100%; }
+
+.hashtags a {
+  display: inline-block; }
+
+.hashtags a:nth-child(n+2) {
+  margin-left: 0.8rem; }
+
 @media only screen and (max-width: 991px) {
   aside {
     display: block;
@@ -189,21 +223,6 @@ article footer button {
   .left-column {
     position: static; } }
 @media only screen and (max-width: 991px) and (min-width: 768px) {
-  :root {
-    font-size: 15px; }
-
-  .left-column {
-    display: block; }
-
-  .left-column-layout {
-    height: 35%; }
-
-  .right-column-layout {
-    height: 65%; }
-
-  aside {
-    top: 35%; } }
-@media only screen and (max-width: 768px) and (min-width: 500px) {
   :root {
     font-size: 14px; }
 
@@ -218,9 +237,24 @@ article footer button {
 
   aside {
     top: 35%; } }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 768px) and (min-width: 500px) {
   :root {
     font-size: 13px; }
+
+  .left-column {
+    display: block; }
+
+  .left-column-layout {
+    height: 35%; }
+
+  .right-column-layout {
+    height: 65%; }
+
+  aside {
+    top: 35%; } }
+@media only screen and (max-width: 500px) {
+  :root {
+    font-size: 10px; }
 
   .left-column {
     display: block; }
@@ -232,18 +266,30 @@ article footer button {
     height: 80%; }
 
   aside {
-    top: 25%; } }
+    top: 25%; }
+
+  .articles-container {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 5%;
+    padding-right: 5%; } }
 @media only screen and (max-width: 375px) and (min-width: 319px) {
   :root {
-    font-size: 12px; }
+    font-size: 9px; }
 
-  h2 {
-    font-size: 26px; } }
+  .articles-container {
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    padding-left: 2%;
+    padding-right: 2%; } }
 @media only screen and (max-width: 320px) and (min-width: 150px) {
   :root {
-    font-size: 11px; }
+    font-size: 8px; }
 
-  h2 {
-    font-size: 22px; } }
+  .articles-container {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0; } }
 
 /*# sourceMappingURL=app.css.map */

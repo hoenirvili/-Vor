@@ -5,23 +5,46 @@
     margin: 0
     padding: 0
     font-size: 1rem
-    font-family: 'Roboto', sans-serif
+    font-family: 'Open Sans', sans-serif
 
 h1,h2,
 h3,h4,
 h5, h6
-    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif
+
     font-weight: 700
     line-height: 1.1
+    font-size: 2rem
 
 
 html, body
     height: 100%
 
 a
-    transition: all 0.1s ease 0s
     background: 0 0
     color: #444
+    -webkit-transition: 0.5s ease-out
+    -moz-transition: 0.5s ease-out
+    -o-transition: 0.5s ease-out
+    transition: 0.5s ease-out
+
+button
+    -webkit-transition: 0.5s ease-out
+    -moz-transition: 0.5s ease-out
+    -o-transition: 0.5s ease-out
+    transition: 0.5s ease-out
+
+
+a:focus,
+a:hover,
+a:active
+    color: #428bca
+
+
+
+p
+    font-weight: 400
+    line-height: 1.5
+
 
 a:focus,
 a:active,
@@ -34,3 +57,7 @@ img
     height: auto
     max-width: 100%
     vertical-align: middle
+
+
+button
+    font-size: 1rem
