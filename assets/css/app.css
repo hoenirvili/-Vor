@@ -5,14 +5,17 @@
   margin: 0;
   padding: 0;
   font-size: 1rem;
-  font-family: "Open Sans", sans-serif; }
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  line-height: 1.5; }
 
 h1, h2,
 h3, h4,
 h5, h6 {
-  font-weight: 700;
-  line-height: 1.1;
-  font-size: 2rem; }
+  font-weight: bold;
+  font-size: 2rem;
+  text-rendering: optimizeLegibility;
+  line-height: 1.25;
+  margin-bottom: 0.89rem; }
 
 html, body {
   height: 100%; }
@@ -53,6 +56,9 @@ img {
 
 button {
   font-size: 1rem; }
+
+pre, code {
+  width: 100%; }
 
 .btn {
   font-size: 1rem; }

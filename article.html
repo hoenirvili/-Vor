@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700" rel="stylesheet">
     <link href="assets/css/app.css" rel="stylesheet">
-    <script>
-    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
-    </script>
+    <script>document.write('<script src="http://'+(location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </head>
 <body>
     <div class="container-fluid full-layout">
@@ -116,21 +116,41 @@
                                 </a>
                             </div>
                             <div class="page-preview__content">
-                                    <h2>What is react ?</h2>
+                                    <h1>What is react ?</h1>
+                                    <blockquote>
+                                        Update: I did mention that lock free data structures are really hard to write, it looks like there might be some issues that haven’t been addressed in the implementation of this LF Queue that we’re referencing. The rest of the analysis is still valid and hopefully useful to you, just know there’s actually more that needs to be done, don’t try to use that code for a mission critical application out of the box.
+                                    </blockquote> 
                                     <p>
                                         React is Javascript library for building user interfaces (UIs). React is the V (View) in MVC.
                                         React is declarative, efficient, and extremely flexible. What’s more, it works with the libraries and frameworks that you already know like jQuery’s UI plugin.Short: Conceived at Facebook. Heavily used on products made by Facebook and Instagram. Built to simplify the process of building complex UIs.
                                         The story of React started within the confines of Facebook. React was created by Jordan Walke, a software engineer at Facebook. Jordan deserves all the credit for creating React. He was influenced by XHP, a PHP-based component system that is still in use at Facebook, but also by functional programming ideas.
-                                        <h2>Why React ?</h2>
+                                        <h3>Why React ?</h3>
                                         Pete Hunt wanted to use React at Instagram, so he helped to extract React from Facebook-specific code. This prepared React to be open sourced.
                                         Later, Facebook put a team of engineers behind React and also received great contributions from the open source community. Significant contributors include Sebastian Markbåge and Ben Alpert, among many others. Source
                                     </p>
-                                    <h2>Why React ?</h2>
+                                    <p>
+                                        <pre class="row">
+                                        <code class="language-javascript">
+/* **********************************************
+    Begin prism-core.js
+********************************************** */
+
+var _self = (typeof window !== 'undefined')
+    ? window   // if in browser
+    : (
+        (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope)
+        ? self // if in worker
+        : {}   // if in node js
+    );
+                                        </code>
+                                        </pre>
+                                    </p>
+                                    <h3>Why React ?</h3>
                                     <p>
                                         React is probably one of the best choices for building UI. Good design, support and community.
                                         React was built to solve one problem: building large applications with data that changes over time. To simplify the process of building complex UIs.
                                     </p>
-                                    <h2>How was the idea to develop React conceived ?</h2>
+                                    <h3>How was the idea to develop React conceived ?</h3>
                                     <img src="assets/images/header/cost.png" alt="cost">
                                     <p>
                                         <b>Short: Conceived at Facebook.</b> Heavily used on products made by Facebook and Instagram. Built to simplify the process of building complex UIs.
@@ -145,7 +165,7 @@
                             </footer>
                         </div>
                     </article>
-                    <div class="comment-send-container">
+                    <!--<div class="comment-send-container">
                         <header>
                             <h2>Leave a Reply</h2>
                         </header>
@@ -162,12 +182,13 @@
                         <textarea class="form-control" rows="7"></textarea>
                         <button type="submit" class="btn btn-primary">Post</button>
                         </form>
-                    </div>
+                    </div>-->
                     <div class="comment-container">
                     </div>
                 </div>
             </div>
         </div>
     </div>
+<script src="assets/plugins/prism/prism.js"></script>
 </body>
 </html>
