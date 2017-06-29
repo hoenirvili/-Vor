@@ -1,59 +1,52 @@
+// user only for debugging
 .box
     border: 1px red solid
 
 .full-layout
     height: 100%
 
-.left-column-layout
-    height: 100%
-
-.right-column-layout
-    height: 100%
+.right-column
+    background-color: #f2f2f2
+    display: table
+    &__layout
+        height: 100%
 
 .left-column
     position: fixed
     color: white
     background-color: #333
     display: table
+    &--layout
+        height: 100%
+    &__container
+        display: table-cell
+        vertical-align: middle
+    &__title
+        margin-top: 0
 
-.right-column
-    background-color: #f2f2f2
-    display: table
-
-aside
-    display: table-cell
-    vertical-align: middle
-
-.left-column-title
-    margin-top: 0
-
-aside ul
+.meta-list
     list-style-type: none
     margin-top: 0.7rem
     background-position: center
     background-size: 1.9rem
+    &__item
+        display: inline-block
+        width: 2rem
+        height: 2rem
+    &__item:nth-child(2),
+    &__item:nth-child(3)
+        margin-left: 0.7rem
+    &__link
+        display: block
+        width: 100%
+        height: 100%
+        color: white
+    &__link:hover,
+    &__link:focus,
+    &__link:active
+        color: black
 
-aside ul li
-    display: inline-block
-    width: 2rem
-    height: 2rem
-
-aside ul li:nth-child(2),
-aside ul li:nth-child(3)
-    margin-left: 0.7rem
-
-aside ul li a
-    display: block
-    width: 100%
-    height: 100%
-    color: white
-
-aside ul li a:hover,
-aside ul li a:focus,
-aside ul li a:active
-    color: black
-
-.articles-container
+.art
     font-size: 1rem
     width: 100%
     height: 100%
@@ -62,67 +55,54 @@ aside ul li a:active
     padding-left: 10%
     padding-right: 10%
 
-.header-link
-    display: block
-    width: 100%
-
-article
+.page-preview
     margin-top: 2rem
     border: 1px solid #dadada
     border-radius: 3px
     background: none repeat scroll 0 0 #ffffff
     padding: 1.5rem 1.5rem
-
-.article-inner-content
-    padding-top: 0.7rem
-    padding-left: 0.7rem
-
-.article-metadata
-    width: 100%
-    padding: 0.8rem
-
-.metadata-item:nth-child(2),
-.metadata-item:nth-child(3)
-    margin-left: 0.8rem
-
-
-.article-headline
-    margin-bottom: 2rem
-
-article footer
-    display: block
-    width: 100%
-    height: 100%
-    margin-top: 2rem
-
-article footer button
-    float: right
-
-.header-link img
-    -webkit-transition: opacity 0.5s ease-out
-    -moz-transition: opacity 0.5s ease-out
-    -o-transition: opacity 0.5s ease-out
-    transition: opacity 0.5s ease-out
-    object-fit: cover
-    min-width: 100%
-
-.header-link img:hover
-    opacity: 0.8
-
-.hashtags
-    width: 100%
-
-.hashtags a
-    display: inline-block
-    margin-top: 0.5rem
-
-.hashtags a span
-    -webkit-transition:  background 0.5s ease-out
-    -moz-transition: background 0.5s ease-out
-    -o-transition: background 0.5s ease-out
-    transition: background 0.5s ease-out
-
-.hashtags a span:hover,
-.hashtags a span:active,
-.hashtags a span:focus
-    background-color: #428bca
+    &__image
+        -webkit-transition: opacity 0.5s ease-out
+        -moz-transition: opacity 0.5s ease-out
+        -o-transition: opacity 0.5s ease-out
+        transition: opacity 0.5s ease-out
+        object-fit: cover
+        min-width: 100%
+    &__link
+        &--header // background image
+            display: block
+            width: 100%
+        &--header:hover
+            opacity: 0.8
+    &__inner
+        padding-top: 0.7rem
+        padding-left: 0.7rem
+    &__meta
+        width: 100%
+        padding: 0.8rem
+        &__item:nth-child(2),
+        &__item:nth-child(3)
+            margin-left: 0.8rem
+    &__headeline
+        margin-bottom: 2rem
+    &__footer
+        display: block
+        width: 100%
+        height: 100%
+        margin-top: 2rem
+    &__button
+        float: right
+    &__hashtags
+        width: 100%
+        &__link
+            display: inline-block
+            margin-top: 0.5rem
+        &__span
+            -webkit-transition:  background 0.5s ease-out
+            -moz-transition: background 0.5s ease-out
+            -o-transition: background 0.5s ease-out
+            transition: background 0.5s ease-out
+        &__span:hover,
+        &__span:active,
+        &__span:focus
+            background-color: #428bca

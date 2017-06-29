@@ -1,11 +1,10 @@
 @media only screen and(max-width: 991px)
-    aside
-        display: block
-        position: relative
     .left-column
         position: static
-    
-    .articles-container
+        &__container
+            display: block
+            position: relative
+    .art
         padding-left: 1%
         padding-right: 1%
 
@@ -14,37 +13,37 @@
         font-size: 14px
     .left-column
         display: block
-    .left-column-layout
-        height: 35%
-    .right-column-layout
+        &--layout
+            height: 35%
+        &__container
+            top: 35%
+    .right-column--layout
         height: 65%
-    aside
-        top: 35%
 
 @media only screen and(max-width: 768px) and (min-width: 500px)
     \:root
         font-size: 13px
     .left-column
         display: block
-    .left-column-layout
-        height: 35%
-    .right-column-layout
+        &--layout
+            height: 35%
+        &__container
+            top: 35%
+    .right-column--layout
         height: 65%
-    aside
-        top: 35%
 
 @media only screen and(max-width: 500px)
     \:root
         font-size: 10px
     .left-column
         display: block
-    .left-column-layout
-        height: 20%
-    .right-column-layout
+        &--layout
+            height: 20%
+        &__container
+            top: 25%
+    .right-column--layout
         height: 80%
-    aside
-        top: 25%
-    .articles-container
+    .art
         padding-top: 1em
         padding-bottom: 1em
         padding-left: 1%
@@ -53,19 +52,16 @@
 @media only screen and(max-width: 375px) and (min-width: 319px)
     \:root
         font-size: 9px
-
-    .articles-container
+    .art
         padding-top: 0.2em
         padding-bottom: 0.2em
         padding-left: 0
         padding-right: 0 
 
-
 @media only screen and(max-width: 320px) and (min-width: 150px)
     \:root
         font-size: 8px
-
-    .articles-container
+    .art
         padding-top: 0.1em
         padding-bottom: 0.1em
         padding-left: 0

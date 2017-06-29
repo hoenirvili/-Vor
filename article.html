@@ -10,136 +10,139 @@
     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
     <link href="assets/css/app.css" rel="stylesheet">
     <script>
-        document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
     </script>
 </head>
 <body>
     <div class="container-fluid full-layout">
         <div class="row full-layout">
-            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 left-column left-column-layout">
-                <aside class="text-center">
-                    <h2 class="left-column-title">Hœnir's Blog</h2>
-                    <ul>
-                        <li class="mini-logo">
-                            <a href="https://github.com/hoenirvili/" title="github">
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 left-column left-column--layout">
+                <aside class="text-center left-column__container">
+                    <h2 class="left-column__title">Hœnir's Blog</h2>
+                    <ul class="meta-list">
+                        <li class="meta-list__item">
+                            <a class="meta-list__link"href="https://github.com/hoenirvili/" title="github">
                                 <i class="fa fa-github fa-2x" aria-hidden="true"></i>
                             </a>
                         </li>
-                        <li class="mini-logo">
-                            <a href="https://www.reddit.com/user/Saethgokk/" title="reddit">
+                        <li class="meta-list__item">
+                            <a class="meta-list__link" href="https://www.reddit.com/user/Saethgokk/" title="reddit">
                                 <i class="fa fa-reddit fa-2x" aria-hidden="true"></i>
                             </a>
                         </li>
-                        <li class="mini-logo">
-                            <a href="https://raw.githubusercontent.com/hoenirvili/Pubkey/master/README.md" title="gpg-public-key">
+                        <li class="meta-list__item">
+                            <a class="meta-list__link" href="https://raw.githubusercontent.com/hoenirvili/Pubkey/master/README.md" title="gpg-public-key">
                                 <i class="fa fa-key fa-2x" aria-hidden="true"></i>
                             </a>
                         </li>
                     </ul>
                 </aside>
             </div>
-            <div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-sm-12 col-xs-12 right-column right-column-layout">
-                   <div class="articles-container">
-                    <article>
-                    <div class="article-headline">
-                                <a href="article.html">
-                                    <h1>Intro To React.js Library</h1>
-                                </a>
-                            </div>
+            <div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-sm-12 col-xs-12 right-column right-column--layout">
+                <div class="art">
+                    <article class="page-preview">
                         <header>
-                            <a href="article.html" title="Intro To React.js Library" class="header-link">
-                                <img src="assets/images/header/node.png" alt="reactjs-image">
+                            <a href="article.html" title="Intro To React.js Library" class="page-preview__link--header">
+                                <img class="page-preview__image" src="assets/images/header/node.png" alt="reactjs-image">
                             </a>
                         </header>
-                        <div class="article-inner-content">
-                            <div class="article-metadata">
-                                <span class="metadata-item">
+                        <div class="page-preview__inner">
+                            <div class="page-preview__meta">
+                                <span class="page-preview__meta__item">
                                     <i class="fa fa-calendar"></i>
                                     <a href="#" rel="bookmark">
                                         <time class="entry-date published" datetime="2017-06-13T07:21:21+00:00">June 13, 2017</time>
                                         <time class="updated" datetime="2017-06-14T04:21:40+00:00">June 14, 2017</time>
                                     </a>
                                 </span>
-                                <span class="metadata-item">
+                                <span class="page-preview__meta__item">
                                     <i class="fa fa-user"></i>
                                     <span>
                                         <a class="url fn n" href="#">Hoenirvili</a>
                                     </span>
                                 </span>
-                                <span class="metadata-item">
+                                <span class="page-preview__meta__item">
                                     <i class="fa fa-comment-o"></i>
                                     <a href="#">
                                         <span data-dsqidentifier="2864 blog/?p=2864">Comments</span>
                                     </a>
                                 </span>
-                                <div class="hashtags">
-                                    <a href="#" title="react">
-                                        <span class="label label-info">
+                                <div class="page-preview__hashtags">
+                                    <a href="#" title="react" class="page-preview__hashtags__link">
+                                        <span class="label label-info page-preview__hashtags__span">
                                             <i class="fa fa-hashtag" aria-hidden="true"></i>react
                                         </span>
                                     </a>
-                                    <a href="#" title="javascript">
-                                        <span class="label label-info">
+                                    <a href="#" title="javascript" class="page-preview__hashtags__link">
+                                        <span class="label label-info page-preview__hashtags__span">
                                             <i class="fa fa-hashtag" aria-hidden="true"></i>javascript
                                         </span>
                                     </a>
-                                    <a href="#" title="framework">
-                                        <span class="label label-info">
+                                    <a href="#" title="framework" class="page-preview__hashtags__link">
+                                        <span class="label label-info page-preview__hashtags__span">
                                             <i class="fa fa-hashtag" aria-hidden="true"></i>framework
                                         </span>
                                     </a>
-                                    <a href="#" title="front-end">
-                                        <span class="label label-info">
+                                    <a href="#" title="front-end" class="page-preview__hashtags__link">
+                                        <span class="label label-info page-preview__hashtags__span">
                                             <i class="fa fa-hashtag" aria-hidden="true"></i>front-end
                                         </span>
                                     </a>
-                                     <a href="#" title="facebook">
-                                        <span class="label label-info">
+                                     <a href="#" title="facebook" class="page-preview__hashtags__link">
+                                        <span class="label label-info page-preview__hashtags__span">
                                             <i class="fa fa-hashtag" aria-hidden="true"></i>facebook
                                         </span>
                                     </a>
-                                     <a href="#" title="php">
-                                        <span class="label label-info">
+                                     <a href="#" title="php" class="page-preview__hashtags__link">
+                                        <span class="label label-info page-preview__hashtags__span">
                                             <i class="fa fa-hashtag" aria-hidden="true"></i>php
                                         </span>
                                     </a>
-                                     <a href="#" title="xhp">
-                                        <span class="label label-info">
+                                     <a href="#" title="xhp" class="page-preview__hashtags__link">
+                                        <span class="label label-info page-preview__hashtags__span">
                                             <i class="fa fa-hashtag" aria-hidden="true"></i>xhp
                                         </span>
                                     </a>
-                                     <a href="#" title="ui-design">
-                                        <span class="label label-info">
+                                     <a href="#" title="ui-design" class="page-preview__hashtags__link">
+                                        <span class="label label-info page-preview__hashtags__span">
                                             <i class="fa fa-hashtag" aria-hidden="true"></i>ui-design
                                         </span>
                                     </a>
                                 </div>
                             </div>
-                            
-                            <div class="article-content">
-                                <h2>What is react ?</h2>
-                                <p>
-                                    React is Javascript library for building user interfaces (UIs). React is the V (View) in MVC.
-                                    React is declarative, efficient, and extremely flexible. What’s more, it works with the libraries and frameworks that you already know like jQuery’s UI plugin.Short: Conceived at Facebook. Heavily used on products made by Facebook and Instagram. Built to simplify the process of building complex UIs.
-                                    The story of React started within the confines of Facebook. React was created by Jordan Walke, a software engineer at Facebook. Jordan deserves all the credit for creating React. He was influenced by XHP, a PHP-based component system that is still in use at Facebook, but also by functional programming ideas.
-                                    <h2>Why React ?</h2>
-                                    Pete Hunt wanted to use React at Instagram, so he helped to extract React from Facebook-specific code. This prepared React to be open sourced.
-                                    Later, Facebook put a team of engineers behind React and also received great contributions from the open source community. Significant contributors include Sebastian Markbåge and Ben Alpert, among many others. Source
-                                </p>
-                                <h2>Why React ?</h2>
-                                <p>
-                                    React is probably one of the best choices for building UI. Good design, support and community.
-                                    React was built to solve one problem: building large applications with data that changes over time. To simplify the process of building complex UIs.
-                                </p>
-                                <h2>How was the idea to develop React conceived ?</h2>
-                                <img src="assets/images/header/cost.png" alt="cost">
-                                <p>
-                                    <b>Short: Conceived at Facebook.</b> Heavily used on products made by Facebook and Instagram. Built to simplify the process of building complex UIs.
-                                    The story of React started within the confines of <a href="https://facebook.com">Facebook</a>. React was created by Jordan Walke, a software engineer at Facebook. Jordan deserves all the credit for creating React. He was influenced by <b>XHP</b>, <b>a PHP</b>-based component system that is still in use at Facebook, but also by functional programming ideas.
-                                    Pete Hunt wanted to use React at Instagram, so he helped to extract React from Facebook-specific code. This prepared React to be open sourced.
-                                    Later, Facebook put a team of engineers behind React and also received great contributions from the open source community. Significant contributors include Sebastian Markbåge and Ben Alpert, among many others. Source
-                                </p>
+                            <div class="page-preview__headline">
+                                <a href="article.html">
+                                    <h1>Intro To React.js Library</h1>
+                                </a>
                             </div>
+                            <div class="page-preview__content">
+                                    <h2>What is react ?</h2>
+                                    <p>
+                                        React is Javascript library for building user interfaces (UIs). React is the V (View) in MVC.
+                                        React is declarative, efficient, and extremely flexible. What’s more, it works with the libraries and frameworks that you already know like jQuery’s UI plugin.Short: Conceived at Facebook. Heavily used on products made by Facebook and Instagram. Built to simplify the process of building complex UIs.
+                                        The story of React started within the confines of Facebook. React was created by Jordan Walke, a software engineer at Facebook. Jordan deserves all the credit for creating React. He was influenced by XHP, a PHP-based component system that is still in use at Facebook, but also by functional programming ideas.
+                                        <h2>Why React ?</h2>
+                                        Pete Hunt wanted to use React at Instagram, so he helped to extract React from Facebook-specific code. This prepared React to be open sourced.
+                                        Later, Facebook put a team of engineers behind React and also received great contributions from the open source community. Significant contributors include Sebastian Markbåge and Ben Alpert, among many others. Source
+                                    </p>
+                                    <h2>Why React ?</h2>
+                                    <p>
+                                        React is probably one of the best choices for building UI. Good design, support and community.
+                                        React was built to solve one problem: building large applications with data that changes over time. To simplify the process of building complex UIs.
+                                    </p>
+                                    <h2>How was the idea to develop React conceived ?</h2>
+                                    <img src="assets/images/header/cost.png" alt="cost">
+                                    <p>
+                                        <b>Short: Conceived at Facebook.</b> Heavily used on products made by Facebook and Instagram. Built to simplify the process of building complex UIs.
+                                        The story of React started within the confines of <a href="https://facebook.com">Facebook</a>. React was created by Jordan Walke, a software engineer at Facebook. Jordan deserves all the credit for creating React. He was influenced by <b>XHP</b>, <b>a PHP</b>-based component system that is still in use at Facebook, but also by functional programming ideas.
+                                        Pete Hunt wanted to use React at Instagram, so he helped to extract React from Facebook-specific code. This prepared React to be open sourced.
+                                        Later, Facebook put a team of engineers behind React and also received great contributions from the open source community. Significant contributors include Sebastian Markbåge and Ben Alpert, among many others. Source
+                                    </p>
+                                </div>
+                            </div>
+                            <footer class="clearfix page-preview__footer">
+                                <a href="article.html" title="Read more"><button type="button" class="btn btn-primary page-preview__button">Read more</button></a>
+                            </footer>
                         </div>
                     </article>
                     <div class="comment-send-container">
@@ -161,7 +164,6 @@
                         </form>
                     </div>
                     <div class="comment-container">
-                        
                     </div>
                 </div>
             </div>
