@@ -6,7 +6,7 @@
 
 ### TODO's
 
-- [ ] Home page layout
+- [x] Home page layout
 - [ ] Article page layout
 - [ ] Comment page layout
 - [ ] Responsive layout

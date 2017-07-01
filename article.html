@@ -8,7 +8,6 @@
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700" rel="stylesheet">
     <link href="assets/css/app.css" rel="stylesheet">
     <script>document.write('<script src="http://'+(location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
@@ -129,8 +128,8 @@
                                         Later, Facebook put a team of engineers behind React and also received great contributions from the open source community. Significant contributors include Sebastian Markbåge and Ben Alpert, among many others. Source
                                     </p>
                                     <p>
-                                        <pre class="row">
-                                        <code class="language-javascript">
+                                        <pre>
+                                        <code class="javascript" id="overwirte">
 /* **********************************************
     Begin prism-core.js
 ********************************************** */
@@ -163,32 +162,28 @@ var _self = (typeof window !== 'undefined')
                             <footer class="clearfix page-preview__footer">
                                 <a href="article.html" title="Read more"><button type="button" class="btn btn-primary page-preview__button">Read more</button></a>
                             </footer>
-                        </div>
                     </article>
-                    <!--<div class="comment-send-container">
-                        <header>
-                            <h2>Leave a Reply</h2>
-                        </header>
-                        <form class="form-horizontal">
-                            <div class="form-group">
-                                <label for="inputPassword3" class="control-label">Name</label>
-                                <input type="text" class="form-control"  placeholder="Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputEmail3" class="control-label">Email</label>
-                                    <input type="email" class="form-control" placeholder="Email">
-                                    <div class="form-group">
-                            </div>
-                        <textarea class="form-control" rows="7"></textarea>
-                        <button type="submit" class="btn btn-primary">Post</button>
-                        </form>
-                    </div>-->
-                    <div class="comment-container">
-                    </div>
+                    <form class="post-form">
+                        <div class="form-group post-form__avatar">
+                            <img src="assets/images/avatar/default.png" alt="default" height="50" width="50" class="img-rounded">
+                            <label for="exampleInputFile">Avatar</label>
+                            <input type="file" id="exampleInputFile">
+                            <p class="help-block">Choose your avatar-image to be displayed alongise with your commentary</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email">
+                        </div>
+                        <textarea class="form-control" rows="3"></textarea>
+                        <button type="submit" class="btn btn-primary post-form__button">Post</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-<script src="assets/plugins/prism/prism.js"></script>
 </body>
 </html>

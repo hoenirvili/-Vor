@@ -58,7 +58,7 @@ button {
   font-size: 1rem; }
 
 pre, code {
-  width: 100%; }
+  font-size: 0.9rem; }
 
 .btn {
   font-size: 1rem; }
@@ -164,12 +164,18 @@ pre, code {
     .page-preview__hashtags__span:hover, .page-preview__hashtags__span:active, .page-preview__hashtags__span:focus {
       background-color: #428bca; }
 
-.comment-container {
-  width: 100%;
-  padding: 2rem 5rem 2rem 2rem; }
-
-textarea {
-  max-width: 100%; }
+.post-form {
+  font-size: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem; }
+  .post-form__button {
+    margin-top: 1rem;
+    margin-right: 1rem; }
+  .post-form__element {
+    width: 50%;
+    dispaly: inline-block; }
+  .post-form__avatar {
+    width: 100%; }
 
 @media only screen and (max-width: 991px) {
   .left-column {
