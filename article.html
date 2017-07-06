@@ -158,29 +158,34 @@ var _self = (typeof window !== 'undefined')
                                         Later, Facebook put a team of engineers behind React and also received great contributions from the open source community. Significant contributors include Sebastian Markbåge and Ben Alpert, among many others. Source
                                     </p>
                                 </div>
-                            </div>
+                            </div>  
                             <footer class="clearfix page-preview__footer">
-                                <a href="article.html" title="Read more"><button type="button" class="btn btn-primary page-preview__button">Read more</button></a>
                             </footer>
                     </article>
-                    <form class="post-form">
-                        <div class="form-group post-form__avatar">
-                            <img src="assets/images/avatar/default.png" alt="default" height="50" width="50" class="img-rounded">
-                            <label for="exampleInputFile">Avatar</label>
-                            <input type="file" id="exampleInputFile">
-                            <p class="help-block">Choose your avatar-image to be displayed alongise with your commentary</p>
+                    <form class="post-form" id="comment-form">
+                        <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <label for="username" class="sr-only">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Username" autocomplete="username" maxlength="60" title="username">
                         </div>
-                        <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" placeholder="Username">
+                        <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <label for="email" class="sr-only" >Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email" autocomplete="email" maxlength="60" title="email">
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input type="email" class="form-control" id="email" placeholder="Email">
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label for="comment" class="sr-only">Comment</label>
+                            <textarea placeholder="Comment" spellcheck="on" wrap="soft" class="form-control" name="comment" rows="10" cols="2" autocomplete="on" autofocus="true" form="comment-form" maxlength="800" title="shitpost"></textarea>
                         </div>
-                        <textarea class="form-control" rows="3"></textarea>
-                        <button type="submit" class="btn btn-primary post-form__button">Post</button>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <button type="submit" class="btn btn-primary post-form__button" title="pushthefuckingbutton">Post</button>
+                        </div>
                     </form>
+                </div>
+                <div class="comments box">
+                    <div class="comment">
+                        <div class="username">user</div>
+                        <div class="email">email</div>
+                        <time class="entry-date published" datetime="2017-06-13T07:21:21+00:00">June 13, 2017</time>
+                    </div>
                 </div>
             </div>
         </div>
