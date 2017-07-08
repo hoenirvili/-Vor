@@ -134,7 +134,7 @@
                                     </p>
                                     <p>
                                         <pre>
-                                        <code class="language-javascript" id="overwirte">
+                                        <code>
 /* **********************************************
     Begin prism-core.js
 ********************************************** */
@@ -168,6 +168,10 @@ var _self = (typeof window !== 'undefined')
                             </footer>
                     </article>
                     <form class="post-form" id="comment-form">
+                        <div class="form-group">
+                            <img src="assets/images/avatar/default.png" high="50" width="50" alt="..." class="img-rounded">
+                            <input type="hidden">
+                        </div>
                         <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <label for="username" class="sr-only">Username</label>
                             <input type="text" class="form-control" id="username" placeholder="Username" autocomplete="username" maxlength="60" title="username">
@@ -178,7 +182,7 @@ var _self = (typeof window !== 'undefined')
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <label for="comment" class="sr-only">Comment</label>
-                            <textarea placeholder="Comment" spellcheck="on" wrap="soft" class="form-control" name="comment" rows="10" cols="2" autocomplete="on" autofocus="true" form="comment-form" maxlength="800" title="shitpost"></textarea>
+                            <textarea placeholder="Comment" spellcheck="on" wrap="soft" class="form-control" name="comment" rows="10" cols="2" autocomplete="on" form="comment-form" maxlength="2500" title="shitpost"></textarea>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <button type="submit" class="btn btn-primary post-form__button" title="pushthefuckingbutton">Post</button>
@@ -187,6 +191,7 @@ var _self = (typeof window !== 'undefined')
                     <div class="comments" id="comments-section">
                         <div class="comments__element">
                             <div class="page-preview__meta">
+                                <img src="assets/images/avatar/default.png" high="50" width="50" alt="..." class="img-rounded">
                                 <span class="page-preview__meta__item">username</span>
                                 <span class="page-preview__meta__item">email</span>
                                 <span class="page-preview__meta__item">
@@ -198,7 +203,7 @@ var _self = (typeof window !== 'undefined')
                                 React is declarative, efficient, and extremely flexible. What’s more, it works with the libraries and frameworks that you already know like jQuery’s UI plugin.Short: Conceived at Facebook. Heavily used o</p>
                                 <p>
                                     <pre>
-                                        <code class="language-javascript">
+                                        <code>
     /* **********************************************
         Begin prism-core.js
     ********************************************** */
@@ -224,6 +229,7 @@ var _self = (typeof window !== 'undefined')
 
                         <div class="comments__element">
                             <div class="page-preview__meta">
+                                <img src="assets/images/avatar/default.png" high="50" width="50" alt="..." class="img-rounded">
                                 <span class="page-preview__meta__item">username</span>
                                 <span class="page-preview__meta__item">email</span>
                                 <span class="page-preview__meta__item">
@@ -238,6 +244,7 @@ var _self = (typeof window !== 'undefined')
 
                         <div class="comments__element">
                             <div class="page-preview__meta">
+                                <img src="assets/images/avatar/default.png" high="50" width="50" alt="..." class="img-rounded">
                                 <span class="page-preview__meta__item">username</span>
                                 <span class="page-preview__meta__item">email</span>
                                 <span class="page-preview__meta__item">
@@ -255,7 +262,7 @@ var _self = (typeof window !== 'undefined')
         </div>
     </div>
 
-
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>

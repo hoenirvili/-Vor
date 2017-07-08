@@ -57,8 +57,12 @@ img {
 button {
   font-size: 1rem; }
 
+pre {
+  background: black;
+  color: #00FF00; }
+
 pre, code {
-  font-size: 1rem; }
+  font-size: 0.9rem; }
 
 textarea {
   resize: none; }
@@ -202,6 +206,8 @@ blockquote {
     border-radius: 3px;
     background: none repeat scroll 0 0 #ffffff;
     padding: 0.9rem; }
+  .comments__content {
+    padding: 1.5rem; }
 
 @media only screen and (max-width: 991px) {
   .left-column {
