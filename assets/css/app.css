@@ -170,6 +170,18 @@ blockquote {
     .page-preview__hashtags__span:hover, .page-preview__hashtags__span:active, .page-preview__hashtags__span:focus {
       background-color: #428bca; }
 
+.menu {
+  margin-top: 1.7rem;
+  color: #fff;
+  font-weight: bold; }
+  .menu__item {
+    color: #fff;
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 1.1em; }
+  .menu__item:hover, .menu__item:focus, .menu__item:active {
+    color: black; }
+
 .post-form {
   margin-top: 2rem;
   margin-bottom: 2rem; }
@@ -200,7 +212,11 @@ blockquote {
 
   .art {
     padding-left: 1%;
-    padding-right: 1%; } }
+    padding-right: 1%; }
+
+  .menu__item {
+    display: inline-block;
+    margin-left: 0.8rem; } }
 @media only screen and (max-width: 991px) and (min-width: 768px) {
   :root {
     font-size: 14px; }
@@ -236,7 +252,7 @@ blockquote {
     .left-column--layout {
       height: 20%; }
     .left-column__container {
-      top: 25%; }
+      top: 15%; }
 
   .right-column--layout {
     height: 80%; }

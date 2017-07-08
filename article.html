@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700" rel="stylesheet">
@@ -35,6 +34,12 @@
                             </a>
                         </li>
                     </ul>
+                    <nav class="menu">
+                        <a href="index.html" class="menu__item">Home</a>
+                        <a href="about.html" class="menu__item">About</a>
+                        <a href="contact.html" class="menu__item">Contact</a>
+                        <a href="archives.html" class="menu__item">Archive</a>
+                    </nav>
                 </aside>
             </div>
             <div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-sm-12 col-xs-12 right-column right-column--layout">
@@ -57,12 +62,12 @@
                                 <span class="page-preview__meta__item">
                                     <i class="fa fa-user"></i>
                                     <span>
-                                        <a class="url fn n" href="#">Hoenirvili</a>
+                                        <a class="url fn n" href="about.html">Hoenirvili</a>
                                     </span>
                                 </span>
                                 <span class="page-preview__meta__item">
                                     <i class="fa fa-comment-o"></i>
-                                    <a href="#">
+                                    <a href="#comments-section">
                                         <span data-dsqidentifier="2864 blog/?p=2864">Comments</span>
                                     </a>
                                 </span>
@@ -129,7 +134,7 @@
                                     </p>
                                     <p>
                                         <pre>
-                                        <code class="javascript" id="overwirte">
+                                        <code class="language-javascript" id="overwirte">
 /* **********************************************
     Begin prism-core.js
 ********************************************** */
@@ -179,7 +184,7 @@ var _self = (typeof window !== 'undefined')
                             <button type="submit" class="btn btn-primary post-form__button" title="pushthefuckingbutton">Post</button>
                         </div>
                     </form>
-                    <div class="comments">
+                    <div class="comments" id="comments-section">
                         <div class="comments__element">
                             <div class="page-preview__meta">
                                 <span class="page-preview__meta__item">username</span>
@@ -188,26 +193,33 @@ var _self = (typeof window !== 'undefined')
                                       <time class="entry-date published" datetime="2017-06-13T07:21:21+00:00">June 13, 2017</time>
                                 </span>
                             </div>
-                        <div class="comments__content"></div>
-                            <p> React is Javascript library for building user interfaces (UIs). React is the V (View) in MVC.
-                            React is declarative, efficient, and extremely flexible. What’s more, it works with the libraries and frameworks that you already know like jQuery’s UI plugin.Short: Conceived at Facebook. Heavily used o</p>
-                            <p>
-                                <pre>
-                                    <code>
-/* **********************************************
-    Begin prism-core.js
-********************************************** */
+                            <div class="comments__content">
+                                <p> React is Javascript library for building user interfaces (UIs). React is the V (View) in MVC.
+                                React is declarative, efficient, and extremely flexible. What’s more, it works with the libraries and frameworks that you already know like jQuery’s UI plugin.Short: Conceived at Facebook. Heavily used o</p>
+                                <p>
+                                    <pre>
+                                        <code class="language-javascript">
+    /* **********************************************
+        Begin prism-core.js
+    ********************************************** */
 
-var _self = (typeof window !== 'undefined')
-    ? window   // if in browser
-    : (
-        (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope)
-        ? self // if in worker
-        : {}   // if in node js
-    );
-                                    </code>
-                                </pre>
-                            </p>
+    var _self = (typeof window !== 'undefined')
+        ? window   // if in browser
+        : (
+            (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope)
+            ? self // if in worker
+            : {}   // if in node js
+        );
+                                        </code>
+                                    </pre>
+                                </p>
+                                <p> React is Javascript library for building user interfaces (UIs). React is the V (View) in MVC.
+                                React is declarative, efficient, and extremely flexible. What’s more, it works with the libraries and frameworks that you already know like jQuery’s UI plugin.Short: Conceived at Facebook. Heavily used o
+                                React is Javascript library for building user interfaces (UIs). React is the V (View) in MVC.
+                                React is declarative, efficient, and extremely flexible. What’s more, it works with the libraries and frameworks that you already know like jQuery’s UI plugin.Short: Conceived at Facebook. Heavily used o</p>
+                                <p> React is Javascript library for building user interfaces (UIs). React is the V (View) in MVC.
+                                React is declarative, efficient, and extremely flexible. What’s more, it works with the libraries and frameworks that you already know like jQuery’s UI plugin.Short: Conceived at Facebook. Heavily used o</p>
+                            </div>
                         </div>
 
                         <div class="comments__element">
@@ -218,27 +230,32 @@ var _self = (typeof window !== 'undefined')
                                       <time class="entry-date published" datetime="2017-06-13T07:21:21+00:00">June 13, 2017</time>
                                 </span>
                             </div>
-                        <div class="comments__content"></div>
-                            <p> React is Javascript library for building user interfaces (UIs). React is the V (View) in MVC.
-                            React is declarative, efficient, and extremely flexible. What’s more, it works with the libraries and frameworks that you already know like jQuery’s UI plugin.Short: Conceived at Facebook. Heavily used o</p>
+                            <div class="comments__content">
+                                <p> React is Javascript library for building user interfaces (UIs). React is the V (View) in MVC.
+                                React is declarative, efficient, and extremely flexible. What’s more, it works with the libraries and frameworks that you already know like jQuery’s UI plugin.Short: Conceived at Facebook. Heavily used o</p>
+                            </div>
                         </div>
 
-                          <div class="comments__element">
+                        <div class="comments__element">
                             <div class="page-preview__meta">
                                 <span class="page-preview__meta__item">username</span>
                                 <span class="page-preview__meta__item">email</span>
                                 <span class="page-preview__meta__item">
-                                      <time class="entry-date published" datetime="2017-06-13T07:21:21+00:00">June 13, 2017</time>
+                                        <time class="entry-date published" datetime="2017-06-13T07:21:21+00:00">June 13, 2017</time>
                                 </span>
                             </div>
-                        <div class="comments__content"></div>
-                            <p> React is Javascript library for building user interfaces (UIs). React is the V (View) in MVC.
-                            React is declarative, efficient, and extremely flexible. What’s more, it works with the libraries and frameworks that you already know like jQuery’s UI plugin.Short: Conceived at Facebook. Heavily used o</p>
+                            <div class="comments__content">
+                                <p> React is Javascript library for building user interfaces (UIs). React is the V (View) in MVC.
+                                React is declarative, efficient, and extremely flexible. What’s more, it works with the libraries and frameworks that you already know like jQuery’s UI plugin.Short: Conceived at Facebook. Heavily used o</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
