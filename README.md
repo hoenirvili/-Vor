@@ -2,7 +2,7 @@
 
  Vör a blog about engineering, rants and wisdom
 
-![hoenir-blog](doc/headlineblog.png)
+![hoenir-blog](doc/headline.png)
 
 ### TODO's
 
