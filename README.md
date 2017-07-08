@@ -7,8 +7,9 @@
 ### TODO's
 
 - [x] Home page layout
-- [ ] Article page layout
+- [x] Article page layout
 - [ ] Comment page layout
-- [ ] Responsive layout
+- [x] Navigation menu
+- [x] Responsive layout
 - [ ] Database layout
-- [ ] Backend code(maybe a simple REST api?)
+- [ ] Backend code(maybe a simple REST API?)
