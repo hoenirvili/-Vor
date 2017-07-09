@@ -150,6 +150,12 @@ blockquote {
   .page-preview__meta {
     width: 100%;
     padding: 0.8rem; }
+    .page-preview__meta__item--timestamp {
+      display: block;
+      margin-top: 0.3rem;
+      margin-left: 0.9rem; }
+      .page-preview__meta__item--timestamp > time {
+        font-size: 0.8rem; }
     .page-preview__meta__item:nth-child(2), .page-preview__meta__item:nth-child(3) {
       margin-left: 0.8rem; }
   .page-preview__headeline {
@@ -173,6 +179,22 @@ blockquote {
       transition: background 0.5s ease-out; }
     .page-preview__hashtags__span:hover, .page-preview__hashtags__span:active, .page-preview__hashtags__span:focus {
       background-color: #428bca; }
+  .page-preview__content p {
+    font-size: 1.1rem; }
+  .page-preview__content blockquote {
+    font-style: italic; }
+  .page-preview__content--wrap {
+    margin-top: 1rem;
+    margin-bottom: 0.2rem;
+    border-radius: 3px; }
+  .page-preview__content--left-wrap {
+    margin-left: 0;
+    margin-right: 1.2rem;
+    float: left; }
+  .page-preview__content--right-wrap {
+    margin-righ: 0;
+    margin-left: 1.2rem;
+    float: right; }
 
 .menu {
   margin-top: 1.7rem;
@@ -189,10 +211,23 @@ blockquote {
 .post-form {
   margin-top: 2rem;
   margin-bottom: 2rem; }
-  .post-form__button {
-    margin-top: 1rem;
-    margin-right: 1rem;
-    margin-bottom: 1rem; }
+  .post-form__upload {
+    position: relative;
+    display: inline-block;
+    padding: 0.2rem 0.2rem;
+    margin-top: 0.2rem; }
+    .post-form__upload__input {
+      position: absolute;
+      left: 0px;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      background: #00f;
+      z-index: 999; }
+    .post-form__upload--icon {
+      position: relative; }
+    .post-form__upload--icont:hover, .post-form__upload--icon:active, .post-form__upload--icon:focus {
+      cursor: pointer; }
 
 .comments {
   display: inline-block;

@@ -80,6 +80,14 @@
     &__meta
         width: 100%
         padding: 0.8rem
+        &__item
+            &--timestamp
+                display: block
+                margin-top: 0.3rem
+                margin-left: 0.9rem
+                & > time
+                    font-size: 0.8rem
+                
         &__item:nth-child(2),
         &__item:nth-child(3)
             margin-left: 0.8rem
@@ -106,7 +114,25 @@
         &__span:active,
         &__span:focus
             background-color: #428bca
-
+    &__content
+        p
+            font-size: 1.1rem
+        blockquote
+            font-style: italic
+        &--wrap
+            margin-top: 1rem
+            margin-bottom: 0.2rem
+            border-radius: 3px
+        &--left-wrap
+            margin-left: 0
+            margin-right: 1.2rem
+            float: left
+        &--right-wrap
+            margin-righ: 0
+            margin-left: 1.2rem
+            float: right
+        
+        
 .menu
     margin-top: 1.7rem
     color: #fff

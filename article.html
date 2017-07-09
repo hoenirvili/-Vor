@@ -155,7 +155,19 @@ var _self = (typeof window !== 'undefined')
                                         React was built to solve one problem: building large applications with data that changes over time. To simplify the process of building complex UIs.
                                     </p>
                                     <h3>How was the idea to develop React conceived ?</h3>
-                                    <img src="assets/images/header/cost.png" alt="cost">
+                                    <img class="page-preview__content--wrap page-preview__content--left-wrap img-responsive" src="assets/images/header/cost.gif" alt="cost">
+                                    <p>
+                                        <b>Short: Conceived at Facebook.</b> Heavily used on products made by Facebook and Instagram. Built to simplify the process of building complex UIs.
+                                        The story of React started within the confines of <a href="https://facebook.com">Facebook</a>. React was created by Jordan Walke, a software engineer at Facebook. Jordan deserves all the credit for creating React. He was influenced by <b>XHP</b>, <b>a PHP</b>-based component system that is still in use at Facebook, but also by functional programming ideas.
+                                        Pete Hunt wanted to use React at Instagram, so he helped to extract React from Facebook-specific code. This prepared React to be open sourced.
+                                        Later, Facebook put a team of engineers behind React and also received great contributions from the open source community. Significant contributors include Sebastian Markbåge and Ben Alpert, among many others. Source
+                                    </p>
+                                    <p>
+                                        <b>Short: Conceived at Facebook.</b> Heavily used on products made by Facebook and Instagram. Built to simplify the process of building complex UIs.
+                                        The story of React started within the confines of <a href="https://facebook.com">Facebook</a>. React was created by Jordan Walke, a software engineer at Facebook. Jordan deserves all the credit for creating React. He was influenced by <b>XHP</b>, <b>a PHP</b>-based component system that is still in use at Facebook, but also by functional programming ideas.
+                                        Pete Hunt wanted to use React at Instagram, so he helped to extract React from Facebook-specific code. This prepared React to be open sourced.
+                                        Later, Facebook put a team of engineers behind React and also received great contributions from the open source community. Significant contributors include Sebastian Markbåge and Ben Alpert, among many others. Source
+                                    </p>
                                     <p>
                                         <b>Short: Conceived at Facebook.</b> Heavily used on products made by Facebook and Instagram. Built to simplify the process of building complex UIs.
                                         The story of React started within the confines of <a href="https://facebook.com">Facebook</a>. React was created by Jordan Walke, a software engineer at Facebook. Jordan deserves all the credit for creating React. He was influenced by <b>XHP</b>, <b>a PHP</b>-based component system that is still in use at Facebook, but also by functional programming ideas.
@@ -168,10 +180,7 @@ var _self = (typeof window !== 'undefined')
                             </footer>
                     </article>
                     <form class="post-form" id="comment-form">
-                        <div class="form-group">
-                            <img src="assets/images/avatar/default.png" high="50" width="50" alt="..." class="img-rounded">
-                            <input type="hidden">
-                        </div>
+                        
                         <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <label for="username" class="sr-only">Username</label>
                             <input type="text" class="form-control" id="username" placeholder="Username" autocomplete="username" maxlength="60" title="username">
@@ -183,7 +192,11 @@ var _self = (typeof window !== 'undefined')
                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <label for="comment" class="sr-only">Comment</label>
                             <textarea placeholder="Comment" spellcheck="on" wrap="soft" class="form-control" name="comment" rows="10" cols="2" autocomplete="on" form="comment-form" maxlength="2500" title="shitpost"></textarea>
+                        <div class="post-form__upload">
+                            <input type='file' id='image' class="post-form__upload__input">
+                            <i class="fa fa-image fa-2x post-form__upload--icon"></i>
                         </div>
+                        </div> <!--TODO-->
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <button type="submit" class="btn btn-primary post-form__button" title="pushthefuckingbutton">Post</button>
                         </div>
@@ -191,10 +204,11 @@ var _self = (typeof window !== 'undefined')
                     <div class="comments" id="comments-section">
                         <div class="comments__element">
                             <div class="page-preview__meta">
-                                <img src="assets/images/avatar/default.png" high="50" width="50" alt="..." class="img-rounded">
-                                <span class="page-preview__meta__item">username</span>
-                                <span class="page-preview__meta__item">email</span>
-                                <span class="page-preview__meta__item">
+                                <span class="page-preview__meta__item"><i class="fa fa-2x fa-user" aria-hidden="true"></i></span>
+                                <span class="page-preview__meta__item"><b>username</b></span>
+                                <span class="page-preview__meta__item"><b>example@example.com</b></span>
+                                <hr>
+                                <span class="page-preview__meta__item--timestamp">
                                       <time class="entry-date published" datetime="2017-06-13T07:21:21+00:00">June 13, 2017</time>
                                 </span>
                             </div>
@@ -229,10 +243,11 @@ var _self = (typeof window !== 'undefined')
 
                         <div class="comments__element">
                             <div class="page-preview__meta">
-                                <img src="assets/images/avatar/default.png" high="50" width="50" alt="..." class="img-rounded">
-                                <span class="page-preview__meta__item">username</span>
-                                <span class="page-preview__meta__item">email</span>
-                                <span class="page-preview__meta__item">
+                                <span class="page-preview__meta__item"><i class="fa fa-2x fa-user" aria-hidden="true"></i></span>
+                                <span class="page-preview__meta__item"><b>username</b></span>
+                                <span class="page-preview__meta__item"><b>example@example.com</b></span>
+                                 <hr>
+                                <span class="page-preview__meta__item--timestamp">
                                       <time class="entry-date published" datetime="2017-06-13T07:21:21+00:00">June 13, 2017</time>
                                 </span>
                             </div>
@@ -244,10 +259,11 @@ var _self = (typeof window !== 'undefined')
 
                         <div class="comments__element">
                             <div class="page-preview__meta">
-                                <img src="assets/images/avatar/default.png" high="50" width="50" alt="..." class="img-rounded">
-                                <span class="page-preview__meta__item">username</span>
-                                <span class="page-preview__meta__item">email</span>
-                                <span class="page-preview__meta__item">
+                                <span class="page-preview__meta__item"><i class="fa fa-2x fa-user" aria-hidden="true"></i></span>
+                                <span class="page-preview__meta__item"><b>username</b></span>
+                                <span class="page-preview__meta__item"><b>example@example.com</b></span>
+                                <hr>
+                                <span class="page-preview__meta__item--timestamp">
                                         <time class="entry-date published" datetime="2017-06-13T07:21:21+00:00">June 13, 2017</time>
                                 </span>
                             </div>

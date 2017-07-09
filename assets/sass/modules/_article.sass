@@ -1,10 +1,27 @@
 .post-form
     margin-top: 2rem
     margin-bottom: 2rem
-    &__button
-        margin-top: 1rem
-        margin-right: 1rem
-        margin-bottom: 1rem
+    &__upload
+        position: relative
+        display: inline-block
+        padding: 0.2rem 0.2rem
+        margin-top: 0.2rem
+        &__input
+            position: absolute
+            left: 0px
+            height: 100%
+            width: 100%
+            opacity: 0
+            background: #00f
+            z-index: 999
+        &--icon
+            position: relative
+        &--icont:hover,
+        &--icon:active,
+        &--icon:focus
+            cursor: pointer
+        
+
 
 .comments
     display: inline-block
@@ -20,3 +37,5 @@
         padding: 0.9rem
     &__content
         padding: 1.5rem
+
+    
