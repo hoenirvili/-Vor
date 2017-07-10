@@ -8,8 +8,12 @@
 
 - [x] Home page layout
 - [x] Article page layout
-- [ ] Comment page layout
+- [X] Comment page layout
 - [x] Navigation menu
 - [x] Responsive layout
+- [ ] Custom error page layout
+- [ ] Javascript client code
+- [ ] Login page
+- [ ] Admin pannel page
 - [ ] Database layout
 - [ ] Backend code(maybe a simple REST API?)
