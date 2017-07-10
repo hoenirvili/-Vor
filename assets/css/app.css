@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
   font-size: 1rem;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 1.5; }
 
 h1, h2,
@@ -73,6 +73,9 @@ textarea {
 blockquote {
   font-size: 1rem; }
 
+.pager {
+  margin-top: 3.5rem; }
+
 .box {
   border: 1px red solid; }
 
@@ -96,11 +99,11 @@ blockquote {
     display: table-cell;
     vertical-align: middle; }
   .left-column__title {
-    margin-top: 0; }
+    margin-top: -2.5rem; }
 
 .meta-list {
   list-style-type: none;
-  margin-top: 0.7rem;
+  margin-top: 1.7rem;
   background-position: center;
   background-size: 1.9rem; }
   .meta-list__item {
@@ -182,6 +185,7 @@ blockquote {
   .page-preview__content p {
     font-size: 1.1rem; }
   .page-preview__content blockquote {
+    font-weight: 300;
     font-style: italic; }
   .page-preview__content--wrap {
     margin-top: 1rem;
@@ -228,6 +232,9 @@ blockquote {
       position: relative; }
     .post-form__upload--icont:hover, .post-form__upload--icon:active, .post-form__upload--icon:focus {
       cursor: pointer; }
+  .post-form__button {
+    margin-top: 0.6rem;
+    float: right; }
 
 .comments {
   display: inline-block;
@@ -293,7 +300,7 @@ blockquote {
     .left-column--layout {
       height: 20%; }
     .left-column__container {
-      top: 15%; }
+      top: 30%; }
 
   .right-column--layout {
     height: 80%; }

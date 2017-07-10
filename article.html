@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
     <link href="assets/css/app.css" rel="stylesheet">
     <script>document.write('<script src="http://'+(location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </head>
@@ -37,8 +37,7 @@
                     <nav class="menu">
                         <a href="index.html" class="menu__item">Home</a>
                         <a href="about.html" class="menu__item">About</a>
-                        <a href="contact.html" class="menu__item">Contact</a>
-                        <a href="archives.html" class="menu__item">Archive</a>
+                        <a href="archive.html" class="menu__item">Archive</a>
                     </nav>
                 </aside>
             </div>
@@ -120,6 +119,9 @@
                                 </a>
                             </div>
                             <div class="page-preview__content">
+                                    <p>Pete Hunt wanted to use React at Instagram, so he helped to extract React from Facebook-specific code. This prepared React to be open sourced. Later, Facebook put a team of engineers behind React and also received great contributions from the open source community. Significant contributors include Sebastian Markbåge and Ben Alpert, among many others</p>
+                                    <p>React is Javascript library for building user interfaces (UIs). React is the V (View) in MVC.
+                                    React is declarative, efficient, and extremely flexible. What’s more, it works with the libraries and frameworks that you already know like jQuery’s UI plugin.Short: Conceived at Facebook.</p>
                                     <h1>What is react ?</h1>
                                     <blockquote>
                                         Update: I did mention that lock free data structures are really hard to write, it looks like there might be some issues that haven’t been addressed in the implementation of this LF Queue that we’re referencing. The rest of the analysis is still valid and hopefully useful to you, just know there’s actually more that needs to be done, don’t try to use that code for a mission critical application out of the box.
@@ -192,14 +194,13 @@ var _self = (typeof window !== 'undefined')
                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <label for="comment" class="sr-only">Comment</label>
                             <textarea placeholder="Comment" spellcheck="on" wrap="soft" class="form-control" name="comment" rows="10" cols="2" autocomplete="on" form="comment-form" maxlength="2500" title="shitpost"></textarea>
-                        <div class="post-form__upload">
-                            <input type='file' id='image' class="post-form__upload__input">
-                            <i class="fa fa-image fa-2x post-form__upload--icon"></i>
-                        </div>
-                        </div> <!--TODO-->
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="post-form__upload">
+                                <input type='file' id='image' class="post-form__upload__input">
+                                <i class="fa fa-image fa-2x post-form__upload--icon"></i>
+                            </div>
                             <button type="submit" class="btn btn-primary post-form__button" title="pushthefuckingbutton">Post</button>
                         </div>
+                       
                     </form>
                     <div class="comments" id="comments-section">
                         <div class="comments__element">
@@ -246,7 +247,7 @@ var _self = (typeof window !== 'undefined')
                                 <span class="page-preview__meta__item"><i class="fa fa-2x fa-user" aria-hidden="true"></i></span>
                                 <span class="page-preview__meta__item"><b>username</b></span>
                                 <span class="page-preview__meta__item"><b>example@example.com</b></span>
-                                 <hr>
+                                <hr>
                                 <span class="page-preview__meta__item--timestamp">
                                       <time class="entry-date published" datetime="2017-06-13T07:21:21+00:00">June 13, 2017</time>
                                 </span>
