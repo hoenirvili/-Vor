@@ -14,27 +14,17 @@
     <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </head>
 <body>
-    <div class="container full-layout full-width">
+    <div class="container-fluid full-layout">
         <div class="row full-layout">
-            <!--TODO-->
-            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
-                <div class="error text-center">
-                    <header class="error__header">
-                        <i class="error__image fa fa-exclamation-triangle" aria-hidden="true"></i>
-                        <h1 class="error__bold">Something bad has happened !</h1>
-                    </header>
-                    <hr class="error__sep">
-                    <section class="error__content">
-                        <p class="error__text">You must really fucked things up ! <b class="error__text">Error: 404</b></p>
-                    </section>
-                    <a href="index.html">
-                        <button type="button" class="error__button btn btn-primary">Get me to the main page</button>
-                    </a>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 right-column full-layout">
+                <div class="jumbotron text-center error">
+                    <h1><i class="fa fa-flag-o" aria-hidden="true"></i> 404</h1>
+                    <p>Content does not exist</p>
+                    <p><a class="btn btn-primary btn-lg" href="index.html" role="button">Get me out of here <i class="fa fa-arrow-right" aria-hidden="true"></i></a></p>
                 </div>
             </div>
         </div>
     </div>
-
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>

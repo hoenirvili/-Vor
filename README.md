@@ -11,6 +11,8 @@
 - [X] Comment page layout
 - [x] Navigation menu
 - [x] Responsive layout
+- [x] Archive 
+- [x] About layout
 - [ ] Custom error page layout
 - [ ] Javascript client code
 - [ ] Login page
