@@ -13,7 +13,7 @@
 - [x] Responsive layout
 - [x] Archive 
 - [x] About layout
-- [ ] Custom error page layout
+- [x] Custom error page layout
 - [ ] Javascript client code
 - [ ] Login page
 - [ ] Admin pannel page
