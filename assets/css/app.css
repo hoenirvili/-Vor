@@ -303,6 +303,27 @@ blockquote {
     font-size: 1.8rem;
     font-weight: bold; }
 
+.about {
+  padding: 3rem 3rem;
+  background-color: #f2f2f2; }
+  .about__title {
+    font-size: 3.5rem; }
+  .about__text {
+    font-weight: 200;
+    font-size: 1.1rem; }
+  .about__list {
+    list-style: none; }
+    .about__list__element {
+      display: inline-block;
+      padding: 0.2rem 0.2rem; }
+  .about__avatar {
+    display: block;
+    padding: 1.3rem 1.3rem;
+    padding-left: 0rem;
+    float: left; }
+  .about__gpg {
+    font-size: 0.9rem; }
+
 @media only screen and (max-width: 991px) {
   .left-column {
     position: static; }
@@ -361,7 +382,10 @@ blockquote {
     padding-top: 1em;
     padding-bottom: 1em;
     padding-left: 1%;
-    padding-right: 1%; } }
+    padding-right: 1%; }
+
+  .about__gpg {
+    font-size: 0.7rem; } }
 @media only screen and (max-width: 375px) and (min-width: 319px) {
   :root {
     font-size: 9px; }
