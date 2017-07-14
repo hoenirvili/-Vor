@@ -2,7 +2,13 @@
 
  Vör a blog about engineering, rants and wisdom
 
-![hoenir-blog](doc/headline.png)
+## Main page
+
+![main-page](doc/main-page.png)
+
+## Login page
+
+![login-page](doc/login-page.png)
 
 ### TODO's
 
@@ -19,3 +25,11 @@
 - [ ] Admin pannel page
 - [ ] Database layout
 - [ ] Backend code(maybe a simple REST API?)
+
+
+## Archive page
+
+![archive-page](doc/archive-page.png)
+
+## About page
+![about-page](doc/about-page.png)
