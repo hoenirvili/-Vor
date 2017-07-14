@@ -15,7 +15,7 @@
 - [x] About layout
 - [x] Custom error page layout
 - [ ] Javascript client code
-- [ ] Login page
+- [x] Login page
 - [ ] Admin pannel page
 - [ ] Database layout
 - [ ] Backend code(maybe a simple REST API?)
