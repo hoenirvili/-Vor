@@ -20,12 +20,11 @@
 - [x] Archive 
 - [x] About layout
 - [x] Custom error page layout
-- [ ] Javascript client code
+- [ ] JavaScript client code
 - [x] Login page
-- [ ] Admin pannel page
+- [ ] Admin panel page
 - [ ] Database layout
 - [ ] Backend code(maybe a simple REST API?)
-
 
 ## Archive page
 

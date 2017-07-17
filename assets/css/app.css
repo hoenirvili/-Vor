@@ -122,7 +122,47 @@ blockquote {
   font-size: 2.7rem; }
 
 .jumbotron h6 {
-  font-size: 2.2rem; }
+  font-size: 2.2rem;
+  color: #fff; }
+
+.navbar-default .navbar-nav > li > a {
+  color: #fff; }
+
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:active {
+  color: #5e5e5e; }
+
+.dropdown-menu {
+  background-color: #f2f2f2; }
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+  color: #5e5e5e; }
+
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:active {
+  color: #5e5e5e;
+  background-color: #333; }
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus,
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+  color: #b1b1b1; }
+
+.navbar-default .navbar-toggle {
+  border-color: #5e5e5e; }
+
+@media (min-width: 768px) {
+  .navbar {
+    border-radius: 0; } }
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #fff; } }
+.navbar-default {
+  border: none; }
+
+.navbar-default .navbar-brand {
+  color: #fff; }
 
 .box {
   border: 1px red solid; }
@@ -356,6 +396,16 @@ blockquote {
   .login__button {
     display: block;
     width: 100%; }
+
+.remove-padding {
+  padding-left: 0;
+  padding-right: 0; }
+
+.top-bar {
+  background-color: #333;
+  color: #fff; }
+  .top-bar__brand {
+    color: #fff; }
 
 @media only screen and (max-width: 991px) {
   .left-column {
