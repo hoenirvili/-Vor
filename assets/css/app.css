@@ -407,6 +407,9 @@ blockquote {
   .top-bar__brand {
     color: #fff; }
 
+.fix {
+  position: fixed; }
+
 @media only screen and (max-width: 991px) {
   .left-column {
     position: static; }
