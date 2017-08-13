@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
@@ -14,9 +13,6 @@ function init(): void {
 }
 
 function main(): void {
-    echo isset($_GET['url']) ?? "mama";
-        // $_GET['url'] = NULL;
-        // var_dump($_GET['url']);
     try {
         init();
     } catch(Exception $e) {
@@ -25,10 +21,10 @@ function main(): void {
     }
 
 
-    if isset($_GET['url'])
+    if (isset($_GET['url'])) {
         if ($_GET['url'] === "/index.php")
             include_once(__DIR__ . '/');
-
+    }
 }
 
 main();
