@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespacee Http;
 
-abstract StatusCode {
+class StatusCode extends SplEnum {
+    __default = StatusCode::200;
+
     // Informational - Request received, continuing process
     const CONTINUE                        = 100;
     const SWITCHING_PROTOCOLS             = 101;

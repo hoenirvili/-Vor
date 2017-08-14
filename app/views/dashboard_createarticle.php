@@ -1,23 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Hœnir</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
-    <link href="assets/css/app.css" rel="stylesheet">
-    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-    <script>
-        tinymce.init({
-            selector:'textarea'
-        });
-    </script>
-</head>
+<?php require_once('base/header.php');?>
 <body>
     <div class="container-fluid">
         <div class="row">
@@ -120,7 +103,6 @@
             </div>
         </div>
     </div>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<?php require_once('base/footer.php'); ?>
 </body>
 </html>
