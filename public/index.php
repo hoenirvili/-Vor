@@ -13,6 +13,8 @@ function init(): void {
     require_once(INIT_PATH);
 }
 
+use Core\App as App;
+
 function main(): void {
     try {
         init();
@@ -20,6 +22,8 @@ function main(): void {
         echo $s;
     }
 
-    require_once('../app/views/index.php');
+   $app = new App();
+   $app->response();
 }
+
 main();

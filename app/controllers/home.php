@@ -1,8 +1,11 @@
 <?php
 declare(strict_types=1);
 
-class Home extends Controller {
-    public function index() :void {
+namespace controllers;
 
+class Home extends Controller {
+    public static function render() {
+        $view = new views\View('index.php');
+        $view->render();
     }
 }

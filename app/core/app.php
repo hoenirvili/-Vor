@@ -1,25 +1,25 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Core;
+namespace Core;
+
+use controllers;
 
 class App {
-    protected $controller = 'home';
-    protected $method = 'index';
-    protected $params = [];
+    private $url;
 
-    public function __construct() {
-        echo "test";
-    }
-
-    public function parseUrl(): array {
-
-        if (isset($_GET['url'])) {
-            $url = explode('/',
-                filter_var(rtrim($_GET['url'], '/'),
-                    FILTER_SANITIZE_URL));
+    public function __construct(string $url = '') {
+        if ($url === '') {
+            $home = controllers\Home('index.php');
+            $home->render();
+            echo ' Totusi?!';
+            return;
         }
 
-        return $url;
+        $this->url = $url;
+    }
+
+    public function response() {
+            //Router($this->url)->call();
     }
 }

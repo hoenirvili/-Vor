@@ -20,16 +20,6 @@ $config = [
     ],
 ];
 
-
-function load_core($class) {
-    include 'core/' . $class . '.php' . PHP_EOL;
-}
-
-function load_http($class) {
-    include 'http/' . $class . '.php' . PHP_EOL;
-}
-
-spl_autoload_register(
-    'load_core',
-    'load_http'
-);
+spl_autoload_register(function($class) {
+    require_once $class . '.php';
+});
