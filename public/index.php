@@ -22,7 +22,14 @@ function main(): void {
         return;
     }
 
-    $app = new App();
+    $url = '';
+    if (isset($_GET['url'])) {
+        if (($_GET['url'] !== null) && ($_GET['url'] !== '') &&
+            (is_string($_GET['url'])) && (mb_detect_encoding($url, 'ASCII', true)))
+                $url = trim($_GET['url']);
+    }
+
+    $app = new App($url);
     try {
         $app->response();
     } catch(Exception $e) {

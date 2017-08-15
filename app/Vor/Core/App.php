@@ -8,6 +8,13 @@ class App {
     private $url;
 
     public function __construct(string $url = '') {
+        if ($url !== '') {
+            // TODO(hoenir): maybe preg_replace ?
+            if (!filter_var($url, FILTER_VALIDATE_URL)) {
+               throw \InvalidArgumentException("The path is not a valid url");
+            }
+        }
+
         $this->url = $url;
     }
 
@@ -16,5 +23,14 @@ class App {
             Home::render();
             return;
         }
+
+        //TODO(hoenir): add checking code
+        $lists = explode('/', $this->url);
+        $controller = $lists[0];
+        $method = $lists[1];
+        $params = array_slice($lists, 2);
+        $object = new $controller;
+        call_user_method($method, $object, $params);
+
     }
 }
