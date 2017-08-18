@@ -8,11 +8,11 @@
                 <div class="jumbotron text-center error">
                     <h1>
                         <i class="fa fa-flag-o" aria-hidden="true"></i>
-                        <?php $code ?>
+                        <?php echo $code ?>
                     </h1>
-                    <p><?php $message ?></p>
+                    <p><?php echo $message ?></p>
                     <p>
-                        <a class="btn btn-primary btn-lg" href="index.html" role="button">
+                        <a class="btn btn-primary btn-lg" href="index.php" role="button">
                             Get me out of here
                             <i class="fa fa-arrow-right" aria-hidden="true"></i>
                         </a>

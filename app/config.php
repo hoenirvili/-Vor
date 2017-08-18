@@ -1,20 +1,22 @@
 <?php
+
+
 return [
     'database' => [
-        'host'      => getenv('PHP_DB_HOST'),
-        'port'      => getenv('PHP_DB_PORT'),
-        'username'  => getenv('PHP_DP_USERNAME'),
-        'password'  => getenv('PHP_DB_PASSWORD'),
+        'host'      => (($env = getenv('PHP_DB_HOST', true)) !== false) ? $env : '',
+        'port'      => (($env = getenv('PHP_DB_PORT', true)) !== false) ? $env : '',
+        'username'  => (($env = getenv('PHP_DB_USERNAME', true)) !== false) ? $env : '',
+        'password'  => (($env = getenv('PHP_DB_PASSWORD', true)) !== false) ? $env : '',
     ],
 
     'pages' => [
-        'index'             => 'templates/index.php',
-        'about'             => 'templates/about.php',
-        'archive'           => 'templates/archive.php',
-        'article'           => 'templates/article.php',
-        'dashboard'         => 'templates/dashboard.php',
-        'dashboard_create'  => 'templates/dashboard_createarticle.php',
-        'error'             => 'templates/error.php',
-        'login'             => 'templates/login.php',
+        'index'             => __DIR__ . '/Vor/Views/templates/index.php',
+        'about'             => __DIR__ . '/Vor/Views/templates/about.php',
+        'archive'           => __DIR__ . '/Vor/Views/templates/archive.php',
+        'article'           => __DIR__ . '/Vor/Views/templates/article.php',
+        'dashboard'         => __DIR__ . '/Vor/Views/templates/dashboard.php',
+        'dashboard_create'  => __DIR__ . '/Vor/Views/templates/dashboard_createarticle.php',
+        'error'             => __DIR__ . '/Vor/Views/templates/error.php',
+        'login'             => __DIR__ . '/Vor/Views/templates/login.php',
     ],
 ];

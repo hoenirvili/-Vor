@@ -2,16 +2,20 @@
 
 namespace Vor\Core;
 
-class ErrorPage {
-    public static function render(int $code=0, string $message='') {
-        if (($code < 100) || ($code > 511))
-            throw new \UnexpectedValueException(
-                "Invalid $code parameeter for render method");
+use Vor\Http\StatusCode;
+use Vor\Core\Config;
 
-        http_response_code($code);
-        # we assume that the config was already been verified
-        # in the index script
+final class ErrorPage {
+    public static function render(StatusCode $status = null, string $message=null) {
+        if ($status === null)
+            throw new InvalidArgumentException(
+                "Invalid parameeter for render method");
+
+        $config = Config::get();
         $page = $config['pages']['error'];
+        $code = $status->code();
+        http_response_code($code);
+        $message = ($message) ?? $status ?? $message;
         require_once $page;
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Vor\Views;
 
+use Vor\Core\Config;
+
 class View {
     private $file;
 
@@ -10,15 +12,8 @@ class View {
             throw new \InvalidArgumentException (
                 "View needs a valid template file name");
 
-        $config = include(__DIR__ . '/../../config.php');
-        $file = __DIR__ . '/' . $config['pages'][$name];
-        if (!file_exists($file)) {
-            throw new \InvalidArgumentException(
-                'View file does not exist'
-            );
-        }
-
-        $this->file = $file;
+        $config = Config::get();
+        $this->file = $config['pages'][$name];
     }
 
     public function render(): void {
