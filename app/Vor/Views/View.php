@@ -5,18 +5,17 @@ namespace Vor\Views;
 use Vor\Core\Config;
 
 class View {
-    private $file;
+    private $pages;
 
-    public function __construct(string $name='') {
-        if ($name === '')
-            throw new \InvalidArgumentException (
-                "View needs a valid template file name");
-
+    public function __construct() {
         $config = Config::get();
-        $this->file = $config['pages'][$name];
+        $this->pages = $config['pages'];
     }
 
-    public function render(): void {
-        require_once($this->file);
+    public function render(string $name=''): void {
+        if (($name === '') || ($name === null))
+            $name = 'index';
+
+        require_once($this->pages[$name]);
     }
 }

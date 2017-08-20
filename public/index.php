@@ -5,7 +5,6 @@ ini_set('display_errors', '1');
 
 use Vor\Core\App;
 use Vor\Http\StatusCode;
-Use Vor\Http\Url;
 use Vor\Core\ErrorPage;
 use Vor\Core\Config;
 
@@ -31,14 +30,16 @@ function main(): void {
     }
 
     $url = '';
-    if ((isset($_GET['url'])) && ($_GET['url'] !== null) && (is_string($_GET['url']))) {
-        echo 'am intrat';
-        $url = Url::parse($_GET['url']);
+    if ((isset($_GET['url'])) &&
+        ($_GET['url'] !== null)
+        && (is_string($_GET['url']))) {
+
+        $url = $_GET['url'];
     }
 
     $app = new App($url);
     try {
-        $app->response();
+        $app->render();
     } catch(Exception $e) {
         ErrorPage::render(
             new StatusCode(StatusCode::INTERNAL_SERVER_ERROR),

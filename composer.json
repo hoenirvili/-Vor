@@ -3,5 +3,8 @@
        "psr-4": {
             "Vor\\": "app/Vor"
        }
+    },
+    "require": {
+        "baryshev/tree-route": "^2.0"
     }
 }

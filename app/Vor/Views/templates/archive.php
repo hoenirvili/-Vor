@@ -25,9 +25,9 @@
                         </li>
                     </ul>
                     <nav class="menu">
-                        <a href="index.html" class="menu__item">Home</a>
-                        <a href="about.html" class="menu__item">About</a>
-                        <a href="archive.html" class="menu__item">Archive</a>
+                        <a href="index" class="menu__item">Home</a>
+                        <a href="about" class="menu__item">About</a>
+                        <a href="archive" class="menu__item">Archive</a>
                     </nav>
                 </aside>
             </div>

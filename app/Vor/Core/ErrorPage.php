@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Vor\Core;
 
@@ -15,7 +17,8 @@ final class ErrorPage {
         $page = $config['pages']['error'];
         $code = $status->code();
         http_response_code($code);
-        $message = ($message) ?? $status ?? $message;
+        if ($message === null)
+            $message = $status;
         require_once $page;
     }
 }

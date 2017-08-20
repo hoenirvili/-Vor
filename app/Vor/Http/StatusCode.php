@@ -151,7 +151,7 @@ class StatusCode {
     private function __clone(){}
 
     public function __toString() :string {
-        return $map[$code];
+        return $this->map[$this->code];
     }
 
     public function code() :int{

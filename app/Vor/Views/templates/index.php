@@ -9,7 +9,7 @@
                     <h2 class="left-column__title">Hœnir's Blog</h2>
                     <ul class="meta-list">
                         <li class="meta-list__item">
-                            <a class="meta-list__link"href="https://github.com/hoenirvili/" title="github">
+                            <a class="meta-list__link" `href="https://github.com/hoenirvili/" title="github">
                                 <i class="fa fa-github fa-2x" aria-hidden="true"></i>
                             </a>
                         </li>
@@ -25,9 +25,9 @@
                         </li>
                     </ul>
                     <nav class="menu">
-                        <a href="index.html" class="menu__item">Home</a>
-                        <a href="about.html" class="menu__item">About</a>
-                        <a href="archive.html" class="menu__item">Archive</a>
+                        <a href="index" class="menu__item">Home</a>
+                        <a href="about" class="menu__item">About</a>
+                        <a href="archive" class="menu__item">Archive</a>
                     </nav>
                 </aside>
             </div>
@@ -35,7 +35,7 @@
                 <div class="art">
                     <article class="page-preview">
                         <header>
-                            <a href="article.html" title="Intro To React.js Library" class="page-preview__link--header">
+                            <a href="article" title="Intro To React.js Library" class="page-preview__link--header">
                                 <img class="page-preview__image" src="assets/images/header/node.png" alt="reactjs-image">
                             </a>
                         </header>
@@ -43,7 +43,7 @@
                             <div class="page-preview__meta">
                                 <span class="page-preview__meta__item">
                                     <i class="fa fa-calendar"></i>
-                                    <a href="archive.html" rel="bookmark">
+                                    <a href="archive" rel="bookmark">
                                         <time class="entry-date published" datetime="2017-06-13T07:21:21+00:00">June 13, 2017</time>
                                         <time class="updated" datetime="2017-06-14T04:21:40+00:00">June 14, 2017</time>
                                     </a>
@@ -51,19 +51,19 @@
                                 <span class="page-preview__meta__item">
                                     <i class="fa fa-user"></i>
                                     <span>
-                                        <a class="url fn n" href="about.html">Hoenirvili</a>
+                                        <a class="url fn n" href="about">Hoenirvili</a>
                                     </span>
                                 </span>
                                 <span class="page-preview__meta__item">
 
                                     <i class="fa fa-comment-o"></i>
-                                    <a href="article.html#comments-section">
+                                    <a href="article#comments-section">
                                         <span data-dsqidentifier="2864 blog/?p=2864">24 Comments</span>
                                     </a>
                                 </span>
                             </div>
                             <div class="page-preview__headline">
-                                <a href="article.html">
+                                <a href="article">
                                     <h1>Intro To React.js Library</h1>
                                 </a>
                             </div>
@@ -77,7 +77,7 @@
                                 </p>
                             </div>
                             <footer class="clearfix page-preview__footer">
-                                <a href="article.html" title="Read more"><button type="button" class="btn btn-primary page-preview__button">Read more</button></a>
+                                <a href="article" title="Read more"><button type="button" class="btn btn-primary page-preview__button">Read more</button></a>
                                 <div class="page-preview__hashtags">
                                     <a href="#" title="react" class="page-preview__hashtags__link">
                                         <span class="label label-info page-preview__hashtags__span">

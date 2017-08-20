@@ -12,7 +12,7 @@
                     </h1>
                     <p><?php echo $message ?></p>
                     <p>
-                        <a class="btn btn-primary btn-lg" href="index.php" role="button">
+                        <a class="btn btn-primary btn-lg" href="/" role="button">
                             Get me out of here
                             <i class="fa fa-arrow-right" aria-hidden="true"></i>
                         </a>

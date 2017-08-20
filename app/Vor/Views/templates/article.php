@@ -25,9 +25,9 @@
                         </li>
                     </ul>
                     <nav class="menu">
-                        <a href="index.php" class="menu__item">Home</a>
-                        <a href="about.php" class="menu__item">About</a>
-                        <a href="archive.php" class="menu__item">Archive</a>
+                        <a href="index" class="menu__item">Home</a>
+                        <a href="about" class="menu__item">About</a>
+                        <a href="archive" class="menu__item">Archive</a>
                     </nav>
                 </aside>
             </div>
