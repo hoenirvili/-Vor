@@ -8,7 +8,7 @@ use Vor\Http\StatusCode;
 use Vor\Core\Config;
 
 final class ErrorPage {
-    public static function render(StatusCode $status = null, string $message=null) {
+    public static function render (StatusCode $status = null, string $message=null) {
         if ($status === null)
             throw new InvalidArgumentException(
                 "Invalid parameeter for render method");
@@ -21,4 +21,19 @@ final class ErrorPage {
             $message = $status;
         require_once $page;
     }
+
+    public static function internal (string $message='') {
+         self::render(
+            new StatusCode(StatusCode::INTERNAL_SERVER_ERROR),
+            $message
+        );
+    }
+
+    public static function notfound (string $message = '') {
+        self::render(
+            new StatusCode(StatusCode::NOT_FOUND),
+            $message
+        );
+    }
+
 }

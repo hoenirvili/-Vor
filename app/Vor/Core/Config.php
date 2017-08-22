@@ -43,7 +43,6 @@ final class Config {
     private static function checkDB(array $arr) :void {
         if (!isset($arr))
             throw new InvalidArgumentException("Invalid db array config");
-
         foreach ($arr as $key => $value) {
             self::checkKeyValue($key, $value);
 
@@ -62,6 +61,7 @@ final class Config {
 
         if ((!isset($config['database'])) && ($config['database'] !== null))
             throw new LogicException('No database config member found');
+
         self::checkDB($config['database']);
 
         if ((!isset($config['pages'])) && ($config['pages'] !== null))

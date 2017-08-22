@@ -9,7 +9,7 @@
                     <h2 class="left-column__title">Hœnir's Blog</h2>
                     <ul class="meta-list">
                         <li class="meta-list__item">
-                            <a class="meta-list__link"href="https://github.com/hoenirvili/" title="github">
+                            <a class="meta-list__link" href="https://github.com/hoenirvili/" title="github">
                                 <i class="fa fa-github fa-2x" aria-hidden="true"></i>
                             </a>
                         </li>
