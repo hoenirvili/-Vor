@@ -10,41 +10,54 @@ FLUSH PRIVILEGES;
 use Vor;
 
 CREATE OR REPLACE TABLE User(
-    Id              INT UNSIGNED    NOT NULL AUTO_INCREMENT PRIMARY_KEY
-    Username        VARCHAR(50)     NOT NULL,
-    Password        VARCHAR(512)    NOT NULL,
-    Cookie          VARCHAR(512)    NOT NULL,
-    CookieCreated   DATETIME        NOT NULL,
-    CookieExpires   DATETIME        NOT NULL,
+    Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Username VARCHAR(32) NOT NULL,
+    Password VARCHAR(50) NOT NULL,
+    Cookie VARCHAR(512) NOT NULL,
+    CookieCreated DATETIME NOT NULL,
+    CookieExpires DATETIME NOT NULL
 );
 
 CREATE OR REPLACE TABLE Article (
-    Id          INT UNSIGNED    NOT NULL AUTO_INCREMENT PRIMARY_KEY,
+    Id          INT UNSIGNED    AUTO_INCREMENT PRIMARY KEY,
     Title       VARCHAR(350)    NOT NULL,
     Time        DATE            NOT NULL,
     Content     LONGTEXT        NOT NULL,
-    Tags        VARCHAR(200),
+    Tags        VARCHAR(100),
     AuthorId    INT UNSIGNED    NOT NULL,
 
-    FOREIGN KEY (AuthorId)  REFERENCES User(Id),
+    FOREIGN KEY (AuthorId)  REFERENCES User(Id)
 );
+
+CREATE OR REPLACE TABLE Comment (
+    Id      INT UNSIGNED    AUTO_INCREMENT PRIMARY  KEY,
+    Name    VARCHAR(32)     DEFAULT 'Anonymous',
+    Time    DATE            NOT NULL,
+    Email   VARCHAR(50),
+    Content Text            NOT NULL
+ );
 
 CREATE OR REPLACE TABLE ArticleComment(
     ArticleId INT UNSIGNED NOT NULL,
     CommentId INT UNSIGNED NOT NULL,
 
     FOREIGN KEY (ArticleId)  REFERENCES Article(Id),
-    FOREIGN KEY (CommentId)  REFERENCES Comment(Id),
+    FOREIGN KEY (CommentId)  REFERENCES Comment(Id)
 );
 
-CREATE OR REPLACE TABLE Comment (
-    Id      INT UNSIGNED    NOT NULL AUTO_INCREMENT PRIMARY_KEY,
-    Name    VARCHAR(50)     DEFAULT 'Anonymous',
-    Time    DATE            NOT NULL,
-    Email   VARCHAR(50),
-    Comment VARCHAR(512)    NOT NULL
+CREATE OR REPLACE TABLE Notification(
+    Id          INT UNSIGNED    AUTO_INCREMENT PRIMARY KEY,
+    UserId      INT UNSIGNED    NOT NULL,
+    CommentId   INT UNSIGNED    NOT NULL,
+    Arrived     DATE            NOT NULL,
+    Seen        BOOLEAN         DEFAULT 0,
+
+    FOREIGN KEY (UserId)  REFERENCES User(Id),
+    FOREIGN KEY (CommentId)  REFERENCES Comment(Id)
 );
 
-CREATE UNIQUE INDEX User_Index      ON User (Id);
-CREATE UNIQUE INDEX Comment_Index   ON Comment(Id);
-CREATE UNIQUE INDEX Image_Index     On Image (Id);
+# AFAIK these are created automatically by innodb
+CREATE UNIQUE INDEX User_Index          ON User(Id);
+CREATE UNIQUE INDEX Article_Index       On Article(Id);
+CREATE UNIQUE INDEX Comment_Index       ON Comment(Id);
+CREATE UNIQUE INDEX Notification_Index  ON Notification(Id);
