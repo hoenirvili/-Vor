@@ -5,6 +5,7 @@
        }
     },
     "require": {
-        "baryshev/tree-route": "^2.0"
+        "baryshev/tree-route": "^2.0",
+        "phpunit/phpunit": "^6.3"
     }
 }

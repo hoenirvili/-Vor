@@ -1,16 +1,13 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Vor\Controllers;
 
-use Vor\Views\View As View;
+use Vor\Views\View;
 
 class Controller {
-
     private $params;
 
-    protected  $view;
+    protected $view;
 
     public function __construct(array $params=null) {
         $this->params = $params;

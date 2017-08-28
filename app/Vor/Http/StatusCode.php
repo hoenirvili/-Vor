@@ -2,8 +2,6 @@
 
 namespace Vor\Http;
 
-use InvalidArgumentException;
-
 class StatusCode {
     // Informational - Request received, continuing process
     const CONTINUE                        = 100;
@@ -139,19 +137,23 @@ class StatusCode {
     ];
 
     private $code = 0;
+    private $message = '';
 
-    public function __construct(int $code = StatusCode::OK) {
-        if (!isset($this->map[$code])) {
+    public function __construct(int $code = StatusCode::OK, string $message='') {
+        if (!isset($this->map[$code]))
             throw new InvalidArgumentException("Invalid status code given");
-        }
 
         $this->code = $code;
+        $this->message = $message;
     }
 
     private function __clone(){}
 
     public function __toString() :string {
-        return $this->map[$this->code];
+        if ($this->message === '')
+            return $this->map[$this->code];
+
+        return $this->message;
     }
 
     public function code() :int{

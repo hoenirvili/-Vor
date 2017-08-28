@@ -1,18 +1,17 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Vor\Core;
 
-use LogicException;
-
 final class Config {
-    private static $path = __DIR__ . '/../../config.php';
+    private static $path = APP.DS.'config.php';
 
-    public static function get() :array{
-            return include(self::$path);
+    private static $config = null;
+
+    public static function get() :array {
+            if (self::$config === null)
+                self::$config = require(self::$path);
+            return self::$config;
     }
-
 
     private static function checkKeyValue(string $key, string $value): void {
         if ((!is_string($key) && (!mb_detect_encoding($key, 'ASCII', true))))

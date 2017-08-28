@@ -1,21 +1,18 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Vor\Core;
 
 use TreeRoute\Router;
 use Vor\Http\StatusCode;
-use Vor\Core\ErrorPage;
 
 final class App {
     private $url;
 
-    public function __construct(string $url='/') {
+    public function __construct(string $url=DS) {
         $this->url = $url;
     }
 
-    public function render(): void {
+    public function render(): StatusCode {
         $router = new Router();
         $router->get('/',           'Home');
         $router->get('/index',      'Home');
@@ -27,7 +24,10 @@ final class App {
 
         if ((!isset($_SERVER['REQUEST_METHOD'])) ||
             ($_SERVER['REQUEST_METHOD'] === null))
-            throw new LogicException("Error Processing Request");
+            return new StatusCode(
+                StatusCode::INTERNAL_SERVER_ERROR,
+                "Invalid request method"
+            );
 
         $method = $_SERVER['REQUEST_METHOD'];
 
@@ -44,14 +44,16 @@ final class App {
 
             switch ($result['error']['code']) {
             case StatusCode::NOT_FOUND:
-                ErrorPage::render(new StatusCode(
-                    StatusCode::NOT_FOUND));
+                return new StatusCode(
+                    StatusCode::NOT_FOUND
+                );
                 break;
             default:
-                ErrorPage::render(new StatusCode(
-                    StatusCode::INTERNAL_SERVER_ERROR));
+                return new StatusCode(
+                    StatusCode::INTERNAL_SERVER_ERROR
+                );
             }
-
         }
+
     }
 }

@@ -1,6 +1,5 @@
 <?php
 
-
 return [
     'database' => [
         'host'      => (($env = getenv('PHP_DB_HOSTNAME', true)) !== false) ? $env : '',
@@ -18,5 +17,5 @@ return [
         'dashboard_create'  => __DIR__ . '/Vor/Views/templates/dashboard_createarticle.php',
         'error'             => __DIR__ . '/Vor/Views/templates/error.php',
         'login'             => __DIR__ . '/Vor/Views/templates/login.php',
-    ],
+    ]
 ];
