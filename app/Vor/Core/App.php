@@ -13,6 +13,7 @@ final class App {
     }
 
     public function render(): StatusCode {
+
         $router = new Router();
         $router->get('/',           'Home');
         $router->get('/index',      'Home');
@@ -53,7 +54,9 @@ final class App {
                     StatusCode::INTERNAL_SERVER_ERROR
                 );
             }
+
         }
 
+        return new StatusCode(StatusCode::OK);
     }
 }

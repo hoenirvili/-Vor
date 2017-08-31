@@ -4,33 +4,7 @@
 <body>
     <div class="container-fluid full-layout">
         <div class="row full-layout">
-            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 left-column left-column--layout">
-                <aside class="text-center left-column__container">
-                    <h2 class="left-column__title">Hœnir's Blog</h2>
-                    <ul class="meta-list">
-                        <li class="meta-list__item">
-                            <a class="meta-list__link" href="https://github.com/hoenirvili/" title="github">
-                                <i class="fa fa-github fa-2x" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li class="meta-list__item">
-                            <a class="meta-list__link" href="https://www.reddit.com/user/Saethgokk/" title="reddit">
-                                <i class="fa fa-reddit fa-2x" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li class="meta-list__item">
-                            <a class="meta-list__link" href="https://raw.githubusercontent.com/hoenirvili/Pubkey/master/README.md" title="gpg-public-key">
-                                <i class="fa fa-key fa-2x" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <nav class="menu">
-                        <a href="index" class="menu__item">Home</a>
-                        <a href="about" class="menu__item">About</a>
-                        <a href="archive" class="menu__item">Archive</a>
-                    </nav>
-                </aside>
-            </div>
+          <?php require_once('base/left-column.php'); ?>
             <div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-sm-12 col-xs-12 right-column right-column__layout">
                 <div class="art">
                     <article class="page-preview">
@@ -171,8 +145,8 @@ var _self = (typeof window !== 'undefined')
                             <footer class="clearfix page-preview__footer">
                             </footer>
                     </article>
-                    <form class="post-form" id="comment-form">
 
+                    <form formaction="comment" method="post" class="post-form" id="comment-form">
                         <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <label for="username" class="sr-only">Username</label>
                             <input type="text" class="form-control" id="username" placeholder="Username" autocomplete="username" maxlength="60" title="username">
@@ -183,15 +157,16 @@ var _self = (typeof window !== 'undefined')
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <label for="comment-form" class="sr-only">Comment</label>
-                            <textarea placeholder="Comment" spellcheck="on" wrap="soft" class="form-control" name="comment" rows="10" cols="2" autocomplete="on" form="comment-form" maxlength="2500" title="shitpost"></textarea>
+                            <textarea placeholder="Comment" spellcheck="on" wrap="soft" class="form-control" rows="10" cols="2" autocomplete="on" form="comment-form" maxlength="2500" title="shitpost"></textarea>
                             <div class="post-form__upload">
                                 <input type='file' id='image' class="post-form__upload__input">
                                 <i class="fa fa-image fa-2x post-form__upload--icon"></i>
                             </div>
                             <button type="submit" class="btn btn-primary post-form__button" title="pushthefuckingbutton">Post</button>
                         </div>
-
                     </form>
+
+                    <!-- Comment section -->
                     <div class="comments" id="comments-section">
                         <div class="comments__element">
                             <div class="page-preview__meta">

@@ -8,7 +8,8 @@ use Vor\Core\App;
 use Vor\Core\ErrorPage;
 use Vor\Core\Config;
 use Vor\Http\StatusCode;
-const INIT_PATH = __DIR__.DIRECTORY_SEPARATOR. '..'.DIRECTORY_SEPARATOR.'app'. DIRECTORY_SEPARATOR.'init.php';
+
+const INIT_PATH = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'app'. DIRECTORY_SEPARATOR.'init.php';
 const MAX_LENGTH_URL = 2400;
 
 function main(): StatusCode {
@@ -34,7 +35,6 @@ function main(): StatusCode {
 
 $err = main();
 $code = $err->code();
-
 switch ($code) {
     case StatusCode::INTERNAL_SERVER_ERROR:
         ErrorPage::internal();
