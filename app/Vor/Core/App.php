@@ -40,6 +40,7 @@ final class App {
             $class      = 'Vor\Controllers\\' . $handler;
             $controller = new $class($params);
 
+            // render the page calling the controller
             $controller->render($params);
         } else {
 
@@ -54,7 +55,6 @@ final class App {
                     StatusCode::INTERNAL_SERVER_ERROR
                 );
             }
-
         }
 
         return new StatusCode(StatusCode::OK);

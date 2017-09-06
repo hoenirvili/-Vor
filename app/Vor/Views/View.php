@@ -15,7 +15,7 @@ class View {
         $this->params = $params;
     }
 
-    public function html (string $name=''): string {
+    public function html(string $name=''): string {
         if (($name ==='') || ($name === null))
             $name = $this->name;
 
@@ -24,7 +24,7 @@ class View {
         return ob_get_clean();
     }
 
-    private function scope (string $template, array $data): void {
+    private function scope(string $template, array $data): void {
             extract($data);
             require_once($template);
     }

@@ -10,12 +10,12 @@ FLUSH PRIVILEGES;
 use Vor;
 
 CREATE OR REPLACE TABLE User(
-    Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    Username VARCHAR(32) NOT NULL,
-    Password VARCHAR(50) NOT NULL,
-    Cookie VARCHAR(512) NOT NULL,
-    CookieCreated DATETIME NOT NULL,
-    CookieExpires DATETIME NOT NULL
+    Id              INT UNSIGNED    AUTO_INCREMENT PRIMARY KEY,
+    Username        VARCHAR(32)     NOT NULL,
+    Password        VARCHAR(50)     NOT NULL,
+    Cookie          VARCHAR(512)    NOT NULL,
+    CookieCreated   DATETIME        NOT NULL,
+    CookieExpires   DATETIME        NOT NULL
 );
 
 CREATE OR REPLACE TABLE Article (
