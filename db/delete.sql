@@ -1,4 +1,5 @@
 # drop index from table
+
 ALTER TABLE User DROP INDEX IF EXISTS User_Index;
 ALTER TABLE Comment DROP INDEX IF EXISTS Comment_Index;
 ALTER TABLE Article DROP INDEX IF EXISTS Article_Index;

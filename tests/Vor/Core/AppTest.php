@@ -22,7 +22,7 @@ class AppTest extends TestCase {
                 '/uhud2213/1'];
 
         foreach ($routes as $route) {
-             $app = new \Vor\Core\App();
+            $app = new \Vor\Core\App();
             $this->assertNotNull($app);
             $status = $app->render();
             $this->assertNotNull($status);
@@ -37,7 +37,7 @@ class AppTest extends TestCase {
         foreach ($methods as $method) {
             foreach ($routes as $route) {
                 $_SERVER['REQUEST_METHOD'] = $method;
-                $app = new \Vor\Core\App();
+                $app = new \Vor\Core\App($route);
                 $this->assertNotNull($app);
                 $status = $app->render();
                 $this->assertNotNull($status);

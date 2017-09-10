@@ -3,7 +3,7 @@ CREATE DATABASE Vor;
 # create user
 CREATE USER 'hoenir'@'localhost' IDENTIFIED BY 'password123';
 # give access to the vor database
-GRANT ALL PRIVILEGES ON vor.* To 'hoenir'@'localhost' IDENTIFIED BY 'password123';
+GRANT ALL PRIVILEGES ON Vor.* To 'hoenir'@'localhost' IDENTIFIED BY 'password123';
 # reload them
 FLUSH PRIVILEGES;
 # select database
