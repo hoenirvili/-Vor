@@ -8,7 +8,7 @@ final class Config {
 
     private static $config = null;
 
-    public static function get() :array {
+    public static function get(): array {
         if (self::$config === null)
             self::$config = require(self::$path);
         return self::$config;
@@ -25,7 +25,7 @@ final class Config {
             throw new LogicException('Empty configuration field');
     }
 
-    private static function checkPages(array $arr) :void {
+    private static function checkPages(array $arr): void {
         if(!isset($arr))
             throw new InvalidArgumentException("Invalid pages array config");
 
@@ -40,7 +40,7 @@ final class Config {
         }
     }
 
-    private static function checkDB(array $arr) :void {
+    private static function checkDB(array $arr): void {
         if (!isset($arr))
             throw new InvalidArgumentException("Invalid db array config");
 
@@ -57,7 +57,7 @@ final class Config {
         }
     }
 
-    public static function validate() :void {
+    public static function validate(): void {
         $config = self::get();
 
         if ((!isset($config['database'])) && ($config['database'] !== null))

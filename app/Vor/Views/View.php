@@ -26,7 +26,7 @@ class View {
 
     private function scope(string $template, array $data): void {
             extract($data);
-            require_once($template);
+            require($template);
     }
 
     public function render(string $name=''):void {

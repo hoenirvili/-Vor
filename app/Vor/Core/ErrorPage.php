@@ -7,10 +7,11 @@ use Vor\Core\Config;
 use Vor\Views\View;
 
 final class ErrorPage {
-    public static function render (StatusCode $status = null, string $message=null) {
+    public static function render(StatusCode $status = null,
+                                string $message=null): void {
 
         if ($status === null)
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 "Invalid parameter for render method");
 
 
@@ -26,14 +27,14 @@ final class ErrorPage {
         $view->render('error');
     }
 
-    public static function internal (string $message=null) {
+    public static function internal(string $message=null): void {
          self::render(
             new StatusCode(StatusCode::INTERNAL_SERVER_ERROR),
             $message
         );
     }
 
-    public static function notfound (string $message=null) {
+    public static function notfound(string $message=null): void {
         self::render(
             new StatusCode(StatusCode::NOT_FOUND),
             $message
