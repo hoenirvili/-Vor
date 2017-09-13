@@ -6,9 +6,8 @@ final class Database {
     private static $connection = null;
 
     public function instance() :PDO {
-            if (self::$connection !== null) {
-                retrun self::$connection;
-            }
+            if (self::$connection !== null)
+                return self::$connection;
 
             $config = Config::get();
 

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use PHPUnit\Framework\TestCase;
 
@@ -7,6 +7,11 @@ class ConfigTest extends TestCase {
         $config = \Vor\Core\Config::get();
         $this->assertNotNull($config);
         $this->assertTrue(is_array($config));
+    }
+
+    public function testValidate():void {
+        \Vor\Core\Config::validate();
+        $this->assertTrue(true);
     }
 }
 

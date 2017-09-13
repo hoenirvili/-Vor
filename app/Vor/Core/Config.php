@@ -3,25 +3,26 @@
 namespace Vor\Core;
 
 final class Config {
+
     private static $path = APP.DS.'config.php';
 
     private static $config = null;
 
     public static function get() :array {
-            if (self::$config === null)
-                self::$config = require(self::$path);
-            return self::$config;
+        if (self::$config === null)
+            self::$config = require(self::$path);
+        return self::$config;
     }
 
     private static function checkKeyValue(string $key, string $value): void {
         if ((!is_string($key) && (!mb_detect_encoding($key, 'ASCII', true))))
-                throw new LogicException("The config does not contain valid ASCII strings");
+            throw new LogicException("The config does not contain valid ASCII strings");
 
-            if ((!is_string($value) && (!mb_detect_encoding($value, 'ASCII', true))))
-                throw new LogicException("The config does not contain valid ASCII strings");
+        if ((!is_string($value) && (!mb_detect_encoding($value, 'ASCII', true))))
+            throw new LogicException("The config does not contain valid ASCII strings");
 
-            if (($value === '') || ($key === ''))
-                throw new LogicException('Empty configuration field');
+        if (($value === '') || ($key === ''))
+            throw new LogicException('Empty configuration field');
     }
 
     private static function checkPages(array $arr) :void {
@@ -42,6 +43,7 @@ final class Config {
     private static function checkDB(array $arr) :void {
         if (!isset($arr))
             throw new InvalidArgumentException("Invalid db array config");
+
         foreach ($arr as $key => $value) {
             self::checkKeyValue($key, $value);
 
@@ -68,5 +70,4 @@ final class Config {
 
         self::checkPages($config['pages']);
     }
-
 }

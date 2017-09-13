@@ -4,22 +4,29 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
+require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'app'. DIRECTORY_SEPARATOR.'init.php';
+
 use Vor\Core\App;
 use Vor\Core\ErrorPage;
 use Vor\Core\Config;
 use Vor\Http\StatusCode;
 
-const INIT_PATH = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'app'. DIRECTORY_SEPARATOR.'init.php';
-const MAX_LENGTH_URL = 2400;
-
 function main(): StatusCode {
-    require_once(INIT_PATH);
-    Config::validate();
+    $MAX_LENGTH_URL = 2400;
+
+    try {
+        Config::validate();
+    } catch(Exception $e) {
+        return new StatusCode(
+            StatusCode::INTERNAL_SERVER_ERROR,
+            'Invalid config'
+        );
+    }
 
     $url = '';
     if ((isset($_GET['url'])) && ($_GET['url'] !== null)
-        && (is_string($_GET['url'])))
-    {
+        && (is_string($_GET['url']))) {
+
         $url = trim($_GET['url']);
         if (strlen($url) > MAX_LENGTH_URL)
             return new StatusCode(
@@ -43,7 +50,4 @@ switch ($code) {
     case StatusCode::NOT_FOUND:
         ErrorPage::notfound();
         break;
-
-    default:
-        // nothing for now.
 }
