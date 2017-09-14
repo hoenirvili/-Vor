@@ -139,7 +139,9 @@ class StatusCode {
     private $code = 0;
     private $message = '';
 
-    public function __construct(int $code = StatusCode::OK, string $message='') {
+    public function __construct(int $code = StatusCode::OK,
+                                string $message='') {
+
         if (!isset($this->map[$code]))
             throw new InvalidArgumentException("Invalid status code given");
 
@@ -149,14 +151,14 @@ class StatusCode {
 
     private function __clone(){}
 
-    public function __toString() :string {
+    public function __toString(): string {
         if ($this->message === '')
             return $this->map[$this->code];
 
         return $this->message;
     }
 
-    public function code() :int{
+    public function code(): int{
        return $this->code;
     }
 }

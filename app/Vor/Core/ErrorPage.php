@@ -14,7 +14,6 @@ final class ErrorPage {
             throw new \InvalidArgumentException(
                 "Invalid parameter for render method");
 
-
         $code = $status->code();
         http_response_code($code);
         if ($message === null)
@@ -24,6 +23,7 @@ final class ErrorPage {
             'code'      => $code,
             'message'   => $message
         ]);
+
         $view->render('error');
     }
 

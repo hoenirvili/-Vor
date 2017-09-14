@@ -5,7 +5,8 @@ namespace Vor\Controllers;
 use Vor\Views\View;
 
 class Controller {
-    private $params;
+
+    private $params = null;
 
     protected $view;
 
@@ -14,14 +15,13 @@ class Controller {
         $this->view = new View();
     }
 
-    public function render() :void {
+    public function render(): void {
         if ($this->emptyParams())
             $this->view->render();
     }
 
     protected final function emptyParams(): bool {
-        if (($this->params === null) ||
-            ($this->params === []))
+        if (($this->params === null) || ($this->params === []))
             return true;
 
         return false;

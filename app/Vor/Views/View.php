@@ -1,12 +1,15 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Vor\Views;
 
 use Vor\Core\Config;
 
 class View {
+
     private $pages;
-    private $name = 'index'; // default page
+
+    private $name = 'index';
+
     private $params = [];
 
     public function __construct(array $params = []) {
@@ -16,7 +19,7 @@ class View {
     }
 
     public function html(string $name=''): string {
-        if (($name ==='') || ($name === null))
+        if ($name === '')
             $name = $this->name;
 
         ob_start();

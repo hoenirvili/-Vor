@@ -3,6 +3,7 @@
 use PHPUnit\Framework\TestCase;
 
 class ErrorPageTest extends TestCase {
+
     public function testRenderWithEmptyParamas(): void {
         $this->expectException(InvalidArgumentException::class);
         \Vor\Core\ErrorPage::render();

@@ -1,25 +1,26 @@
 <?php declare(strict_types=1);
 
-// use this only in dev
+// use this only in development
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-require_once __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'app'. DIRECTORY_SEPARATOR.'init.php';
+require_once (__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'app'. DIRECTORY_SEPARATOR.'init.php');
 
 use Vor\Core\App;
 use Vor\Core\ErrorPage;
 use Vor\Core\Config;
 use Vor\Http\StatusCode;
 
-function main(): StatusCode {
-    $MAX_LENGTH_URL = 2400;
 
+const MAX_LENGTH_URL = 2400;
+
+function main(): StatusCode {
     try {
         Config::validate();
     } catch(Exception $e) {
         return new StatusCode(
             StatusCode::INTERNAL_SERVER_ERROR,
-            'Invalid config'
+            'Invalid configuration'
         );
     }
 
@@ -31,7 +32,7 @@ function main(): StatusCode {
         if (strlen($url) > MAX_LENGTH_URL)
             return new StatusCode(
                 StatusCode::INTERNAL_SERVER_ERROR,
-                'The url passed entered is too large'
+                'The URL passed is too large'
             );
     }
 
@@ -43,6 +44,7 @@ function main(): StatusCode {
 $err = main();
 $code = $err->code();
 switch ($code) {
+
     case StatusCode::INTERNAL_SERVER_ERROR:
         ErrorPage::internal();
         break;
