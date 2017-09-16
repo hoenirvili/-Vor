@@ -3,8 +3,8 @@
 namespace Vor\Controllers;
 
 class Archive extends Controller{
-    public function render(): void {
+    public function render(): string{
         if ($this->emptyParams())
-            $this->view->render('archive');
+            return $this->view->html('archive');
     }
 }

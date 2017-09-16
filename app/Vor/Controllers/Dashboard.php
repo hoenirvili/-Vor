@@ -3,8 +3,8 @@
 namespace Vor\Controllers;
 
 class Dashboard extends Controller{
-    public function render(): void {
+    public function render(): string{
         if ($this->emptyParams())
-            $this->view->render('dashboard');
+            return $this->view->html('dashboard');
     }
 }

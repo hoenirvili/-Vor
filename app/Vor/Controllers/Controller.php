@@ -6,24 +6,21 @@ use Vor\Views\View;
 
 class Controller {
 
-    private $params = null;
+    private $params = [];
 
     protected $view;
 
-    public function __construct(array $params=null) {
+    public function __construct(array $params=[]) {
         $this->params = $params;
         $this->view = new View();
     }
 
-    public function render(): void {
+    public function render(): string{
         if ($this->emptyParams())
-            $this->view->render();
+            return $this->view->html();
     }
 
     protected final function emptyParams(): bool {
-        if (($this->params === null) || ($this->params === []))
-            return true;
-
-        return false;
+        return isset($this->params);
     }
 }

@@ -7,8 +7,9 @@ use Vor\Core\Config;
 use Vor\Views\View;
 
 final class ErrorPage {
+
     public static function render(StatusCode $status = null,
-                                string $message=null): void {
+                                string $message=null): string{
 
         if ($status === null)
             throw new \InvalidArgumentException(
@@ -24,20 +25,21 @@ final class ErrorPage {
             'message'   => $message
         ]);
 
-        $view->render('error');
+        return $view->html('error');
     }
 
-    public static function internal(string $message=null): void {
-         self::render(
+    public static function internal(string $message=null): string{
+         return self::render(
             new StatusCode(StatusCode::INTERNAL_SERVER_ERROR),
             $message
         );
     }
 
-    public static function notfound(string $message=null): void {
-        self::render(
+    public static function notfound(string $message=null): string{
+        return self::render(
             new StatusCode(StatusCode::NOT_FOUND),
             $message
         );
     }
+
 }

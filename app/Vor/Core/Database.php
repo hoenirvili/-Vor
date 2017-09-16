@@ -3,6 +3,7 @@
 namespace Vor\Core;
 
 final class Database {
+
     private static $connection = null;
 
     public function instance() :PDO {

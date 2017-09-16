@@ -3,8 +3,8 @@
 namespace Vor\Controllers;
 
 class About extends Controller{
-    public function render(): void {
+    public function render(): string{
         if ($this->emptyParams())
-            $this->view->render('about');
+            return $this->view->html('about');
     }
 }

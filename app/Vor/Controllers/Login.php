@@ -3,8 +3,8 @@
 namespace Vor\Controllers;
 
 class Login extends Controller{
-    public function render(): void {
+    public function render(): string {
         if ($this->emptyParams())
-            $this->view->render('login');
+            return $this->view->html('login');
     }
 }

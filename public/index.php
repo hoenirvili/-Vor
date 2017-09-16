@@ -9,19 +9,15 @@ require_once (__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'app'. DIRECT
 use Vor\Core\App;
 use Vor\Core\ErrorPage;
 use Vor\Core\Config;
-use Vor\Http\StatusCode;
 
 
 const MAX_LENGTH_URL = 2400;
 
-function main(): StatusCode {
+function main(): string {
     try {
         Config::validate();
     } catch(Exception $e) {
-        return new StatusCode(
-            StatusCode::INTERNAL_SERVER_ERROR,
-            'Invalid configuration'
-        );
+        return ErrorPage::internal('Invalid configuration');
     }
 
     $url = '';
@@ -30,26 +26,11 @@ function main(): StatusCode {
 
         $url = trim($_GET['url']);
         if (strlen($url) > MAX_LENGTH_URL)
-            return new StatusCode(
-                StatusCode::INTERNAL_SERVER_ERROR,
-                'The URL passed is too large'
-            );
+            return ErrorPage::internal('The URL passed is too large');
     }
 
     $app = new App($url);
     return $app->render();
 }
 
-
-$err = main();
-$code = $err->code();
-switch ($code) {
-
-    case StatusCode::INTERNAL_SERVER_ERROR:
-        ErrorPage::internal();
-        break;
-
-    case StatusCode::NOT_FOUND:
-        ErrorPage::notfound();
-        break;
-}
+echo main();

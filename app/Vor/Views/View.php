@@ -32,8 +32,7 @@ class View {
             require($template);
     }
 
-    public function render(string $name=''):void {
-        $page = $this->html($name);
-        echo $page;
+    public function setParams(array $params = []): void {
+        $this->params = $params;
     }
 }
