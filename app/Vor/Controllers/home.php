@@ -2,14 +2,17 @@
 
 namespace Vor\Controllers;
 
-use Vor\Model\Articles();
+use Vor\Models\Article;
+use Vor\Views\View;
 
 class Home extends Controller {
-    
+
     public function render(): string {
         if ($this->emptyParams()) {
-            $articles = new Articles()
-            $articles->page(1);
+            $articles = new Article();
+            $params = $articles->page(1);
+            $view = new View($params);
+            return $view->html();
         }
     }
 }

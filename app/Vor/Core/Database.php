@@ -2,11 +2,13 @@
 
 namespace Vor\Core;
 
+use \PDO;
+
 final class Database {
 
     private static $connection = null;
 
-    public function instance() :PDO {
+    public static function instance() :PDO {
             if (self::$connection !== null)
                 return self::$connection;
 
@@ -20,5 +22,7 @@ final class Database {
             self::$connection = new PDO(
                 "mysql:host=$hostname;port=$port;dbname=Vor;charset=utf8", $username, $password
             );
+
+            return self::$connection;
     }
 }
