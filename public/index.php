@@ -10,13 +10,12 @@ use Vor\Core\App;
 use Vor\Core\ErrorPage;
 use Vor\Core\Config;
 
-
 const MAX_LENGTH_URL = 2400;
 
 function main(): string {
     try {
         Config::validate();
-    } catch(Exception $e) {
+    } catch(LogicException $e) {
         return ErrorPage::internal('Invalid configuration');
     }
 

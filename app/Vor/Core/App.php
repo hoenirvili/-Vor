@@ -17,13 +17,16 @@ final class App {
     public function render(): string{
 
         $router = new Router();
-        $router->get('/',           'Home');
-        $router->get('/index',      'Home');
-        $router->get('/about',      'About');
-        $router->get('/article',    'Article');
-        $router->get('/archive',    'Archive');
-        $router->get('/dashboard',  'Dashboard');
-        $router->get('/login',      'Login');
+        // $router->get('/', 'Home');
+        $router->get('/', 'Home');
+        $router->get('/{page:[0-9]+}', 'Home');
+        $router->get('/index', 'Home');
+        $router->get('/index/{page:[0-9]+}', 'Home');
+        $router->get('/about', 'About');
+        $router->get('/article', 'Article');
+        $router->get('/archive', 'Archive');
+        $router->get('/dashboard', 'Dashboard');
+        $router->get('/login', 'Login');
 
         if ((!isset($_SERVER['REQUEST_METHOD'])) ||
             ($_SERVER['REQUEST_METHOD'] === null))

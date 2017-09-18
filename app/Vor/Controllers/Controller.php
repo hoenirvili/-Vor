@@ -6,7 +6,7 @@ use Vor\Views\View;
 
 class Controller {
 
-    private $params = [];
+    protected $params = [];
 
     protected $view;
 
@@ -20,7 +20,7 @@ class Controller {
             return $this->view->html();
     }
 
-    protected final function emptyParams(): bool {
+    protected function emptyParams(): bool {
         return isset($this->params);
     }
 }

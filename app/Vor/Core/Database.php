@@ -20,7 +20,8 @@ final class Database {
             $password   = $config['database']['password'];
 
             self::$connection = new PDO(
-                "mysql:host=$hostname;port=$port;dbname=Vor;charset=utf8", $username, $password
+                "mysql:host=$hostname;port=$port;dbname=Vor;charset=utf8",
+                $username, $password
             );
 
             return self::$connection;

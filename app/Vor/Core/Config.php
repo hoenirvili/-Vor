@@ -15,10 +15,10 @@ final class Config {
     }
 
     private static function checkKeyValue(string $key, string $value): void {
-        if ((!is_string($key) && (!mb_detect_encoding($key, 'ASCII', true))))
+        if ((!is_string($key) || (!mb_detect_encoding($key, 'ASCII', true))))
             throw new LogicException("The config does not contain valid ASCII strings");
 
-        if ((!is_string($value) && (!mb_detect_encoding($value, 'ASCII', true))))
+        if ((!is_string($value) || (!mb_detect_encoding($value, 'ASCII', true))))
             throw new LogicException("The config does not contain valid ASCII strings");
 
         if (($value === '') || ($key === ''))
