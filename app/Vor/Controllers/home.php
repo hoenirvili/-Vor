@@ -6,7 +6,6 @@ use Vor\Models\Article;
 use Vor\Views\View;
 use Vor\Core\ErrorPage;
 
-
 class Home extends Controller {
 
     protected function emptyParams(): bool {

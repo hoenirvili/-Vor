@@ -14,10 +14,9 @@ final class App {
         $this->url = $url;
     }
 
-    public function render(): string{
+    public function render(): string {
 
         $router = new Router();
-        // $router->get('/', 'Home');
         $router->get('/', 'Home');
         $router->get('/{page:[0-9]+}', 'Home');
         $router->get('/index', 'Home');
@@ -40,6 +39,9 @@ final class App {
             switch ($result['error']['code']) {
             case StatusCode::NOT_FOUND:
                 return ErrorPage::notfound();
+            case StatusCode::METHOD_NOT_ALLOWED:
+                return ErrorPage::render(new StatusCode(
+                    $result['error']));
             default:
                 return ErrorPage::internal();
             }
