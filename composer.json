@@ -12,8 +12,12 @@
     ],
     "require": {
         "php": ">=7.1.8",
-        "baryshev/tree-route": "^2.0",
-        "phpunit/phpunit": "^6.3"
+        "phpunit/phpunit": "^6.3",
+        "filp/whoops": "^2.1",
+        "PatrickLouys/http": "^1.4",
+        "rdlowrey/auryn": "^1.4",
+        "nikic/fast-route": "^1.2",
+        "mustache/mustache": "^2.12"
     },
     "autoload": {
        "psr-4": {

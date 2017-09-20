@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html>
-<?php require_once('base/header.php');?>
+{{> header}}
 <body>
-    <script>
-        tinymce.init({
-            selector:'textarea'
-        });
-    </script>
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 right-column--dashboard">
@@ -71,12 +66,43 @@
                                 </ul>
                             </li>
                         </ul>
-                        <a href="dashboard_createarticle.html" class="btn btn-primary navbar-btn pull-right">Create Post</a>
+                        <button class="btn btn-primary navbar-btn pull-right">Create Post</button>
                     </div>
                 </nav>
             </div> <!--col-md-12-->
         </div> <!--row-->
+        <div class="row">
+            <div class="container">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal">
+                        <h1> Create article</h1>
+                        <div class="form-group">
+                            <h4>Title</h4>
+                            <label for="title" class="sr-only control-label">Title</label>
+                            <input type="text" class="form-control" id="title" placeholder="Article title">
+                        </div>
+
+                        <div class="form-group">
+                            <h4>Tags</h4>
+                            <label for="tags" class="sr-only control-label">Tags</label>
+                            <input type="text" class="form-control" id="Tags" placeholder="tags">
+                        </div>
+
+                        <div class="form-group">
+                            <h4>Content</h4>
+                            <label for="tags" class="sr-only control-label">Content</label>
+                            <textarea class="form-control" rows="20"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Reset</button>
+                            <button type="submit" class="btn btn-primary">Post</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-<?php require_once('base/footer.php'); ?>
+{{> footer }}
 </body>
 </html>

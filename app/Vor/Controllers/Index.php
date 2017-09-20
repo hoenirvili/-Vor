@@ -6,7 +6,7 @@ use Http\Request;
 use Http\Response;
 use Vor\Views\Renderer;
 
-class About
+class Index
 {
     private $response;
 
@@ -27,7 +27,11 @@ class About
 
     public function show(): void
     {
-        $html = $this->renderer->render('about');
+        $data = [
+            'name' => $this->request->getParameter('name', 'anothername'),
+        ];
+        $html = $this->renderer->render('index', $data);
         $this->response->setContent($html);
     }
+
 }
