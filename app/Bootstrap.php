@@ -33,18 +33,19 @@ else
 $whoops->register();
 
 $injector = require('Dependencies.php');
-
 $request = $injector->make('Http\HttpRequest');
 $response = $injector->make('Http\HttpResponse');
 
+// callback for creating all the routes in routes.php
 $routeDefinitions = function(RouteCollector $r) {
     $routes = require('routes.php');
     foreach ($routes as $route) {
         $r->addRoute($route[0], $route[1], $route[2]);
     }
 };
-
+// create the dispatches from our previous callback
 $dispatcher = \FastRoute\simpleDispatcher($routeDefinitions);
+
 $method = $request->getMethod();
 $path = $request->getPath();
 $routeInfo = $dispatcher->dispatch($method, $path);
@@ -60,13 +61,17 @@ switch ($routeInfo[0]) {
     case Dispatcher::FOUND:
         $class = $routeInfo[1][0];
         $method = $routeInfo[1][1];
-        $vars = $routeInfo[2];
+        $params = $routeInfo[2];
+        // this will instantiate the $class
+        // and add inject his dependencies
         $object = $injector->make($class);
-        $object->$method($vars);
+        // call the method for the route
+        $object->$method($params);
         break;
 }
 
+
+// prepare all headers and output the response
 foreach ($response->getHeaders() as $header)
     header($header, false);
-
 echo $response->getContent();

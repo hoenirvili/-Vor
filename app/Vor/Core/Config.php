@@ -25,20 +25,6 @@ final class Config {
             throw new LogicException('Empty configuration field');
     }
 
-    private static function checkPages(array $arr): void {
-        if(!isset($arr))
-            throw new InvalidArgumentException("Invalid pages array config");
-
-        foreach($arr as $key => $value) {
-            self::checkKeyValue($key, $value);
-
-            if (!file_exists($value))
-                throw new LogicException(
-                    "Invalid path, the $value does not exist for page $key"
-                );
-
-        }
-    }
 
     private static function checkDB(array $arr): void {
         if (!isset($arr))
@@ -64,10 +50,5 @@ final class Config {
             throw new LogicException('No database config member found');
 
         self::checkDB($config['database']);
-
-        if ((!isset($config['pages'])) && ($config['pages'] !== null))
-            throw new LogicException('No pages config member found');
-
-        self::checkPages($config['pages']);
     }
 }

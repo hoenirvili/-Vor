@@ -25,9 +25,11 @@ class About
         $this->renderer = $renderer;
     }
 
-    public function show(): void
+    public function show(array $params): void
     {
         $html = $this->renderer->render('about');
         $this->response->setContent($html);
     }
+
+
 }

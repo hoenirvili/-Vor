@@ -5,6 +5,7 @@ namespace Vor\Controllers;
 use Http\Request;
 use Http\Response;
 use Vor\Views\Renderer;
+use Vor\Models\Model;
 
 class Index
 {
@@ -17,7 +18,8 @@ class Index
     public function __construct(
         Response $response,
         Request $request,
-        Renderer $renderer
+        Renderer $renderer,
+        Model $model
         )
     {
         $this->response = $response;
@@ -25,13 +27,20 @@ class Index
         $this->renderer = $renderer;
     }
 
-    public function show(): void
+    public function show(array $params): void
     {
-        $data = [
-            'name' => $this->request->getParameter('name', 'anothername'),
-        ];
-        $html = $this->renderer->render('index', $data);
+
+        $html = $this->renderer->render('index');
         $this->response->setContent($html);
     }
+
+    public function page(array $params): void {
+        $n = (int)($params['page']);
+        $articles = $this->model->page($n);
+        var_dump($articles);
+        die();
+    }
+
+
 
 }
