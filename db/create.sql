@@ -23,10 +23,22 @@ CREATE OR REPLACE TABLE Article (
     Title       VARCHAR(350)    NOT NULL,
     Time        DATE            NOT NULL,
     Content     LONGTEXT        NOT NULL,
-    Tags        VARCHAR(100),
     AuthorId    INT UNSIGNED    NOT NULL,
 
     FOREIGN KEY (AuthorId)  REFERENCES User(Id)
+);
+
+CREATE OR REPLACE TABLE Tag (
+    Id      INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Name    VARCHAR(50) NOT NULL
+);
+
+CREATE OR REPLACE TABLE ArticleTags(
+    ArticleId   INT UNSIGNED NOT NULL,
+    TagId       INT UNSIGNED NOT NULL,
+
+    FOREIGN KEY (ArticleId)  REFERENCES Article(Id),
+    FOREIGN KEY (TagId)      REFERENCES Tag(Id)
 );
 
 CREATE OR REPLACE TABLE Comment (
@@ -61,3 +73,5 @@ CREATE UNIQUE INDEX User_Index          ON User(Id);
 CREATE UNIQUE INDEX Article_Index       On Article(Id);
 CREATE UNIQUE INDEX Comment_Index       ON Comment(Id);
 CREATE UNIQUE INDEX Notification_Index  ON Notification(Id);
+CREATE UNIQUE INDEX Tag_Index           On Tag(Id);
+CREATE UNIQUE INDEX Tag_Name            On Tag(Name);

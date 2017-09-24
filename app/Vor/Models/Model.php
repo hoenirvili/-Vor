@@ -4,7 +4,7 @@ namespace Vor\Models;
 
 use Vor\Core\Database;
 
-abstract class Model
+class Model
 {
     protected $db;
 

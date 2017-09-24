@@ -21,16 +21,23 @@ $options    =  array(\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
                 \PDO::ATTR_PERSISTENT => true);
 $dsn        = "mysql:host=$hostname;port=$port;dbname=vor;charset=utf8mb4";
 
-$injector->share('\PDO');
-$injector->define('\PDO', [$dsn, $username, $password, $options]);
-$injector->alias('Models\Model', 'Models\Articles');
-$injector->share('Models\Articles');
+$injector->share('PDO');
+$injector->define('PDO', [
+    ':dsn'      => $dsn,
+    ':username' => $username,
+    ':passwd'   => $password,
+    ':options'  => $options
+]);
+
+$injector->share('Vor\Models\Article');
+$injector->define('Vor\Controllers\Index', ['model' => 'Vor\Models\Article']);
 
 $templatePath = ROOT.DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.'Vor'.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'templates';
 
 $injector->alias('Http\Response', 'Http\HttpResponse');
 $injector->share('Http\HttpResponse');
 $injector->alias('Vor\Views\Renderer', 'Vor\Views\Mustache');
+$injector->share('Vor\Views\Mustache');
 $injector->define('Mustache_Engine', [
     ':options' => [
         'loader' => new Mustache_Loader_FilesystemLoader($templatePath, [

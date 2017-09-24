@@ -49,13 +49,24 @@ $dispatcher = \FastRoute\simpleDispatcher($routeDefinitions);
 $method = $request->getMethod();
 $path = $request->getPath();
 $routeInfo = $dispatcher->dispatch($method, $path);
+
+$renderer = $injector->make('Vor\Views\Mustache');
+
 switch ($routeInfo[0]) {
     case Dispatcher::NOT_FOUND:
-        $response->setContent('404 - Page not found');
+        $html = $renderer->render('error', [
+            'code'=> 404,
+            'message' => 'Page not found'
+        ]);
+        $response->setContent($html);
         $response->setStatusCode(404);
         break;
     case Dispatcher::METHOD_NOT_ALLOWED:
-        $response->setContent('405 - Method not allowed');
+        $html = $renderer->render('error', [
+            'code'=> 404,
+            'message' => 'Method not allowed'
+        ]);
+        $response->setContent($html);
         $response->setStatusCode(405);
         break;
     case Dispatcher::FOUND:

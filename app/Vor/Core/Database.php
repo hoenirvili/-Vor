@@ -15,12 +15,19 @@ class Database
 
     public function __construct(PDO $pdo)
     {
-       $this->pdo = $pdo;
+        $this->pdo = $pdo;
+        $this->pdo->setAttribute(PDO::ATTR_STRINGIFY_FETCHES, false);
     }
 
-    public function query(string $query): void
+    public function query(string $query, int $style = PDO::FETCH_ASSOC): array
     {
-        $this->stmt = $this->pdo->prepare($query);
+        $stmt = $this->pdo->query($query);
+        $data = $stmt->fetchAll($style);
+        if ($data === false)
+            throw new PDOException("Can't fetch the data");
+
+        return $data;
+
     }
 
     public function bindInt(string $param, int $value): void
