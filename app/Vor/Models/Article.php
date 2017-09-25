@@ -12,7 +12,7 @@ class Article extends Model
         if ($id < 1)
             throw new InvalidArgumentException("Invalid article id number");
 
-        $sql = "SELECT Tag.Name As Tag
+        $sql = "SELECT Tag.Name As tag
             FROM Tag, ArticleTag
             WHERE
                 Tag.Id = ArticleTag.TagId AND
@@ -21,18 +21,38 @@ class Article extends Model
         return $this->db->query($sql, PDO::FETCH_COLUMN);
     }
 
-    public function comments(int $id): array
+    public function nComments(int $id): int
     {
         if ($id < 1)
             throw new InvalidArgumentException("Invalid article id number");
 
-        $sql = "SELECT Name, Time, Email, Content
+        $sql = "SELECT COUNT(1)
                 FROM Comment, ArticleComment
                 WHERE
                     Comment.Id = ArticleComment.CommentId AND
                     {$id} = ArticleComment.ArticleId";
 
-        return $this->db->query($sql);
+        $data = $this->db->query($sql, \PDO::FETCH_COLUMN);
+        return $data[0];
+    }
+
+    public function navigation(int $n): array
+    {
+        if ($n < 1)
+            throw new InvalidArgumentException("Invalid page number");
+
+        if ($n === 1) {
+            $previous= 0;
+            $next = $n + 1;
+        } else {
+            $previous = $n - 1;
+            $next = $n + 1;
+        }
+
+        return [
+            'previous' => $previous,
+            'next' => $next
+        ];
     }
 
     public function page(int $n): array
@@ -40,11 +60,13 @@ class Article extends Model
         if ($n < 1)
             throw new InvalidArgumentException("Invalid page number");
 
+        $navigation = $this->navigation($n);
+
         $per_page = 3;
         $n -= 1;
         $n *= $per_page;
-        $sql = "SELECT  Article.Id, Article.Title, Article.Time,
-                        Article.Content, User.Username
+        $sql = "SELECT  Article.id, Article.title, Article.time,
+                        Article.content, User.username
                 FROM Article
                 INNER JOIN User
                     ON Article.AuthorId = User.Id
@@ -52,17 +74,21 @@ class Article extends Model
                 DESC LIMIT {$n}, {$per_page}";
 
         $articles = $this->db->query($sql);
-
         foreach ($articles as &$article) {
-            $id = (int)$article['Id'];
+            $id = $article['id'];
             $article['tags'] = $this->tags($id);
-            $comments = $this->comments($id);
-            $article['comments'] = [
-                'n' => count($comments),
-                'data' => $comments,
-            ];
+            $article['comments'] = $this->nComments($id);
         }
 
-        return $articles;
+        if (count($articles) != $per_page)
+            $navigation = [
+                'previous' => $navigation['previous'],
+                'next' => 0
+            ];
+
+        return [
+            'articles' => $articles,
+            'navigation' => $navigation,
+        ];
     }
 }

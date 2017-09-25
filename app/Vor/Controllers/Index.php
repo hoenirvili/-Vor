@@ -6,6 +6,7 @@ use Http\Request;
 use Http\Response;
 use Vor\Views\Renderer;
 use Vor\Models\Model;
+use Vor\Core\Error;
 
 class Index
 {
@@ -16,6 +17,8 @@ class Index
     private $renderer;
 
     private $model;
+
+    private $name = 'index';
 
     public function __construct(
         Response $response,
@@ -37,22 +40,15 @@ class Index
     public function page(array $params): void
     {
         $n = (int)($params['page']);
-        $articles = $this->model->page($n);
+        $page = $this->model->page($n);
 
-        $code = 200;
-        $page = 'Index';
-
-        if ($articles === []) {
-            $code = 404;
-            $page = 'error';
-            $articles = [
-                'code'=> $code,
-                'message' => 'Page not found',
-            ];
+        if ($page['articles'] === []) {
+            $error = new Error($this->response, $this->renderer);
+            $error->notfound();
+            return;
         }
 
-        $this->response->setStatusCode($code);
-        $html = $this->renderer->render($page, $articles);
+        $html = $this->renderer->render($this->name, $page);
         $this->response->setContent($html);
     }
 }

@@ -7,7 +7,7 @@
             {{> left-column}}
             <div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-sm-12 col-xs-12 right-column right-column__layout">
                 <div class="art">
-                    {{#.}}
+                    {{#articles}}
                     <article class="page-preview">
                         <header>
                             <a href="article" title="Intro To React.js Library" class="page-preview__link--header">
@@ -20,85 +20,65 @@
                                 <span class="page-preview__meta__item">
                                     <i class="fa fa-calendar"></i>
                                     <a href="archive" rel="bookmark">
-                                        <time class="entry-date published" datetime="2017-06-13T07:21:21+00:00">{{Time}}</time>
+                                        <time class="entry-date published" datetime="2017-06-13T07:21:21+00:00">{{time}}</time>
                                     </a>
                                 </span>
                                 <span class="page-preview__meta__item">
                                     <i class="fa fa-user"></i>
                                     <span>
-                                        <a class="url fn n" href="about">Hoenirvili</a>
+                                        <a class="url fn n" href="about">{{username}}</a>
                                     </span>
                                 </span>
                                 <span class="page-preview__meta__item">
 
                                     <i class="fa fa-comment-o"></i>
                                     <a href="article#comments-section">
-                                        <span data-dsqidentifier="2864 blog/?p=2864">24 Comments</span>
+                                        <span data-dsqidentifier="2864 blog/?p=2864">{{comments}} comments</span>
                                     </a>
                                 </span>
                             </div>
                             <div class="page-preview__headline">
                                 <a href="article">
-                                    <h1>{{Title}}</h1>
+                                    <h1>{{title}}</h1>
                                 </a>
                             </div>
                             <div class="page-preview__content text-justify">
                                 <p>
-                                    {{Content}}
+                                    {{content}}
                                 </p>
                             </div>
                             <footer class="clearfix page-preview__footer">
                                 <a href="article" title="Read more"><button type="button" class="btn btn-primary page-preview__button">Read more</button></a>
                                 <div class="page-preview__hashtags">
+                                    {{#tags}}
                                     <a href="#" title="react" class="page-preview__hashtags__link">
                                         <span class="label label-info page-preview__hashtags__span">
-                                            <i class="fa fa-hashtag" aria-hidden="true"></i>react
+                                            <i class="fa fa-hashtag" aria-hidden="true"></i>{{.}}
                                         </span>
                                     </a>
-                                    <a href="#" title="javascript" class="page-preview__hashtags__link">
-                                        <span class="label label-info page-preview__hashtags__span">
-                                            <i class="fa fa-hashtag" aria-hidden="true"></i>javascript
-                                        </span>
-                                    </a>
-                                    <a href="#" title="framework" class="page-preview__hashtags__link">
-                                        <span class="label label-info page-preview__hashtags__span">
-                                            <i class="fa fa-hashtag" aria-hidden="true"></i>framework
-                                        </span>
-                                    </a>
-                                    <a href="#" title="front-end" class="page-preview__hashtags__link">
-                                        <span class="label label-info page-preview__hashtags__span">
-                                            <i class="fa fa-hashtag" aria-hidden="true"></i>front-end
-                                        </span>
-                                    </a>
-                                     <a href="#" title="facebook" class="page-preview__hashtags__link">
-                                        <span class="label label-info page-preview__hashtags__span">
-                                            <i class="fa fa-hashtag" aria-hidden="true"></i>facebook
-                                        </span>
-                                    </a>
-                                     <a href="#" title="php" class="page-preview__hashtags__link">
-                                        <span class="label label-info page-preview__hashtags__span">
-                                            <i class="fa fa-hashtag" aria-hidden="true"></i>php
-                                        </span>
-                                    </a>
-                                     <a href="#" title="xhp" class="page-preview__hashtags__link">
-                                        <span class="label label-info page-preview__hashtags__span">
-                                            <i class="fa fa-hashtag" aria-hidden="true"></i>xhp
-                                        </span>
-                                    </a>
-                                     <a href="#" title="ui-design" class="page-preview__hashtags__link">
-                                        <span class="label label-info page-preview__hashtags__span">
-                                            <i class="fa fa-hashtag" aria-hidden="true"></i>ui-design
-                                        </span>
-                                    </a>
+                                    {{/tags}}
                                 </div>
                             </footer>
                         </div>
                     </article>
-                    {{/.}}
+                    {{/articles}}
                     <nav aria-label="...">
                         <ul class="pager">
-                            <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
-                            <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+                            {{#navigation}}
+                                {{#previous}}
+                                <li class="active previous"><a href="/{{previous}}"><span aria-hidden="true">&larr;</span> Older</a></li>
+                                {{/previous}}
+                                {{^previous}}
+                                 <li class="disabled previous"><a><span aria-hidden="true">&larr;</span> Older</a></li>
+                                {{/previous}}
+
+                                {{#next}}
+                                    <li class="active next"><a href="/{{next}}">Newer <span aria-hidden="true">&rarr;</span></a></li>
+                                {{/next}}
+                                {{^next}}
+                                    <li class="disabled next"><a>Newer <span aria-hidden="true">&rarr;</span></a></li>
+                                {{/next}}
+                            {{/navigation}}
                         </ul>
                     </nav>
                 </div>

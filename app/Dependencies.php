@@ -17,9 +17,14 @@ $hostname   = (($env = getenv('PHP_DB_HOSTNAME')) !== false) ? $env : '';
 $port       = (($env = getenv('PHP_DB_PORT')) !== false) ? $env : '';
 $username   = (($env = getenv('PHP_DB_USERNAME')) !== false) ? $env : '';
 $password   = (($env = getenv('PHP_DB_PASSWORD')) !== false) ? $env : '';
-$options    =  array(\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
-                \PDO::ATTR_PERSISTENT => true);
-$dsn        = "mysql:host=$hostname;port=$port;dbname=vor;charset=utf8mb4";
+
+$options    = [
+                \PDO::ATTR_ERRMODE              => \PDO::ERRMODE_EXCEPTION,
+                \PDO::ATTR_DEFAULT_FETCH_MODE   => \PDO::FETCH_ASSOC,
+                \PDO::ATTR_PERSISTENT           => true,
+                \PDO::ATTR_EMULATE_PREPARES     => false,
+            ];
+$dsn        = "mysql:host=$hostname;port=$port;dbname=vor;charset=utf8";
 
 $injector->share('PDO');
 $injector->define('PDO', [

@@ -18,6 +18,7 @@ use Http\HttpRequest;
 use Http\HttpResponse;
 use Whoops\Run;
 use Whoops\Handler\PrettyPageHandler;
+use Vor\Core\Error;
 
 error_reporting(E_ALL); // this should be turned off in production
 
@@ -52,22 +53,14 @@ $routeInfo = $dispatcher->dispatch($method, $path);
 
 $renderer = $injector->make('Vor\Views\Mustache');
 
+$error = new Error($response, $renderer);
+
 switch ($routeInfo[0]) {
     case Dispatcher::NOT_FOUND:
-        $html = $renderer->render('error', [
-            'code'=> 404,
-            'message' => 'Page not found'
-        ]);
-        $response->setContent($html);
-        $response->setStatusCode(404);
+        $error->notfound();
         break;
     case Dispatcher::METHOD_NOT_ALLOWED:
-        $html = $renderer->render('error', [
-            'code'=> 404,
-            'message' => 'Method not allowed'
-        ]);
-        $response->setContent($html);
-        $response->setStatusCode(405);
+        $error->notallowed();
         break;
     case Dispatcher::FOUND:
         $class = $routeInfo[1][0];
