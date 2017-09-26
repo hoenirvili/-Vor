@@ -8,15 +8,7 @@ class Archive extends Controller
     public function show(array $params): void
     {
         $records = $this->model->records();
-        foreach ($records as $key=>$value) {
-            // var_dump($key);
-            // echo "</br>";
-             // echo "</br>";
-            var_dump($value);
-            echo "</br>";
-        }
-        die();
-        $html = $this->renderer->render($this->name);
+        $html = $this->renderer->render($this->name, $records);
         $this->response->setContent($html);
     }
 }

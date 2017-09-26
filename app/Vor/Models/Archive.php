@@ -9,11 +9,28 @@ class Archive extends Model
 {
     public function records(): array
     {
-        $sql = "SELECT title, time, YEAR(time) as year
+        $sql = "SELECT YEAR(time) as year
                 FROM Article
-                ORDER BY time DESC;";
+                GROUP BY year
+                ORDER BY time DESC";
 
-        return $this->db->query($sql);
+        $years = $this->db->query($sql, PDO::FETCH_COLUMN);
+
+        $sql = "SELECT MONTHNAME(time) as month,
+                        DAY(time) as day, title
+                FROM Article
+                WHERE YEAR(time) = %d
+                ORDER BY time DESC";
+
+        $records = [];
+        foreach ($years as $year) {
+            $sql_per_year = sprintf($sql, $year);
+            $record['year'] = $year;
+            $record['data'] = $this->db->query($sql_per_year);
+            $records[] = $record;
+        }
+
+        return $records;
     }
 
 }
