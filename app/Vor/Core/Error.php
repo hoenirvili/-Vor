@@ -42,6 +42,11 @@ class Error
 
     public function notallowed(): void
     {
-        $this->error(403, 'Method not allowed');
+        $this->error(405, 'Method not allowed');
+    }
+
+    public function badrequest(): void
+    {
+        $this->error(400, 'Bad Request');
     }
 }

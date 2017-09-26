@@ -6,30 +6,11 @@ use Http\Request;
 use Http\Response;
 use Vor\Views\Renderer;
 
-class About
+class About extends Controller
 {
-    private $response;
-
-    private $request;
-
-    private $renderer;
-
-    public function __construct(
-        Response $response,
-        Request $request,
-        Renderer $renderer
-        )
-    {
-        $this->response = $response;
-        $this->request = $request;
-        $this->renderer = $renderer;
-    }
-
     public function show(array $params): void
     {
-        $html = $this->renderer->render('about');
+        $html = $this->renderer->render($this->name);
         $this->response->setContent($html);
     }
-
-
 }

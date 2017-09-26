@@ -44,6 +44,7 @@ $routeDefinitions = function(RouteCollector $r) {
         $r->addRoute($route[0], $route[1], $route[2]);
     }
 };
+
 // create the dispatches from our previous callback
 $dispatcher = \FastRoute\simpleDispatcher($routeDefinitions);
 

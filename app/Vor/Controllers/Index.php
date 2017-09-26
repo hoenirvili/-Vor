@@ -8,30 +8,8 @@ use Vor\Views\Renderer;
 use Vor\Models\Model;
 use Vor\Core\Error;
 
-class Index
+class Index extends Controller
 {
-    private $response;
-
-    private $request;
-
-    private $renderer;
-
-    private $model;
-
-    private $name = 'index';
-
-    public function __construct(
-        Response $response,
-        Request $request,
-        Renderer $renderer,
-        Model $model)
-    {
-        $this->response = $response;
-        $this->request = $request;
-        $this->renderer = $renderer;
-        $this->model = $model;
-    }
-
     public function show(array $params): void
     {
         $this->page(['page'=>1]);
