@@ -2,10 +2,6 @@
 
 namespace Vor\Controllers;
 
-use Http\Request;
-use Http\Response;
-use Vor\Views\Renderer;
-use Vor\Models\Model;
 use Vor\Core\Error;
 
 class Index extends Controller

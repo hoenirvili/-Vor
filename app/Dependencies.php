@@ -36,6 +36,7 @@ $injector->define('PDO', [
 
 $injector->share('Vor\Models\Article');
 $injector->define('Vor\Controllers\Index', ['model' => 'Vor\Models\Article']);
+$injector->define('Vor\Controllers\Article', ['model'=> 'Vor\Models\Article']);
 $injector->share('Vor\Models\Archive');
 $injector->define('Vor\Controllers\Archive', ['model' => 'Vor\Models\Archive']);
 

@@ -2,7 +2,6 @@
 
 namespace Vor\Controllers;
 
-
 class Archive extends Controller
 {
     public function show(array $params): void

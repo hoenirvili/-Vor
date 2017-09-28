@@ -7,6 +7,10 @@ use PDO;
 
 class Database
 {
+    const FETCH_ALL     = 0x1;
+    const FETCH_SINGLE  = 0x2;
+    const FETCH_BUFFERED = 0x3;
+
     protected $pdo;
 
     private $err;
@@ -18,10 +22,23 @@ class Database
         $this->pdo = $pdo;
     }
 
-    public function query(string $query, int $style = 0): array
+    public function query(string $query,
+                        int $style = 0,
+                        int $fetch = Database::FETCH_ALL): array
     {
         $stmt = $this->pdo->query($query);
-        return $stmt->fetchAll($style);
+        switch ($fetch) {
+            case Database::FETCH_ALL:
+                return $stmt->fetchAll($style);
+            case Database::FETCH_SINGLE:
+                return $stmt->fetch($style);
+            case Database::FETCH_BUFFERED:
+                $data = [];
+                while (($data[] = $stmt->fetch($style))){}
+                return $data;
+            default:
+                throw new InvalidArgumentException("Invalid fetch parameter given");
+        }
     }
 
     public function bindInt(string $param, int $value): void
@@ -63,5 +80,4 @@ class Database
     {
         return $this->pdo->lastInsertId();
     }
-
 }

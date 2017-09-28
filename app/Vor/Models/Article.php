@@ -4,6 +4,7 @@ namespace Vor\Models;
 
 use Vor\Core\Database;
 use PDO;
+use DateTime;
 
 class Article extends Model
 {
@@ -21,6 +22,19 @@ class Article extends Model
         return $this->db->query($sql, PDO::FETCH_COLUMN);
     }
 
+    public function comments(int $id): array
+    {
+        if ($id < 1)
+            throw new InvalidArgumentException("Invalid article id number");
+        $sql = "SELECT name, email, content, time
+                FROM Comment, ArticleComment
+                WHERE
+                    Comment.Id = ArticleComment.CommentId AND
+                    {$id} = ArticleComment.ArticleId";
+
+        return $this->db->query($sql);
+
+    }
     public function nComments(int $id): int
     {
         if ($id < 1)
@@ -66,7 +80,8 @@ class Article extends Model
         $n -= 1;
         $n *= $per_page;
         $sql = "SELECT  Article.id, Article.title, Article.time,
-                        Article.content, User.username
+                        SUBSTRING(Article.content, 1, 1500) as Preview,
+                        User.username
                 FROM Article
                 INNER JOIN User
                     ON Article.AuthorId = User.Id
@@ -90,5 +105,58 @@ class Article extends Model
             'articles' => $articles,
             'navigation' => $navigation,
         ];
+    }
+
+    public function get(int $n): array
+    {
+        if($n < 1)
+            throw new InvalidArgumentException("Invalid article number");
+
+        $sql = "SELECT Article.id, Article.title,
+                       Article.time, Article.content,
+                       User.username
+                FROM Article
+                INNER JOIN User ON Article.AuthorId = User.Id
+                WHERE Article.Id = {$n}";
+
+        $article = $this->db->query($sql,PDO::FETCH_ASSOC, Database::FETCH_SINGLE);
+        $id = $article['id'];
+        $article['tags'] = $this->tags($id);
+        $article['comments'] = $this->comments($id);
+        $article['ncomments'] = count($article['comments']);
+
+        return $article;
+    }
+
+    public function set(string $name,
+                        string $title,
+                        DateTime $time,
+                        string $author,
+                        array $tags = []): void
+
+    {
+        if (($name === '') ||
+            ($title === '') ||
+            ($author === ''))
+            throw new InvalidArgumentException("Invalid parameters passed.");
+
+
+        $sql = "id FROM User WHERE username = {$author}";
+        $data = $this->db->query($sql, Database::FETCH_SINGLE);
+        if($data === [])
+            throw new Exception("Invalid author given, the author does not exist");
+
+        $sql = "INSERT INTO article (Title, Time, Content, AuthorId)
+                VALUES (?, ?, ?, ?)";
+
+
+        //prepare//TODO
+
+        $this->db->execute();
+
+        // skip tags
+        if ($tags === [])
+            return;
+        // article tags insert.
     }
 }
