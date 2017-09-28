@@ -75,7 +75,6 @@ switch ($routeInfo[0]) {
         break;
 }
 
-
 // prepare all headers and output the response
 foreach ($response->getHeaders() as $header)
     header($header, false);

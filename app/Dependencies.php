@@ -39,6 +39,8 @@ $injector->define('Vor\Controllers\Index', ['model' => 'Vor\Models\Article']);
 $injector->define('Vor\Controllers\Article', ['model'=> 'Vor\Models\Article']);
 $injector->share('Vor\Models\Archive');
 $injector->define('Vor\Controllers\Archive', ['model' => 'Vor\Models\Archive']);
+$injector->share('Vor\Models\User');
+$injector->define('Vor\Controllers\Login', ['model' => 'Vor\Models\User']);
 
 $templatePath = ROOT.DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.'Vor'.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'templates';
 

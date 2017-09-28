@@ -7,5 +7,7 @@ return [
     ['GET', '/about', ['Vor\Controllers\About', 'show']],
     ['GET', '/archive', ['Vor\Controllers\Archive', 'show']],
     ['GET', '/article', ['Vor\Controllers\Article', 'show']],
-    ['GET', '/article/{page:[1-9]+[0-9]*}', ['Vor\Controllers\Article', 'page']]
+    ['GET', '/article/{page:[1-9]+[0-9]*}', ['Vor\Controllers\Article', 'page']],
+    ['GET', '/login', ['Vor\Controllers\Login', 'show']],
+    ['POST', '/login', ['Vor\Controllers\Login', 'enter']],
 ];
