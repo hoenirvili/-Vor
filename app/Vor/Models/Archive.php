@@ -2,7 +2,6 @@
 
 namespace Vor\Models;
 
-use Vor\Core\Database;
 use PDO;
 
 class Archive extends Model
@@ -14,19 +13,22 @@ class Archive extends Model
                 GROUP BY year
                 ORDER BY time DESC";
 
-        $years = $this->db->query($sql, PDO::FETCH_COLUMN);
+        $stmt = $this->db->query($sql);
+        $years = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
         $sql = "SELECT MONTHNAME(time) as month,
                         DAY(time) as day, title
                 FROM Article
-                WHERE YEAR(time) = %d
+                WHERE YEAR(time) = :year
                 ORDER BY time DESC";
 
+        $stmt = $this->db->prepare($sql);
         $records = [];
         foreach ($years as $year) {
             $sql_per_year = sprintf($sql, $year);
             $record['year'] = $year;
-            $record['data'] = $this->db->query($sql_per_year);
+            $stmt->execute(["year"=>$year]);
+            $record['data'] = $stmt->fetchAll();
             $records[] = $record;
         }
 

@@ -2,7 +2,6 @@
 
 namespace Vor\Models;
 
-use Vor\Core\Database;
 use PDO;
 use DateTime;
 
@@ -17,24 +16,30 @@ class Article extends Model
             FROM Tag, ArticleTag
             WHERE
                 Tag.Id = ArticleTag.TagId AND
-                {$id} = ArticleTag.ArticleId";
+                :id = ArticleTag.ArticleId";
 
-        return $this->db->query($sql, PDO::FETCH_COLUMN);
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(["id"=>$id]);
+        return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
 
     public function comments(int $id): array
     {
         if ($id < 1)
             throw new InvalidArgumentException("Invalid article id number");
+
         $sql = "SELECT name, email, content, time
                 FROM Comment, ArticleComment
                 WHERE
                     Comment.Id = ArticleComment.CommentId AND
-                    {$id} = ArticleComment.ArticleId";
+                    :id = ArticleComment.ArticleId";
 
-        return $this->db->query($sql);
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(["id"=>$id]);
+        return $stmt->fetchAll();
 
     }
+
     public function nComments(int $id): int
     {
         if ($id < 1)
@@ -44,10 +49,11 @@ class Article extends Model
                 FROM Comment, ArticleComment
                 WHERE
                     Comment.Id = ArticleComment.CommentId AND
-                    {$id} = ArticleComment.ArticleId";
+                    :id = ArticleComment.ArticleId";
 
-        $data = $this->db->query($sql, \PDO::FETCH_COLUMN);
-        return $data[0];
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(["id"=>$id]);
+        return $stmt->fetch(PDO::FETCH_COLUMN);
     }
 
     public function navigation(int $n): array
@@ -86,9 +92,11 @@ class Article extends Model
                 INNER JOIN User
                     ON Article.AuthorId = User.Id
                 ORDER BY Article.Time
-                DESC LIMIT {$n}, {$per_page}";
+                DESC LIMIT :offset, :len";
 
-        $articles = $this->db->query($sql);
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(["offset"=>$n, "len"=>$per_page]);
+        $articles = $stmt->fetchAll();
         foreach ($articles as &$article) {
             $id = $article['id'];
             $article['tags'] = $this->tags($id);
@@ -117,9 +125,12 @@ class Article extends Model
                        User.username
                 FROM Article
                 INNER JOIN User ON Article.AuthorId = User.Id
-                WHERE Article.Id = {$n}";
+                WHERE Article.Id = :id";
 
-        $article = $this->db->query($sql,PDO::FETCH_ASSOC, Database::FETCH_SINGLE);
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(["id" => $n]);
+        $article = $stmt->fetch();
+
         $id = $article['id'];
         $article['tags'] = $this->tags($id);
         $article['comments'] = $this->comments($id);

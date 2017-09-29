@@ -2,13 +2,13 @@
 
 namespace Vor\Models;
 
-use Vor\Core\Database;
+use PDO;
 
 class Model
 {
     protected $db;
 
-    public function __construct(Database $db)
+    public function __construct(PDO $db)
     {
         $this->db = $db;
     }
