@@ -4,6 +4,7 @@ namespace Vor\Models;
 
 use PDO;
 use DateTime;
+use LogicException;
 
 class Article extends Model
 {
@@ -95,7 +96,9 @@ class Article extends Model
                 DESC LIMIT :offset, :len";
 
         $stmt = $this->db->prepare($sql);
-        $stmt->execute(["offset"=>$n, "len"=>$per_page]);
+        $stmt->bindParam(1, $n, PDO::PARAM_INT);
+        $stmt->bindParam(2, $per_page, PDO::PARAM_INT);
+        $stmt->execute();
         $articles = $stmt->fetchAll();
         foreach ($articles as &$article) {
             $id = $article['id'];
@@ -155,7 +158,7 @@ class Article extends Model
         $sql = "id FROM User WHERE username = {$author}";
         $data = $this->db->query($sql, Database::FETCH_SINGLE);
         if($data === [])
-            throw new Exception("Invalid author given, the author does not exist");
+            throw new LogicException("Invalid author given, the author does not exist");
 
         $sql = "INSERT INTO article (Title, Time, Content, AuthorId)
                 VALUES (?, ?, ?, ?)";

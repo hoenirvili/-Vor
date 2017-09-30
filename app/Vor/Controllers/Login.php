@@ -16,6 +16,7 @@ class Login extends Controller
 
         $username = $this->request->getParameter('username');
         $password = $this->request->getParameter('password');
+        $remember = $this->request->getParameter('remember');
 
         $data = [];
 
@@ -25,6 +26,9 @@ class Login extends Controller
         if (!(is_string($username)) || (!is_string($password)))
             return data;
 
+        $username = trim($username);
+        $password = trim($password);
+
         if (($username === '') || ($password === ''))
             return data;
 
@@ -32,29 +36,37 @@ class Login extends Controller
             (!mb_check_encoding($password, 'ASCII')))
             return data;
 
-        $data['username']=$username;
-        $data['password']=$password;
+        $data['username'] = $username;
+        $data['password'] = $password;
+        $data['remember'] = false;
+
+
+        if (($remember !== null) &&
+            (is_string($remember)) &&
+            (mb_check_encoding($remember,'ASCII')) &&
+            (trim($remember) === 'on'))
+        {
+            $data['remember'] = true;
+        }
 
         return $data;
     }
 
     public function enter(array $params): void
     {
-
         $error = new Error($this->response, $this->renderer);
-
         $input = $this->validate_input();
-
         if($input === [])
             $error->badrequest();
 
         $page = 'dashboard';
-        $user = $this->model->login($input['username'], $input['password']);
-        if ($user === [])
+        $user = $this->model->login($input['username'], $input['password'], $input['remember']);
+        if ($user === []) {
             $page = $this->name;
+            $user = [ "error" => "Username or password not found" ];
+        }
 
         $html = $this->renderer->render($page, $user);
-        $this->request->setContent($html);
+        $this->response->setContent($html);
     }
-
 }
