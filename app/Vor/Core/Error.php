@@ -6,7 +6,7 @@ use Http\Response;
 use Vor\Views\Renderer;
 
 
-class Error
+final class Error
 {
     private $response;
 

@@ -3,6 +3,8 @@
 namespace Vor\Controllers;
 
 use Vor\Core\Error;
+use http\MissingRequestMetaVariableException;
+use Vor\Core\Form;
 
 class Login extends Controller
 {
@@ -12,55 +14,46 @@ class Login extends Controller
         $this->response->setContent($html);
     }
 
-    private function validate_input(): array{
-
-        $username = $this->request->getParameter('username');
-        $password = $this->request->getParameter('password');
-        $remember = $this->request->getParameter('remember');
-
-        $data = [];
-
-        if (($username === null) || ($password===null))
-            return data;
-
-        if (!(is_string($username)) || (!is_string($password)))
-            return data;
-
-        $username = trim($username);
-        $password = trim($password);
-
-        if (($username === '') || ($password === ''))
-            return data;
-
-        if ((!mb_check_encoding($username, 'ASCII')) ||
-            (!mb_check_encoding($password, 'ASCII')))
-            return data;
-
-        $data['username'] = $username;
-        $data['password'] = $password;
-        $data['remember'] = false;
-
-
-        if (($remember !== null) &&
-            (is_string($remember)) &&
-            (mb_check_encoding($remember,'ASCII')) &&
-            (trim($remember) === 'on'))
-        {
-            $data['remember'] = true;
-        }
-
-        return $data;
-    }
-
     public function enter(array $params): void
     {
         $error = new Error($this->response, $this->renderer);
-        $input = $this->validate_input();
-        if($input === [])
+        $form_data = [
+            'username' => $this->request->getBodyParameter('username'),
+            'password' => $this->request->getBodyParameter('password'),
+            'remember' => $this->request->getBodyParameter('remember'),
+            // not in the form, but I will stick them in..
+            'user-agent' =>  $this->request->getUserAgent()
+        ];
+
+        $string_options = [
+                Form::MAX_LENGTH => 50,
+                Form::MIN_LENGTH => 1,
+                Form::EMPTY => false,
+                Form::ENCODING => 'ASCII',
+                FORM::IS_STRING => true
+        ];
+
+        $form = new Form ($form_data, [
+            'username' => $string_options,
+            'password' => $string_options,
+            'remember' => [Form::CHECKBOX => true],
+            'user-agent' => [
+                 Form::ENCODING => 'ASCII',
+                 FORM::IS_STRING => true
+            ]]);
+
+        if ($form->validate())
             $error->badrequest();
 
         $page = 'dashboard';
-        $user = $this->model->login($input['username'], $input['password'], $input['remember']);
+
+        if ($form_data['remember'] === 'on')
+            $form_data['remember'] = true;
+        else
+            $form_data['remember'] = false;
+
+        $user = $this->model->login($form_data['username'], $form_data['password'],
+                                    $form_data['user-agent'], $form_data['remember']);
         if ($user === []) {
             $page = $this->name;
             $user = [ "error" => "Username or password not found" ];

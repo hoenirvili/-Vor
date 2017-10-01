@@ -1,14 +1,10 @@
 <?php declare(strict_types=1);
 
+mb_internal_encoding('UTF-8');
+mb_http_output('UTF-8');
+
 define('ROOT', dirname(__DIR__));
 define('DS', DIRECTORY_SEPARATOR);
-define('APP', ROOT.DS.'app');
-define('VOR', APP.DS. 'Vor');
-define('CONTROLLERS', VOR.DS.'Controllers');
-define('CORE', VOR.DS. 'Core');
-define('VIEWS', VOR.DS. 'Views');
-define('MODELS', VOR.DS. 'Models');
-define('TEAMPLATES', VIEWS.DS. 'templates');
 
 require_once ROOT.DS.'vendor'.DS.'autoload.php';
 
@@ -19,8 +15,6 @@ use Http\HttpResponse;
 use Whoops\Run;
 use Whoops\Handler\PrettyPageHandler;
 use Vor\Core\Error;
-
-error_reporting(E_ALL); // this should be turned off in production
 
 $environment = 'development'; // this should 'production' in production
 
