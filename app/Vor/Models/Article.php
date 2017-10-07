@@ -24,6 +24,32 @@ class Article extends Model
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
 
+    public function byTag(string $name): array
+    {
+        if ($name === '')
+            throw new InvalidArgumentException("Invalid tag name");
+
+        $sql =  "SELECT ArticleTag.ArticleId as id
+                FROM ArticleTag
+                WHERE ArticleTag.TagId = 
+                        (Select id 
+                        FROM Tag 
+                        WHERE Tag.Name = :name)";
+        
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(["name"=>$name]);
+        $article_ids = $stmt->fetchAll(PDO::FETCH_COLUMN);
+        if ($article_ids === [])
+            return [];
+        
+            
+        var_dump($article_ids);
+        die();
+
+        return [];
+    }
+
+
     public function comments(int $id): array
     {
         if ($id < 1)

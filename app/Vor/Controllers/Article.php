@@ -2,6 +2,8 @@
 
 namespace Vor\Controllers;
 
+use Vor\Core\Error;
+
 class Article extends Controller
 {
     public function show(array $params): void
