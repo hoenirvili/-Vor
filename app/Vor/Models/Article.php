@@ -8,45 +8,80 @@ use LogicException;
 
 class Article extends Model
 {
+    private $per_page = 3;
+    
     public function tags(int $id): array
     {
         if ($id < 1)
             throw new InvalidArgumentException("Invalid article id number");
 
         $sql = "SELECT Tag.Name As tag
-            FROM Tag, ArticleTag
-            WHERE
-                Tag.Id = ArticleTag.TagId AND
-                :id = ArticleTag.ArticleId";
+                FROM Tag, ArticleTag
+                WHERE
+                    Tag.Id = ArticleTag.TagId AND
+                    :id = ArticleTag.ArticleId";
 
         $stmt = $this->db->prepare($sql);
         $stmt->execute(["id"=>$id]);
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
 
-    public function byTag(string $name): array
+    public function byTag(int $n, string $name): array
     {
         if ($name === '')
             throw new InvalidArgumentException("Invalid tag name");
 
-        $sql =  "SELECT ArticleTag.ArticleId as id
-                FROM ArticleTag
-                WHERE ArticleTag.TagId = 
-                        (Select id 
-                        FROM Tag 
-                        WHERE Tag.Name = :name)";
+        if ($n < 1)
+            throw new InvalidArgumentException("Invalid page number");
+
+        $navigation = $this->navigation($n);
+
+        if ($navigation["previous"] !== 0)
+            $navigation["previous"] = sprintf("%s/%d", $name, $navigation["previous"]);
+            
+        $n -= 1;
+        $n *= $this->per_page;
+
+        $sql = "SELECT  Article.id, title, time, 
+                        SUBSTRING(content, 1, 1500) as Preview, User.Username
+                FROM Article, User, ArticleTag
+                WHERE   ArticleTag.TagId = (Select id FROM Tag WHERE Tag.Name = :name) 
+                        AND
+                        Article.Id = ArticleTag.ArticleId
+                        
+                GROUP BY Article.Id
+                ORDER BY Article.Time DESC
+                LIMIT :offset, :len";
         
         $stmt = $this->db->prepare($sql);
-        $stmt->execute(["name"=>$name]);
-        $article_ids = $stmt->fetchAll(PDO::FETCH_COLUMN);
-        if ($article_ids === [])
+        $stmt->bindParam(1, $name, PDO::PARAM_STR);
+        $stmt->bindParam(2, $n, PDO::PARAM_INT);
+        $stmt->bindParam(3, $this->per_page, PDO::PARAM_INT);
+        $stmt->execute();
+        $articles = $stmt->fetchAll();
+        if ($articles === [])
             return [];
-        
-            
-        var_dump($article_ids);
-        die();
+    
+        foreach ($articles as &$article) {
+            $id = $article['id'];
+            $article['tags'] = $this->tags($id);
+            $article['comments'] = $this->nComments($id);
+        }
 
-        return [];
+        if (count($articles) != $this->per_page)
+            $navigation = [
+                'previous' => $navigation['previous'],
+                'next' => 0
+            ];
+
+
+        if ($navigation["next"] !== 0)
+            $navigation["next"] = sprintf("%s/%d", $name, $navigation["next"]);
+
+        return [
+            'articles' => $articles,
+            'tag_navigation' => $navigation,
+        ];
     }
 
 
@@ -64,7 +99,6 @@ class Article extends Model
         $stmt = $this->db->prepare($sql);
         $stmt->execute(["id"=>$id]);
         return $stmt->fetchAll();
-
     }
 
     public function nComments(int $id): int
@@ -89,7 +123,7 @@ class Article extends Model
             throw new InvalidArgumentException("Invalid page number");
 
         if ($n === 1) {
-            $previous= 0;
+            $previous = 0;
             $next = $n + 1;
         } else {
             $previous = $n - 1;
@@ -109,21 +143,18 @@ class Article extends Model
 
         $navigation = $this->navigation($n);
 
-        $per_page = 3;
         $n -= 1;
-        $n *= $per_page;
+        $n *= $this->per_page;
         $sql = "SELECT  Article.id, Article.title, Article.time,
                         SUBSTRING(Article.content, 1, 1500) as Preview,
                         User.username
-                FROM Article
-                INNER JOIN User
-                    ON Article.AuthorId = User.Id
-                ORDER BY Article.Time
-                DESC LIMIT :offset, :len";
+                FROM Article, User
+                ORDER BY Article.Time DESC
+                LIMIT :offset, :len";
 
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(1, $n, PDO::PARAM_INT);
-        $stmt->bindParam(2, $per_page, PDO::PARAM_INT);
+        $stmt->bindParam(2, $this->per_page, PDO::PARAM_INT);
         $stmt->execute();
         $articles = $stmt->fetchAll();
         foreach ($articles as &$article) {
@@ -132,7 +163,7 @@ class Article extends Model
             $article['comments'] = $this->nComments($id);
         }
 
-        if (count($articles) != $per_page)
+        if (count($articles) != $this->per_page)
             $navigation = [
                 'previous' => $navigation['previous'],
                 'next' => 0
@@ -168,6 +199,7 @@ class Article extends Model
         return $article;
     }
 
+    // TODO(hoenir): finish this
     public function set(string $name,
                         string $title,
                         DateTime $time,

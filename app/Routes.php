@@ -10,6 +10,6 @@ return [
     ['GET', '/article', ['Vor\Controllers\Article', 'show']],
     ['GET', '/article/{page:[1-9]+[0-9]*}', ['Vor\Controllers\Article', 'page']],
     ['GET', '/login', ['Vor\Controllers\Login', 'show']],
-    ['GET', '/tag/{name}', ['Vor\Controllers\Index', 'byTag']],
+    ['GET', '/tag/{name}/{page:[1-9]+[0-9]*}', ['Vor\Controllers\Index', 'byTag']],
     ['POST', '/login', ['Vor\Controllers\Login', 'enter']],
 ];

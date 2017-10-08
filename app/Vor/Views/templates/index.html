@@ -11,7 +11,7 @@
                     <article class="page-preview">
                         <header>
                             <a href="/article/{{id}}" title="Intro To React.js Library" class="page-preview__link--header">
-                                <img class="page-preview__image" src="assets/images/header/node.png" alt="reactjs-image">
+                                <img class="page-preview__image" src="/assets/images/header/node.png" alt="reactjs-image">
                             </a>
                         </header>
 
@@ -19,14 +19,14 @@
                             <div class="page-preview__meta">
                                 <span class="page-preview__meta__item">
                                     <i class="fa fa-calendar"></i>
-                                    <a href="archive" rel="bookmark">
+                                    <a href="/archive" rel="bookmark">
                                         <time class="entry-date published" datetime="2017-06-13T07:21:21+00:00">{{time}}</time>
                                     </a>
                                 </span>
                                 <span class="page-preview__meta__item">
                                     <i class="fa fa-user"></i>
                                     <span>
-                                        <a class="url fn n" href="about">{{username}}</a>
+                                        <a class="url fn n" href="/about">{{username}}</a>
                                     </span>
                                 </span>
                                 <span class="page-preview__meta__item">
@@ -38,7 +38,7 @@
                                 </span>
                             </div>
                             <div class="page-preview__headline">
-                                <a href="article">
+                                <a href="/article/{{id}}">
                                     <h1>{{title}}</h1>
                                 </a>
                             </div>
@@ -51,7 +51,7 @@
                                 <a href="article" title="Read more"><button type="button" class="btn btn-primary page-preview__button">Read more</button></a>
                                 <div class="page-preview__hashtags">
                                     {{#tags}}
-                                    <a href="/tag/{{.}}" title="{{.}}" class="page-preview__hashtags__link">
+                                    <a href="/tag/{{.}}/1" title="{{.}}" class="page-preview__hashtags__link">
                                         <span class="label label-info page-preview__hashtags__span">
                                             <i class="fa fa-hashtag" aria-hidden="true"></i>{{.}}
                                         </span>
@@ -79,6 +79,24 @@
                                     <li class="disabled next"><a>Newer <span aria-hidden="true">&rarr;</span></a></li>
                                 {{/next}}
                             {{/navigation}}
+
+                            {{#tag_navigation}}
+                                {{#previous}}
+                                <li class="active previous"><a href="/tag/{{previous}}"><span aria-hidden="true">&larr;</span> Older</a></li>
+                                {{/previous}}
+
+                                {{^previous}}
+                                <li class="disabled previous"><a><span aria-hidden="true">&larr;</span> Older</a></li>
+                                {{/previous}}
+
+                                {{#next}}
+                                    <li class="active next"><a href="/tag/{{next}}">Newer <span aria-hidden="true">&rarr;</span></a></li>
+                                {{/next}}
+
+                                {{^next}}
+                                    <li class="disabled next"><a>Newer <span aria-hidden="true">&rarr;</span></a></li>
+                                {{/next}}
+                            {{/tag_navigation}}
                         </ul>
                     </nav>
                 </div>

@@ -26,19 +26,19 @@ class Index extends Controller
         $this->response->setContent($html);
     }
 
-    // TODO(hoenir): return articles by tag and also this needs to be paginated
     public function byTag(array $params): void
     {
         $name = $params['name'];
+        $page_number = (int)$params['page'];
         
-        $page= $this->model->byTag($name);
+        $page = $this->model->byTag($page_number, $name);
         if ($page['articles'] === []) {
             $error = new Error($this->response, $this->renderer);
             $error->notfound();
             return;
         }
-            
-        $html = $this->renderer->render($this->name, $articles);
+        
+        $html = $this->renderer->render($this->name, $page);
         $this->response->setContent($html);
     }
 }
