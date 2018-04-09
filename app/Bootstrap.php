@@ -16,24 +16,28 @@ use Whoops\Run;
 use Whoops\Handler\PrettyPageHandler;
 use Vor\Core\Error;
 
-$environment = 'development'; // this should 'production' in production
-
 $whoops = new Run;
-if ($environment !== 'production')
-    $whoops->pushHandler(new PrettyPageHandler);
-else
-    $whoops->pushHandler(function($e){
-        echo 'Todo: Friendly error page and send an email to the developer';
+
+$environment = 'development'; 
+switch($environment) {
+case 'production':
+    $whoops->pushHandler(function ($e) { 
+            echo 'Todo: Friendly error'; 
     });
+    break;
+case 'development':
+    $whoops->pushHandler(new PrettyPageHandler);
+}
+
 $whoops->register();
 
-$injector = require('Dependencies.php');
+$injector = require 'Dependencies.php';
 $request = $injector->make('Http\HttpRequest');
 $response = $injector->make('Http\HttpResponse');
 
 // callback for creating all the routes in routes.php
-$routeDefinitions = function(RouteCollector $r) {
-    $routes = require('routes.php');
+$routeDefinitions = function (RouteCollector $r) {
+    $routes = require 'routes.php';
     foreach ($routes as $route) {
         $r->addRoute($route[0], $route[1], $route[2]);
     }
@@ -51,22 +55,22 @@ $renderer = $injector->make('Vor\Views\Mustache');
 $error = new Error($response, $renderer);
 
 switch ($routeInfo[0]) {
-    case Dispatcher::NOT_FOUND:
-        $error->notfound();
-        break;
-    case Dispatcher::METHOD_NOT_ALLOWED:
-        $error->notallowed();
-        break;
-    case Dispatcher::FOUND:
-        $class = $routeInfo[1][0];
-        $method = $routeInfo[1][1];
-        $params = $routeInfo[2];
-        // this will instantiate the $class
-        // and add inject his dependencies
-        $object = $injector->make($class);
-        // call the method for the route
-        $object->$method($params);
-        break;
+case Dispatcher::NOT_FOUND:
+    $error->notfound();
+    break;
+case Dispatcher::METHOD_NOT_ALLOWED:
+    $error->notallowed();
+    break;
+case Dispatcher::FOUND:
+    $class = $routeInfo[1][0];
+    $method = $routeInfo[1][1];
+    $params = $routeInfo[2];
+    // this will instantiate the $class
+    // and add inject his dependencies
+    $object = $injector->make($class);
+    // call the method for the route
+    $object->$method($params);
+    break;
 }
 
 // prepare all headers and output the response
