@@ -1,29 +1,63 @@
 <!DOCTYPE html>
 <html>
 {{> header }}
-<body>
-    <div class="container-fluid full-layout">
-        <div class="row full-layout">
-            {{> left-column }}
-            <div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-sm-12 col-xs-12 right-column right-column__layout">
-                <h1 class="archive-header">Archive</h1>
-                {{#.}}
-                <article class="archive">
-                    <h3 class="archive__year">{{year}}</h3>
-                    {{#data}}
-                    <div class="row archive__element">
-                        <div class="col-md-9">
-                           <a class="archive__link" href="/article/{{id}}">{{title}}</a>
-                        </div>
-                        <div class="col-md-3"><time class="archive__time">{{day}} {{month}}</time></div>
-                    </div>
-                    {{/data}}
-                    <hr>
-                </article>
-                {{/.}}
+<body class="container w-40 px-4 my-5">
+    <header class="row align-items-start">
+        <div class="media">
+            <a class="logo" href="/">
+                <img class="align-self-start mr-3" with="56" height="56" src="assets/images/logo/main.png" alt="main-logo">
+            </a>
+            <div class="media-body">
+                <a class="no-underline link-no-style" href="/">
+                    <h4 class="mb-0 font-weight-bold">Vor</h4>
+                </a>
+                <div class="nav">
+                    <a class="py-0 pl-0 nav-link border-right-dotted" href="/">Home</a>
+                    <a class="py-0 nav-link border-right-dotted" href="/about">About</a>
+                    <a class="py-0 nav-link border-right-dotted" href="/archive">Archive</a>
+                    <a class="border-right-0 py-0 nav-link border-right" href="/projects">Projects</a>
+                </div>
             </div>
         </div>
-    </div>
+    </header>
+    {{#.}}
+    <!-- TODO(hoenir): fix indentation -->
+    <section class="row mt-5">
+        <a class="my-2 px-0 col-12" href="#"> <h4 class="font-weight-bold">{{year}}</h4></a>
+        <div class="d-flex flex-column mb-3">
+            {{#data}}
+            <div class="flex-row">
+                <time class="mr-4">{{year}}-{{month}}-{{day}}</time>
+                <a href="/article/{{id}}">{{title}}</a>
+            </div>
+            {{/data}}
+        </div>
+    </section>
+    {{/.}}
+    <!-- TODO(hoenir): make this work -->
+    <section class="justify-content-center row mt-5">
+        <nav aria-label="page navigation">
+            <ul class="pagination">
+                <li class="page-item d-none mr-2">
+                    <a href="#" aria-label="Previous">
+                        <i class="fas fa-angle-left"aria-hidden="true"></i>
+                    </a>
+                </li>
+                <span>Page 1 of 2</span>
+                <li class="page-item ml-2">
+                    <a class="#" href="#" aria-label="Next">
+                        <i class="fas fa-angle-right" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+    <footer class="row mt-5">
+        <small> Theme design made by 
+        <a href="https://github.com/probberechts">Pieter Robberechts</a> and reimplemented by
+        <a href="https://github.com/hoenirvili/">me</a> using boostrap4</small> 
+    </footer>
+</body>
 {{> footer }}
 </body>
 </html>
