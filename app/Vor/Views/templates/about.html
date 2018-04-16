@@ -1,72 +1,79 @@
 <!DOCTYPE html>
 <html>
 {{> header }}
-<body>
-    <div class="container-fluid full-layout">
-        <div class="row full-layout">
-           {{> left-column }}
-            <div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-sm-12 col-xs-12 right-column right-column__layout">
-                <div class="about text-justify">
-                    <h2 class="about__title">About me !</h2>
-                    <p class="about__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio maxime, eaque debitis quisquam rem. Alias natus sint voluptates qui rerum amet! Voluptate, voluptates, dicta? Odit repellendus laborum incidunt est explicabo.</p>
-                    <p class="about__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident laborum culpa id accusamus minima excepturi, reprehenderit labore corporis, rem fugiat voluptas quam recusandae. Impedit iusto doloremque mollitia quibusdam quam ex! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis laboriosam quas aut, numquam, ratione laudantium maiores eaque omnis expedita voluptates debitis sapiente, eos facilis voluptate accusantium animi nulla nihil error. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab eum obcaecati excepturi temporibus ad, tempora deleniti, minus ipsum nobis aliquam culpa earum sint corrupti possimus rem perspiciatis fugit minima expedita.</p>
-                    <img class="about__avatar img-responsive" src="https://avatars1.githubusercontent.com/u/8754546?v=3&s=460" alt="avatar">
-                    <h4>Experience with languages</h4>
-                    <ul class="about__list">
-                        <li class="about__list__element">PHP</li>
-                        <li class="about__list__element">Python</li>
-                        <li class="about__list__element">Java</li>
-                        <li class="about__list__element">PL/SQL</li>
-                        <li class="about__list__element">Go</li>
-                        <li class="about__list__element">Bash</li>
-                        <li class="about__list__element">Powershell</li>
-                        <li class="about__list__element">Assembly</li>
-                        <li class="about__list__element">Javascript</li>
-                        <li class="about__list__element">C</li>
-                    </ul>
-                    <h4>Markup languages</h4>
-                    <ul class="about__list">
-                        <li class="about__list__element">Markdown</li>
-                        <li class="about__list__element">Html</li>
-                        <li class="about__list__element">Css</li>
-                        <li class="about__list__element">Latex</li>
-                        <li class="about__list__element">Sass</li>
-                        <li class="about__list__element">Jade</li>
-                    </ul>
-                    <h4>Experience with databses</h4>
-                    <ul class="about__list">
-                        <li class="about__list__element">OracleDB</li>
-                        <li class="about__list__element">MySQL</li>
-                        <li class="about__list__element">SQLLite</li>
-                        <li class="about__list__element">MongoDB</li>
-                    </ul>
-                    <h4>Other</h4>
-                    <ul class="about__list">
-                        <li class="about__list__element">Docker</li>
-                        <li class="about__list__element">Juju</li>
-                        <li class="about__list__element">GruntJS</li>
-                        <li class="about__list__element">NodeJs</li>
-                        <li class="about__list__element">Bootstrap</li>
-                        <li class="about__list__element">Linux</li>
-                        <li class="about__list__element">Windows</li>
-                        <li class="about__list__element">RaspberryPI</li>
-                        <li class="about__list__element">Arduino</li>
-                        <li class="about__list__element">Apache</li>
-                        <li class="about__list__element">XAMPP</li>
-                    </ul>
-                    <h4>General</h4>
-                    <p class="about__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio maxime, eaque debitis quisquam rem. Alias natus sint voluptates qui rerum amet! Voluptate, voluptates, dicta? Odit repellendus laborum incidunt est explicabo.</p>
-                    <p class="about__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident laborum culpa id accusamus minima excepturi, reprehenderit labore corporis, rem fugiat voluptas quam recusandae. Impedit iusto doloremque mollitia quibusdam quam ex! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis laboriosam quas aut, numquam, ratione laudantium maiores eaque omnis expedita voluptates debitis sapiente, eos facilis voluptate accusantium animi nulla nihil error. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab eum obcaecati excepturi temporibus ad, tempora deleniti, minus ipsum nobis aliquam culpa earum sint corrupti possimus rem perspiciatis fugit minima expedita.</p>
-                    <blockquote cite="uds">
-                        acilis voluptate accusantium animi nulla nihil error. Lorem ipsum dolor sit amet, consectetur adip
-                    </blockquote>
-                    <p class="about__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt rem quae maxime eius praesentium aspernatur eum quos natus, architecto earum assumenda explicabo dignissimos voluptatum dolore aut, commodi quidem ex placeat. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus repellat soluta doloribus voluptatibus eligendi, facilis quaerat ex magni. Nobis quia amet, voluptatibus, est minus quas! Culpa dolore pariatur, ea unde!</p>
-                    <h4>PGP PUBLIC KEY</h4>
-                    <pre class="about__gpg" width="50"><code>{{> pgp }}</code></pre>
+<body class="container w-40 px-4 my-5">
+    <header class="row align-items-start">
+        <div class="media">
+            <a class="logo" href="/">
+                <img class="align-self-start mr-3" with="56" height="56" src="assets/images/logo/main.png" alt="main-logo">
+            </a>
+            <div class="media-body">
+                <a class="no-underline link-no-style" href="/">
+                    <h4 class="mb-0 font-weight-bold">Vor</h4>
+                </a>
+                <div class="nav">
+                    <a class="py-0 pl-0 nav-link border-right-dotted" href="/">Home</a>
+                    <a class="py-0 nav-link border-right-dotted" href="/about">About</a>
+                    <a class="py-0 nav-link border-right-dotted" href="/posts">Posts</a>
+                    <a class="border-right-0 py-0 nav-link border-right" href="/projects">Projects</a>
                 </div>
             </div>
         </div>
-    </div>
+    </header>
+    <section class="row mt-4">
+        <p class="text-justify">Sed ut perspiciatis <a href="#">voluptatem</a> sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+    </section>
+    <section class="row mt-4">
+        <img src="https://avatars1.githubusercontent.com/u/8754546?v=3&s=460" alt="avatar">
+    </section>
+    <section class="row mt-4">
+        <a class="my-2 px-0 col-12" href="#"> <h4 class="font-weight-bold">Experience with programming languages:</h4></a>
+        <div class="d-flex flex-row mb-3">
+            <div class="mr-2">PHP,</div>
+            <div class="mr-2">Python,</div>
+            <div class="mr-2">Java,</div>
+            <div class="mr-2">PL/SQL,</div> 
+            <div class="mr-2">Go,</div>
+            <div class="mr-2">Bash,</div>
+            <div class="mr-2">Powershell,</div>
+            <div class="mr-2">Assembly and</div>
+            <div class="mr-2">C</div>
+    </section>
+    <section class="row mt-4">
+            <a class="my-2 px-0 col-12" href="#"> <h4 class="font-weight-bold">Experience with markup languages: </h4></a>
+            <div class="d-flex flex-row mb-3">
+                <div class="mr-2">Markdown,</div>
+                <div class="mr-2">HTML,</div>
+                <div class="mr-2">Latex and</div> 
+                <div class="mr-2">Jade</div>
+            </div>
+    </section>
+    <section class="row mt-4">
+        <a class="my-2 px-0 col-12" href="#"> <h4 class="font-weight-bold">Other technologies used over the years</h4></a>
+        <div class="d-flex flex-row mb-3">
+            <div class="mr-2">CSS,</div>
+            <div class="mr-2">SASS,</div>
+            <div class="mr-2">Docker,</div> 
+            <div class="mr-2">Juju,</div>
+            <div class="mr-2">GruntJS,</div>
+            <div class="mr-2">Browserfy,</div>
+            <div class="mr-2">NodeJs,</div>
+            <div class="mr-2">Bootstrap,</div>
+            <div class="mr-2">RaspebrryPi,</div>
+            <div class="mr-2">Arduino,</div>
+            <div class="mr-2">Apache, </div>
+            <div class="mr-2">Linux</div>
+        </div>
+    </section>
+    <section class="row mt-4">
+        <a class="my-2 px-0 col-12" href="#"> <h4 class="font-weight-bold">PGP public key</h4></a>
+            <pre><code>{{> pgp }}</code></pre>
+        </section>
+    <footer class="row mt-5">
+        <small> Theme design made by 
+        <a href="https://github.com/probberechts">Pieter Robberechts</a> and reimplemented by
+        <a href="https://github.com/hoenirvili/">me</a> using boostrap4</small> 
+    </footer>
 {{> footer }}
 </body>
 </html>
