@@ -16,8 +16,8 @@ class Archive extends Model
         $stmt = $this->db->query($sql);
         $articles_by_years = $stmt->fetchAll();
 
-        $sql = "SELECT MONTHNAME(time) as month,
-                        DAY(time) as day, title
+        $sql = "SELECT LPAD(MONTH(time), 2, '0') as month,
+                        LPAD(DAY(time), 2, '0') as day, title
                 FROM Article
                 WHERE YEAR(time) = :year
                 ORDER BY time DESC";

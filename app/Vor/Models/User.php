@@ -53,7 +53,8 @@ class User extends Model
         return $user;
     }
 
-    public function cookie_expired(): bool {
+    public function cookie_expired(): bool 
+    {
         return true;
     }
 

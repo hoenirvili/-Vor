@@ -6,6 +6,7 @@ use Vor\Core\Error;
 
 class Index extends Controller
 {
+    //TODO(hoenir): return the title article and date in date worder, 6 results
     public function show(array $params): void
     {
         $this->page(['page'=>1]);
