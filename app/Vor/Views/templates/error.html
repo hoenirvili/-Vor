@@ -1,24 +1,12 @@
 <!DOCTYPE html>
 <html>
 {{> header }}
-<body>
-    <div class="container-fluid full-layout">
-        <div class="row full-layout">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 right-column full-layout">
-                <div class="jumbotron text-center error">
-                    <h1>
-                        <i class="fa fa-flag-o" aria-hidden="true"></i>
-                        {{ code }}
-                    </h1>
-                    <p>{{ message }}</p>
-                    <p>
-                        <a class="btn btn-primary btn-lg" href="/" role="button">
-                            Get me out of here
-                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                        </a>
-                    </p>
-                </div>
-            </div>
+<body class="container w-40 px-4 my-5">
+    <div class="row justify-content-center">
+        <div class="jumbotron text-center error">
+            <h1 class="display-4">Error {{code}}</h1>
+            <p class="lead">{{message}}</p>
+            <button class="btn theme-bg-color btn-md" role="button">Get me out of here</button>
         </div>
     </div>
 {{> footer}}

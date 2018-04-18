@@ -20,7 +20,6 @@ class Controller {
 
     protected $name;
 
-
     public function __construct(
         Response $response,
         Request  $request,

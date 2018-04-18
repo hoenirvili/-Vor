@@ -16,6 +16,10 @@ a:active {
 .debug {
   border: 1px solid red; }
 
+.theme-bg-color {
+  background-color: #2bbc8a;
+  color: white; }
+
 .logo {
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%); }
@@ -52,5 +56,8 @@ a:active {
 section > a:first-child {
   color: #2bbc8a;
   text-decoration: none; }
+
+.error {
+  background-color: #fff; }
 
 /*# sourceMappingURL=app.css.map */

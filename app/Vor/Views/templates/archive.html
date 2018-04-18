@@ -5,7 +5,7 @@
     <header class="row align-items-start">
         <div class="media">
             <a class="logo" href="/">
-                <img class="align-self-start mr-3" with="56" height="56" src="assets/images/logo/main.png" alt="main-logo">
+                <img class="align-self-start mr-3" with="56" height="56" src="/assets/images/logo/main.png" alt="main-logo">
             </a>
             <div class="media-body">
                 <a class="no-underline link-no-style" href="/">
@@ -14,14 +14,12 @@
                 <div class="nav">
                     <a class="py-0 pl-0 nav-link border-right-dotted" href="/">Home</a>
                     <a class="py-0 nav-link border-right-dotted" href="/about">About</a>
-                    <a class="py-0 nav-link border-right-dotted" href="/archive">Archive</a>
-                    <a class="border-right-0 py-0 nav-link border-right" href="/projects">Projects</a>
+                    <a class="border-right-0 py-0 nav-link border-right-dotted" href="/archive">Archive</a>
                 </div>
             </div>
         </div>
     </header>
     {{#.}}
-    <!-- TODO(hoenir): fix indentation -->
     <section class="row mt-5">
         <a class="my-2 px-0 col-12" href="#"> <h4 class="font-weight-bold">{{year}}</h4></a>
         <div class="d-flex flex-column mb-3">
@@ -34,18 +32,17 @@
         </div>
     </section>
     {{/.}}
-    <!-- TODO(hoenir): make this work -->
     <section class="justify-content-center row mt-5">
         <nav aria-label="page navigation">
             <ul class="pagination">
                 <li class="page-item d-none mr-2">
-                    <a href="#" aria-label="Previous">
+                    <a href="/archive/1" aria-label="Previous">
                         <i class="fas fa-angle-left"aria-hidden="true"></i>
                     </a>
                 </li>
                 <span>Page 1 of 2</span>
                 <li class="page-item ml-2">
-                    <a class="#" href="#" aria-label="Next">
+                    <a href="/archive/2" aria-label="Next">
                         <i class="fas fa-angle-right" aria-hidden="true"></i>
                     </a>
                 </li>
