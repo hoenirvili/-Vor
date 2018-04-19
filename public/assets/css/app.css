@@ -20,6 +20,9 @@ a:active {
   background-color: #2bbc8a;
   color: white; }
 
+.theme-color {
+  color: #2bbc8a; }
+
 .logo {
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%); }

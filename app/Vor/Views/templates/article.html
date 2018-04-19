@@ -2,103 +2,68 @@
 <html>
 {{> header }}
 <body>
-    <div class="container-fluid full-layout">
-        <div class="row full-layout">
-          {{> left-column }}
-            <div class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-sm-12 col-xs-12 right-column right-column__layout">
-                <div class="art">
-                    <article class="page-preview">
-                        <header>
-                            <a href="/article/{{id}}" title="{{title}}" class="page-preview__link--header">
-                                <img class="page-preview__image" src="/assets/images/header/node.png" alt="reactjs-image">
-                            </a>
-                        </header>
-                        <div class="page-preview__inner">
-                            <div class="page-preview__meta">
-                                <span class="page-preview__meta__item">
-                                    <i class="fa fa-calendar"></i>
-                                    <a href="#" rel="bookmark">
-                                        <time class="entry-date published" datetime="{{time}}">{{time}}</time>
-                                        <time class="updated" datetime="2017-06-14T04:21:40+00:00"></time>
-                                    </a>
-                                </span>
-                                <span class="page-preview__meta__item">
-                                    <i class="fa fa-user"></i>
-                                    <span>
-                                        <a class="url fn n" href="/about">{{username}}</a>
-                                    </span>
-                                </span>
-                                <span class="page-preview__meta__item">
-                                    <i class="fa fa-comment-o"></i>
-                                    <a href="#comments-section">
-                                        <span data-dsqidentifier="/article/{{id}}">{{ncomments}} comments</span>
-                                    </a>
-                                </span>
-                                <div class="page-preview__hashtags">
-                                    {{#tags}}
-                                    <a href="/tag/{{.}}/1" title="react" class="page-preview__hashtags__link">
-                                        <span class="label label-info page-preview__hashtags__span">
-                                            <i class="fa fa-hashtag" aria-hidden="true"></i>{{.}}
-                                        </span>
-                                    </a>
-                                    {{/tags}}
-                                </div>
-                            </div>
-                            <div class="page-preview__headline">
-                                <a href="/article/{{id}}">
-                                    <h1>{{title}}</h1>
-                                </a>
-                            </div>
-                            <div class="page-preview__content text-justify">
-                                {{content}}
-                            </div>
-                            <footer class="clearfix page-preview__footer">
-                            </footer>
-                    </article>
-
-                    <form formaction="comment" method="post" class="post-form" id="comment-form">
-                        <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                            <label for="username" class="sr-only">Username</label>
-                            <input type="text" class="form-control" id="username" placeholder="Username" autocomplete="username" maxlength="60" title="username">
-                        </div>
-                        <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                            <label for="email" class="sr-only" >Email address</label>
-                            <input type="email" class="form-control" id="email" placeholder="Email" autocomplete="email" maxlength="60" title="email">
-                        </div>
-                        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <label for="comment-form" class="sr-only">Comment</label>
-                            <textarea placeholder="Comment" spellcheck="on" wrap="soft" class="form-control" rows="10" cols="2" autocomplete="on" form="comment-form" maxlength="2500" title="shitpost"></textarea>
-                            <div class="post-form__upload">
-                                <input type='file' id='image' class="post-form__upload__input">
-                                <i class="fa fa-image fa-2x post-form__upload--icon"></i>
-                            </div>
-                            <button type="submit" class="btn btn-primary post-form__button" title="pushthefuckingbutton">Post</button>
-                        </div>
-                    </form>
-
-                    <!-- Comment section -->
-                    <div class="comments" id="comments-section">
-                        {{#comments}}
-                        <div class="comments__element">
-                            <div class="page-preview__meta">
-                                <span class="page-preview__meta__item"><i class="fa fa-2x fa-user" aria-hidden="true"></i></span>
-                                <span class="page-preview__meta__item"><b>{{name}}</b></span>
-                                <span class="page-preview__meta__item"><b>{{email}}</b></span>
-                                <hr>
-                                <span class="page-preview__meta__item--timestamp">
-                                      <time class="entry-date published" datetime="{{time}}">{{time}}</time>
-                                </span>
-                            </div>
-                            <div class="comments__content text-justify">
-                                <p>{{content}}</p>
-                            </div>
-                        </div>
-                        {{/comments}}
+<header class="container-fluid">
+    <div class="mt-4 mx-0 row align-items-center justify-content-end ">
+        <div class="collapse media" id="help-menu">
+            <div class="d-flex flex-column">
+                <div class="media-body">
+                    <div class="nav">
+                        <a class="py-0 pl-0 nav-link border-right-dotted" href="/">Home</a>
+                        <a class="py-0 nav-link border-right-dotted" href="/about">About</a>
+                        <a class="border-right-0 py-0 nav-link border-right-dotted" href="/archive">Archive</a>
                     </div>
+                </div>
+                <div class="d-flex flex-row justify-content-end">
+                    <a class="invisible" href=""><i class="mr-4 fas fa-chevron-left"></i></a>
+                    <a href=""><i class="mr-4 fas fa-chevron-right"></i></a>
+                    <a href=""><i class="mr-4 fas fa-chevron-up"></i></a>
+                </div>
+            </div> 
+        </div>
+        <nav class="navbar">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#help-menu" aria-controls="help-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </div>
+</header> 
+<div class="container w-40 my-5">
+    <section class="row mt-5">
+    <h4 class="font-weight-bold">First post article test</h4>
+    </section>
+</div>
+<!-- <header class="row mt-4 align-items-start fixed-top justify-content-end pos-f-t">
+    <div class="d-flex flex-column collapse" id="help-menu">
+        <div class="media">
+            <div class="media-body">
+                <div class="nav">
+                    <a class="py-0 pl-0 nav-link border-right-dotted" href="/">Home</a>
+                    <a class="py-0 nav-link border-right-dotted" href="/about">About</a>
+                    <a class="border-right-0 py-0 nav-link border-right-dotted" href="/archive">Archive</a>
                 </div>
             </div>
         </div>
+        <div class="d-flex flex-row justify-content-end mt-4 mr-5">
+            <a class="mr-4" href="#"><i class="fas fa-chevron-left"></i></a>
+            <a class="mr-4" href="#"><i class="fas fa-chevron-right"></i></a>
+            <a href="#"><i class="fas fa-chevron-up"></i></a>
+        </div>
     </div>
+    <nav class="navbar debug">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#help-menu" aria-controls="#help-menu" aria-expanded="true" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+</header>
+
+<article class="container debug w-40 px-4 my-5 debug">
+    <header class="row mt-5">
+        <a class="my-2 px-0 col-12" href="#">
+            <h4 class="font-weight-bold">IUhjduisahiuhf dsiuafh isd</h4>
+        </a>
+    </header>
+</article> -->
+
 {{> footer }}
 </body>
 </html>
