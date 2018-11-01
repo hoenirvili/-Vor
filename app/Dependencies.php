@@ -13,10 +13,10 @@ $injector->define('Http\HttpRequest', [
     ':server'   => $_SERVER,
 ]);
 
-$hostname   = (($env = getenv('PHP_DB_HOSTNAME')) !== false) ? $env : '';
-$port       = (($env = getenv('PHP_DB_PORT')) !== false) ? $env : '';
-$username   = (($env = getenv('PHP_DB_USERNAME')) !== false) ? $env : '';
-$password   = (($env = getenv('PHP_DB_PASSWORD')) !== false) ? $env : '';
+$hostname   = (($env = getenv('VOR_DB_HOSTNAME')) !== false) ? $env : '';
+$port       = (($env = getenv('VOR_DB_PORT')) !== false) ? $env : '';
+$username   = (($env = getenv('VOR_DB_USERNAME')) !== false) ? $env : '';
+$password   = (($env = getenv('VOR_DB_PASSWORD')) !== false) ? $env : '';
 
 $options    = [
                 \PDO::ATTR_ERRMODE              => \PDO::ERRMODE_EXCEPTION,

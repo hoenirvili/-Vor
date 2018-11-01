@@ -2,7 +2,7 @@
 <phpunit bootstrap="./app/init.php" color="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true" converWarningToExceptions="true" stopOnFailures="false" syntaxCheck="false">
     <testsuites>
         <testsuite name="Vor app tests">
-            <directory>./tests/</directory>
+            <directory>./test/</directory>
         </testsuite>
     </testsuites>
 </phpunit >

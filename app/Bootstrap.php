@@ -8,7 +8,7 @@ define('DS', DIRECTORY_SEPARATOR);
 
 require_once ROOT.DS.'vendor'.DS.'autoload.php';
 
-use Fastroute\RouteCollector;
+use FastRoute\RouteCollector;
 use FastRoute\Dispatcher;
 use Http\HttpRequest;
 use Http\HttpResponse;
@@ -18,11 +18,11 @@ use Vor\Core\Error;
 
 $whoops = new Run;
 
-$environment = 'development'; 
+$environment = 'development';
 switch($environment) {
 case 'production':
-    $whoops->pushHandler(function ($e) { 
-            echo 'Todo: Friendly error'; 
+    $whoops->pushHandler(function ($e) {
+            echo 'Todo: Friendly error';
     });
     break;
 case 'development':
