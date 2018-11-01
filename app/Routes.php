@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-// [1-9]+[0-9]* => /^[1-9]+[0-9]*$/ 
+// [1-9]+[0-9]* => /^[1-9]+[0-9]*$/
 // => matches all digits that does not start with 0
 return [
     ['GET', '/', ['Vor\Controllers\Index', 'show']],
