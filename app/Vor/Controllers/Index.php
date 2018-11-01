@@ -17,28 +17,22 @@ class Index extends Controller
         $n = (int)($params['page']);
         $page = $this->model->page($n);
 
-        if ($page['articles'] === []) {
-            $error = new Error($this->response, $this->renderer);
-            $error->notfound();
-            return;
-        }
-
-        $html = $this->renderer->render($this->name, $page);
-        $this->response->setContent($html);
+        //$html = $this->renderer->render($this->name, $page);
+        $this->response->setContent($page);
     }
 
     public function byTag(array $params): void
     {
         $name = $params['name'];
         $page_number = (int)$params['page'];
-        
+
         $page = $this->model->byTag($page_number, $name);
         if ($page['articles'] === []) {
             $error = new Error($this->response, $this->renderer);
             $error->notfound();
             return;
         }
-        
+
         $html = $this->renderer->render($this->name, $page);
         $this->response->setContent($html);
     }

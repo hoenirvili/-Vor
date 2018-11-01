@@ -6,6 +6,10 @@ use InvalidArgumentException;
 
 class User extends Model
 {
+    public function page(): string
+    {
+        return "test";
+    }
 
     // TODO(hoenir): this neeeds to be done
     public function login(string $username='',
@@ -53,9 +57,6 @@ class User extends Model
         return $user;
     }
 
-    public function cookie_expired(): bool 
-    {
-        return true;
-    }
+
 
 }
