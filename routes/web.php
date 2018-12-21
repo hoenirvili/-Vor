@@ -10,5 +10,20 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
-Route::get('/', 'Home@index');
-Route::resource('/article', 'Article');
+Route::get('/', [
+    'as' => 'home',
+    'uses' => 'Home@page'
+]);
+Route::get('/dashboard', [
+    'as' => 'dashboard',
+    'uses' => 'Dashboard@page'
+]);
+Route::get('/dashboard/login', 'Dashboard@loginPage');
+Route::get('/dashboard/logout', [
+    'as' => 'logout',
+    'uses' => 'Dashboard@logout'
+]);
+Route::post('/dashboard/login', [
+    'as' => 'login',
+    'uses' => 'Dashboard@login'
+]);
